@@ -1,4 +1,4 @@
-package com.neusoft.neu6053.demos.web.test;
+package com.neusoft.neu6053.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -6,7 +6,7 @@ server:
 
 
 mybatis:
-  typeAliasesPackage: com.blbd.volunteer.dao.entity
+  typeAliasesPackage: com.neusoft.neu6053.dao.entity
   mapperLocations: classpath:mapper/*.xml
   configuration:
     cache-enabled: true
