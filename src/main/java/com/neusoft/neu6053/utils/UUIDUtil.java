@@ -20,7 +20,7 @@ public class UUIDUtil {
      * @return String[] UUID数组
      */
     public static String[] getUUID(int number){
-        if(number < 1){
+        if(number < 1) {
             return null;
         }
         String[] ss = new String[number];
