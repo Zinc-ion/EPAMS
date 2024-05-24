@@ -40,4 +40,19 @@ public class HttpResponseEntity {
                 ", message='" + message + '\'' +
                 '}';
     }
+
+    public static HttpResponseEntity success(Object data) {
+        HttpResponseEntity response = new HttpResponseEntity();
+        response.setCode("200");
+        response.setData(data);
+        response.setMessage("Success");
+        return response;
+    }
+
+    public static HttpResponseEntity failure(String message) {
+        HttpResponseEntity response = new HttpResponseEntity();
+        response.setCode("500");
+        response.setMessage(message);
+        return response;
+    }
 }
