@@ -1,10 +1,10 @@
 package com.neusoft.neu6053.controller;
 
 import com.neusoft.neu6053.dao.entity.Admin;
+import com.neusoft.neu6053.services.AdminService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ import java.util.List;
 @Tag(name = "AdminControllerAPI", description = "管理员相关接口")
 public class AdminController {
     @Autowired
-    private com.neusoft.neu6053.services.AdminService adminService;
+    private AdminService adminService;
 
     @PostMapping("/login")
     public HttpResponseEntity login(@RequestBody Admin admin) {
