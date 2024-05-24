@@ -2,6 +2,9 @@ package com.neusoft.neu6053.dao.mapper;
 
 import com.neusoft.neu6053.dao.entity.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
 * @author 1185911254@qq.com
@@ -10,7 +13,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity com.neusoft.neu6053.dao.entity.Admin
 */
 public interface AdminMapper extends BaseMapper<Admin> {
-
 }
 
 
