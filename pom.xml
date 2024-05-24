@@ -117,6 +117,7 @@
             <version>3.3.2.RELEASE</version>
         </dependency>
 
+        <!--swagger-->
         <!-- 导入SpringBoot集成Open API 3.0（Swagger3.0）的坐标 -->
         <!-- 这个坐标它提供了一组注解和工具来集成Swagger UI和OpenAPI规范等-->
         <dependency>
