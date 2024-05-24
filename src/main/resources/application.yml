@@ -12,11 +12,6 @@ mybatis-plus:
     cache-enabled: true
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台输出日志
 
-logging:
-  level:
-    com.neusoft.neu6053.dao: info
-  config:
-    classpath: log4j2.xml
 
 spring:
   datasource:
