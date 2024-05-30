@@ -7,7 +7,12 @@ import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
 import io.swagger.v3.oas.annotations.servers.Server;
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootConfiguration
 @OpenAPIDefinition(
@@ -35,4 +40,20 @@ import org.springframework.boot.SpringBootConfiguration;
 //        externalDocs = @ExternalDocumentation(description = "更多内容请查看该链接", url = "xxx")
 )
 public class SwaggerOpenApiConfig {
+
+    @Bean
+    public OpenAPI springShopOpenAPI() {
+
+        return new OpenAPI()
+                .components(components())
+                // 2. 再在这里添加上Swagger要使用的安全策略
+                // addList()中写上对应的key
+                .addSecurityItem(new SecurityRequirement().addList("tokenScheme"));
+    }
+    // 1. 先在组件中注册安全策略
+    private Components components(){
+        return new Components()
+                // 第一个参数是key值，后面是初始化一个安全策略的参数
+                .addSecuritySchemes("tokenScheme", new SecurityScheme().type(SecurityScheme.Type.APIKEY).in(SecurityScheme.In.HEADER).name("token"));
+    }
 }

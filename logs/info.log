@@ -114,3 +114,292 @@
 [2024-05-30 10:13:47] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
 [2024-05-30 10:13:47] INFO  org.quartz.core.QuartzScheduler 740 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
 [2024-05-30 10:13:47] INFO  com.alibaba.druid.pool.DruidDataSource 2138 close - {dataSource-0} closing ...
+[2024-05-30 10:47:16] INFO  org.springframework.boot.StartupInfoLogger 55 logStarting - Starting Neu6053Application using Java 1.8.0_144 on ZincIon-G15-5511 with PID 16268 (D:\gitRepository\NEU605-3\target\classes started by 1185911254@qq.com in D:\gitRepository\NEU605-3)
+[2024-05-30 10:47:16] INFO  org.springframework.boot.SpringApplication 631 logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+[2024-05-30 10:47:17] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 262 multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+[2024-05-30 10:47:17] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 132 registerRepositoriesIn - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024-05-30 10:47:17] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 201 registerRepositoriesIn - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+[2024-05-30 10:47:17] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 108 initialize - Tomcat initialized with port(s): 8080 (http)
+[2024-05-30 10:47:17] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+[2024-05-30 10:47:17] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet engine: [Apache Tomcat/9.0.78]
+[2024-05-30 10:47:17] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+[2024-05-30 10:47:17] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 292 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1018 ms
+[2024-05-30 10:47:19] INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping 58 <init> - Adding welcome page: class path resource [static/index.html]
+[2024-05-30 10:47:19] INFO  org.quartz.impl.StdSchedulerFactory 1220 instantiate - Using default implementation for ThreadExecutor
+[2024-05-30 10:47:19] INFO  org.quartz.core.SchedulerSignalerImpl 61 <init> - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2024-05-30 10:47:19] INFO  org.quartz.core.QuartzScheduler 229 <init> - Quartz Scheduler v.2.3.2 created.
+[2024-05-30 10:47:19] INFO  org.quartz.simpl.RAMJobStore 155 initialize - RAMJobStore initialized.
+[2024-05-30 10:47:19] INFO  org.quartz.core.QuartzScheduler 294 initialize - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2024-05-30 10:47:19] INFO  org.quartz.impl.StdSchedulerFactory 1374 instantiate - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2024-05-30 10:47:19] INFO  org.quartz.impl.StdSchedulerFactory 1378 instantiate - Quartz scheduler version: 2.3.2
+[2024-05-30 10:47:19] INFO  org.quartz.core.QuartzScheduler 2293 setJobFactory - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6b27b2d0
+[2024-05-30 10:47:19] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 220 start - Tomcat started on port(s): 8080 (http) with context path ''
+[2024-05-30 10:47:19] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 729 startScheduler - Starting Quartz Scheduler now
+[2024-05-30 10:47:19] INFO  org.quartz.core.QuartzScheduler 547 start - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2024-05-30 10:47:19] INFO  org.springframework.boot.StartupInfoLogger 61 logStarted - Started Neu6053Application in 2.936 seconds (JVM running for 4.227)
+[2024-05-30 10:47:43] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-30 10:47:43] INFO  org.springframework.web.servlet.FrameworkServlet 525 initServletBean - Initializing Servlet 'dispatcherServlet'
+[2024-05-30 10:47:43] INFO  org.springframework.web.servlet.FrameworkServlet 547 initServletBean - Completed initialization in 1 ms
+[2024-05-30 10:47:43] INFO  com.neusoft.neu6053.config.interceptor.LoginInterceptor 32 preHandle - token过期，请重新登录
+[2024-05-30 10:49:26] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 10:49:26] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 847 destroy - Shutting down Quartz Scheduler
+[2024-05-30 10:49:26] INFO  org.quartz.core.QuartzScheduler 666 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2024-05-30 10:49:26] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 10:49:26] INFO  org.quartz.core.QuartzScheduler 740 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2024-05-30 10:49:26] INFO  com.alibaba.druid.pool.DruidDataSource 2138 close - {dataSource-0} closing ...
+[2024-05-30 10:49:32] INFO  org.springframework.boot.StartupInfoLogger 55 logStarting - Starting Neu6053Application using Java 1.8.0_144 on ZincIon-G15-5511 with PID 4884 (D:\gitRepository\NEU605-3\target\classes started by 1185911254@qq.com in D:\gitRepository\NEU605-3)
+[2024-05-30 10:49:32] INFO  org.springframework.boot.SpringApplication 631 logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+[2024-05-30 10:49:33] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 262 multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+[2024-05-30 10:49:33] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 132 registerRepositoriesIn - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024-05-30 10:49:33] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 201 registerRepositoriesIn - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+[2024-05-30 10:49:33] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 108 initialize - Tomcat initialized with port(s): 8080 (http)
+[2024-05-30 10:49:33] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+[2024-05-30 10:49:33] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet engine: [Apache Tomcat/9.0.78]
+[2024-05-30 10:49:33] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+[2024-05-30 10:49:33] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 292 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 941 ms
+[2024-05-30 10:49:35] INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping 58 <init> - Adding welcome page: class path resource [static/index.html]
+[2024-05-30 10:49:35] INFO  org.quartz.impl.StdSchedulerFactory 1220 instantiate - Using default implementation for ThreadExecutor
+[2024-05-30 10:49:35] INFO  org.quartz.core.SchedulerSignalerImpl 61 <init> - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2024-05-30 10:49:35] INFO  org.quartz.core.QuartzScheduler 229 <init> - Quartz Scheduler v.2.3.2 created.
+[2024-05-30 10:49:35] INFO  org.quartz.simpl.RAMJobStore 155 initialize - RAMJobStore initialized.
+[2024-05-30 10:49:35] INFO  org.quartz.core.QuartzScheduler 294 initialize - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2024-05-30 10:49:35] INFO  org.quartz.impl.StdSchedulerFactory 1374 instantiate - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2024-05-30 10:49:35] INFO  org.quartz.impl.StdSchedulerFactory 1378 instantiate - Quartz scheduler version: 2.3.2
+[2024-05-30 10:49:35] INFO  org.quartz.core.QuartzScheduler 2293 setJobFactory - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5c4cc644
+[2024-05-30 10:49:35] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 220 start - Tomcat started on port(s): 8080 (http) with context path ''
+[2024-05-30 10:49:35] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 729 startScheduler - Starting Quartz Scheduler now
+[2024-05-30 10:49:35] INFO  org.quartz.core.QuartzScheduler 547 start - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2024-05-30 10:49:35] INFO  org.springframework.boot.StartupInfoLogger 61 logStarted - Started Neu6053Application in 2.96 seconds (JVM running for 4.064)
+[2024-05-30 10:49:38] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-30 10:49:38] INFO  org.springframework.web.servlet.FrameworkServlet 525 initServletBean - Initializing Servlet 'dispatcherServlet'
+[2024-05-30 10:49:38] INFO  org.springframework.web.servlet.FrameworkServlet 547 initServletBean - Completed initialization in 1 ms
+[2024-05-30 10:49:38] INFO  com.neusoft.neu6053.config.interceptor.LoginInterceptor 32 preHandle - token过期，请重新登录
+[2024-05-30 10:49:40] INFO  com.neusoft.neu6053.config.interceptor.LoginInterceptor 32 preHandle - token过期，请重新登录
+[2024-05-30 10:50:14] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 10:50:14] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 847 destroy - Shutting down Quartz Scheduler
+[2024-05-30 10:50:14] INFO  org.quartz.core.QuartzScheduler 666 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2024-05-30 10:50:14] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 10:50:14] INFO  org.quartz.core.QuartzScheduler 740 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2024-05-30 10:50:14] INFO  com.alibaba.druid.pool.DruidDataSource 2138 close - {dataSource-0} closing ...
+[2024-05-30 10:50:19] INFO  org.springframework.boot.StartupInfoLogger 55 logStarting - Starting Neu6053Application using Java 1.8.0_144 on ZincIon-G15-5511 with PID 23084 (D:\gitRepository\NEU605-3\target\classes started by 1185911254@qq.com in D:\gitRepository\NEU605-3)
+[2024-05-30 10:50:19] INFO  org.springframework.boot.SpringApplication 631 logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+[2024-05-30 10:50:19] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 262 multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+[2024-05-30 10:50:19] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 132 registerRepositoriesIn - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024-05-30 10:50:19] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 201 registerRepositoriesIn - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+[2024-05-30 10:50:19] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 108 initialize - Tomcat initialized with port(s): 8080 (http)
+[2024-05-30 10:50:19] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+[2024-05-30 10:50:19] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet engine: [Apache Tomcat/9.0.78]
+[2024-05-30 10:50:20] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+[2024-05-30 10:50:20] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 292 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 921 ms
+[2024-05-30 10:50:21] INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping 58 <init> - Adding welcome page: class path resource [static/index.html]
+[2024-05-30 10:50:21] INFO  org.quartz.impl.StdSchedulerFactory 1220 instantiate - Using default implementation for ThreadExecutor
+[2024-05-30 10:50:21] INFO  org.quartz.core.SchedulerSignalerImpl 61 <init> - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2024-05-30 10:50:21] INFO  org.quartz.core.QuartzScheduler 229 <init> - Quartz Scheduler v.2.3.2 created.
+[2024-05-30 10:50:21] INFO  org.quartz.simpl.RAMJobStore 155 initialize - RAMJobStore initialized.
+[2024-05-30 10:50:21] INFO  org.quartz.core.QuartzScheduler 294 initialize - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2024-05-30 10:50:21] INFO  org.quartz.impl.StdSchedulerFactory 1374 instantiate - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2024-05-30 10:50:21] INFO  org.quartz.impl.StdSchedulerFactory 1378 instantiate - Quartz scheduler version: 2.3.2
+[2024-05-30 10:50:21] INFO  org.quartz.core.QuartzScheduler 2293 setJobFactory - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5c4cc644
+[2024-05-30 10:50:21] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 220 start - Tomcat started on port(s): 8080 (http) with context path ''
+[2024-05-30 10:50:21] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 729 startScheduler - Starting Quartz Scheduler now
+[2024-05-30 10:50:21] INFO  org.quartz.core.QuartzScheduler 547 start - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2024-05-30 10:50:21] INFO  org.springframework.boot.StartupInfoLogger 61 logStarted - Started Neu6053Application in 2.863 seconds (JVM running for 3.877)
+[2024-05-30 10:50:25] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-30 10:50:25] INFO  org.springframework.web.servlet.FrameworkServlet 525 initServletBean - Initializing Servlet 'dispatcherServlet'
+[2024-05-30 10:50:25] INFO  org.springframework.web.servlet.FrameworkServlet 547 initServletBean - Completed initialization in 1 ms
+[2024-05-30 10:50:25] INFO  com.neusoft.neu6053.config.interceptor.LoginInterceptor 32 preHandle - token过期，请重新登录
+[2024-05-30 10:51:18] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 10:51:18] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 847 destroy - Shutting down Quartz Scheduler
+[2024-05-30 10:51:18] INFO  org.quartz.core.QuartzScheduler 666 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2024-05-30 10:51:18] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 10:51:18] INFO  org.quartz.core.QuartzScheduler 740 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2024-05-30 10:51:18] INFO  com.alibaba.druid.pool.DruidDataSource 2138 close - {dataSource-0} closing ...
+[2024-05-30 10:51:23] INFO  org.springframework.boot.StartupInfoLogger 55 logStarting - Starting Neu6053Application using Java 1.8.0_144 on ZincIon-G15-5511 with PID 13508 (D:\gitRepository\NEU605-3\target\classes started by 1185911254@qq.com in D:\gitRepository\NEU605-3)
+[2024-05-30 10:51:23] INFO  org.springframework.boot.SpringApplication 631 logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+[2024-05-30 10:51:24] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 262 multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+[2024-05-30 10:51:24] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 132 registerRepositoriesIn - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024-05-30 10:51:24] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 201 registerRepositoriesIn - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+[2024-05-30 10:51:24] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 108 initialize - Tomcat initialized with port(s): 8080 (http)
+[2024-05-30 10:51:24] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+[2024-05-30 10:51:24] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet engine: [Apache Tomcat/9.0.78]
+[2024-05-30 10:51:24] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+[2024-05-30 10:51:24] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 292 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 930 ms
+[2024-05-30 10:51:26] INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping 58 <init> - Adding welcome page: class path resource [static/index.html]
+[2024-05-30 10:51:26] INFO  org.quartz.impl.StdSchedulerFactory 1220 instantiate - Using default implementation for ThreadExecutor
+[2024-05-30 10:51:26] INFO  org.quartz.core.SchedulerSignalerImpl 61 <init> - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2024-05-30 10:51:26] INFO  org.quartz.core.QuartzScheduler 229 <init> - Quartz Scheduler v.2.3.2 created.
+[2024-05-30 10:51:26] INFO  org.quartz.simpl.RAMJobStore 155 initialize - RAMJobStore initialized.
+[2024-05-30 10:51:26] INFO  org.quartz.core.QuartzScheduler 294 initialize - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2024-05-30 10:51:26] INFO  org.quartz.impl.StdSchedulerFactory 1374 instantiate - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2024-05-30 10:51:26] INFO  org.quartz.impl.StdSchedulerFactory 1378 instantiate - Quartz scheduler version: 2.3.2
+[2024-05-30 10:51:26] INFO  org.quartz.core.QuartzScheduler 2293 setJobFactory - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5c4cc644
+[2024-05-30 10:51:26] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 220 start - Tomcat started on port(s): 8080 (http) with context path ''
+[2024-05-30 10:51:26] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 729 startScheduler - Starting Quartz Scheduler now
+[2024-05-30 10:51:26] INFO  org.quartz.core.QuartzScheduler 547 start - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2024-05-30 10:51:26] INFO  org.springframework.boot.StartupInfoLogger 61 logStarted - Started Neu6053Application in 3.177 seconds (JVM running for 4.2)
+[2024-05-30 10:51:29] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-30 10:51:29] INFO  org.springframework.web.servlet.FrameworkServlet 525 initServletBean - Initializing Servlet 'dispatcherServlet'
+[2024-05-30 10:51:29] INFO  org.springframework.web.servlet.FrameworkServlet 547 initServletBean - Completed initialization in 1 ms
+[2024-05-30 10:51:29] INFO  com.neusoft.neu6053.config.interceptor.LoginInterceptor 32 preHandle - token过期，请重新登录
+[2024-05-30 10:52:15] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 10:52:15] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 847 destroy - Shutting down Quartz Scheduler
+[2024-05-30 10:52:15] INFO  org.quartz.core.QuartzScheduler 666 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2024-05-30 10:52:15] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 10:52:15] INFO  org.quartz.core.QuartzScheduler 740 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2024-05-30 10:52:15] INFO  com.alibaba.druid.pool.DruidDataSource 2138 close - {dataSource-0} closing ...
+[2024-05-30 10:52:20] INFO  org.springframework.boot.StartupInfoLogger 55 logStarting - Starting Neu6053Application using Java 1.8.0_144 on ZincIon-G15-5511 with PID 16716 (D:\gitRepository\NEU605-3\target\classes started by 1185911254@qq.com in D:\gitRepository\NEU605-3)
+[2024-05-30 10:52:20] INFO  org.springframework.boot.SpringApplication 631 logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+[2024-05-30 10:52:21] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 262 multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+[2024-05-30 10:52:21] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 132 registerRepositoriesIn - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024-05-30 10:52:21] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 201 registerRepositoriesIn - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+[2024-05-30 10:52:21] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 108 initialize - Tomcat initialized with port(s): 8080 (http)
+[2024-05-30 10:52:21] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+[2024-05-30 10:52:21] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet engine: [Apache Tomcat/9.0.78]
+[2024-05-30 10:52:21] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+[2024-05-30 10:52:21] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 292 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 916 ms
+[2024-05-30 10:52:22] INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping 58 <init> - Adding welcome page: class path resource [static/index.html]
+[2024-05-30 10:52:23] INFO  org.quartz.impl.StdSchedulerFactory 1220 instantiate - Using default implementation for ThreadExecutor
+[2024-05-30 10:52:23] INFO  org.quartz.core.SchedulerSignalerImpl 61 <init> - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2024-05-30 10:52:23] INFO  org.quartz.core.QuartzScheduler 229 <init> - Quartz Scheduler v.2.3.2 created.
+[2024-05-30 10:52:23] INFO  org.quartz.simpl.RAMJobStore 155 initialize - RAMJobStore initialized.
+[2024-05-30 10:52:23] INFO  org.quartz.core.QuartzScheduler 294 initialize - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2024-05-30 10:52:23] INFO  org.quartz.impl.StdSchedulerFactory 1374 instantiate - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2024-05-30 10:52:23] INFO  org.quartz.impl.StdSchedulerFactory 1378 instantiate - Quartz scheduler version: 2.3.2
+[2024-05-30 10:52:23] INFO  org.quartz.core.QuartzScheduler 2293 setJobFactory - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5c4cc644
+[2024-05-30 10:52:23] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 220 start - Tomcat started on port(s): 8080 (http) with context path ''
+[2024-05-30 10:52:23] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 729 startScheduler - Starting Quartz Scheduler now
+[2024-05-30 10:52:23] INFO  org.quartz.core.QuartzScheduler 547 start - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2024-05-30 10:52:23] INFO  org.springframework.boot.StartupInfoLogger 61 logStarted - Started Neu6053Application in 2.883 seconds (JVM running for 3.9)
+[2024-05-30 10:52:30] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-30 10:52:30] INFO  org.springframework.web.servlet.FrameworkServlet 525 initServletBean - Initializing Servlet 'dispatcherServlet'
+[2024-05-30 10:52:30] INFO  org.springframework.web.servlet.FrameworkServlet 547 initServletBean - Completed initialization in 1 ms
+[2024-05-30 10:52:30] INFO  org.springdoc.api.AbstractOpenApiResource 367 getOpenApi - Init duration for springdoc-openapi is: 215 ms
+[2024-05-30 10:53:21] INFO  com.alibaba.druid.pool.DruidDataSource 996 init - {dataSource-1} inited
+[2024-05-30 11:03:10] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 11:03:10] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 847 destroy - Shutting down Quartz Scheduler
+[2024-05-30 11:03:10] INFO  org.quartz.core.QuartzScheduler 666 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2024-05-30 11:03:10] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 11:03:10] INFO  org.quartz.core.QuartzScheduler 740 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2024-05-30 11:03:10] INFO  com.alibaba.druid.pool.DruidDataSource 2138 close - {dataSource-1} closing ...
+[2024-05-30 11:03:10] INFO  com.alibaba.druid.pool.DruidDataSource 2211 close - {dataSource-1} closed
+[2024-05-30 11:03:16] INFO  org.springframework.boot.StartupInfoLogger 55 logStarting - Starting Neu6053Application using Java 1.8.0_144 on ZincIon-G15-5511 with PID 22744 (D:\gitRepository\NEU605-3\target\classes started by 1185911254@qq.com in D:\gitRepository\NEU605-3)
+[2024-05-30 11:03:16] INFO  org.springframework.boot.SpringApplication 631 logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+[2024-05-30 11:03:17] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 262 multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+[2024-05-30 11:03:17] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 132 registerRepositoriesIn - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024-05-30 11:03:17] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 201 registerRepositoriesIn - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+[2024-05-30 11:03:17] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 108 initialize - Tomcat initialized with port(s): 8080 (http)
+[2024-05-30 11:03:17] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+[2024-05-30 11:03:17] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet engine: [Apache Tomcat/9.0.78]
+[2024-05-30 11:03:17] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+[2024-05-30 11:03:17] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 292 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 918 ms
+[2024-05-30 11:03:18] INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping 58 <init> - Adding welcome page: class path resource [static/index.html]
+[2024-05-30 11:03:19] INFO  org.quartz.impl.StdSchedulerFactory 1220 instantiate - Using default implementation for ThreadExecutor
+[2024-05-30 11:03:19] INFO  org.quartz.core.SchedulerSignalerImpl 61 <init> - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2024-05-30 11:03:19] INFO  org.quartz.core.QuartzScheduler 229 <init> - Quartz Scheduler v.2.3.2 created.
+[2024-05-30 11:03:19] INFO  org.quartz.simpl.RAMJobStore 155 initialize - RAMJobStore initialized.
+[2024-05-30 11:03:19] INFO  org.quartz.core.QuartzScheduler 294 initialize - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2024-05-30 11:03:19] INFO  org.quartz.impl.StdSchedulerFactory 1374 instantiate - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2024-05-30 11:03:19] INFO  org.quartz.impl.StdSchedulerFactory 1378 instantiate - Quartz scheduler version: 2.3.2
+[2024-05-30 11:03:19] INFO  org.quartz.core.QuartzScheduler 2293 setJobFactory - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@58f254b1
+[2024-05-30 11:03:19] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 220 start - Tomcat started on port(s): 8080 (http) with context path ''
+[2024-05-30 11:03:19] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 729 startScheduler - Starting Quartz Scheduler now
+[2024-05-30 11:03:19] INFO  org.quartz.core.QuartzScheduler 547 start - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2024-05-30 11:03:19] INFO  org.springframework.boot.StartupInfoLogger 61 logStarted - Started Neu6053Application in 2.962 seconds (JVM running for 4.253)
+[2024-05-30 11:03:24] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-30 11:03:24] INFO  org.springframework.web.servlet.FrameworkServlet 525 initServletBean - Initializing Servlet 'dispatcherServlet'
+[2024-05-30 11:03:24] INFO  org.springframework.web.servlet.FrameworkServlet 547 initServletBean - Completed initialization in 1 ms
+[2024-05-30 11:03:25] INFO  org.springdoc.api.AbstractOpenApiResource 367 getOpenApi - Init duration for springdoc-openapi is: 195 ms
+[2024-05-30 11:03:58] INFO  com.alibaba.druid.pool.DruidDataSource 996 init - {dataSource-1} inited
+[2024-05-30 11:04:24] INFO  com.neusoft.neu6053.config.interceptor.LoginInterceptor 32 preHandle - token过期，请重新登录
+[2024-05-30 11:05:54] INFO  com.neusoft.neu6053.config.interceptor.LoginInterceptor 32 preHandle - token过期，请重新登录
+[2024-05-30 11:06:29] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 11:06:29] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 847 destroy - Shutting down Quartz Scheduler
+[2024-05-30 11:06:29] INFO  org.quartz.core.QuartzScheduler 666 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2024-05-30 11:06:29] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 11:06:29] INFO  org.quartz.core.QuartzScheduler 740 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2024-05-30 11:06:29] INFO  com.alibaba.druid.pool.DruidDataSource 2138 close - {dataSource-1} closing ...
+[2024-05-30 11:06:29] INFO  com.alibaba.druid.pool.DruidDataSource 2211 close - {dataSource-1} closed
+[2024-05-30 11:08:11] INFO  org.springframework.boot.StartupInfoLogger 55 logStarting - Starting Neu6053Application using Java 1.8.0_144 on ZincIon-G15-5511 with PID 22396 (D:\gitRepository\NEU605-3\target\classes started by 1185911254@qq.com in D:\gitRepository\NEU605-3)
+[2024-05-30 11:08:11] INFO  org.springframework.boot.SpringApplication 631 logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+[2024-05-30 11:08:11] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 262 multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+[2024-05-30 11:08:11] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 132 registerRepositoriesIn - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024-05-30 11:08:11] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 201 registerRepositoriesIn - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+[2024-05-30 11:08:12] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 108 initialize - Tomcat initialized with port(s): 8080 (http)
+[2024-05-30 11:08:12] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+[2024-05-30 11:08:12] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet engine: [Apache Tomcat/9.0.78]
+[2024-05-30 11:08:12] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+[2024-05-30 11:08:12] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 292 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1038 ms
+[2024-05-30 11:08:13] INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping 58 <init> - Adding welcome page: class path resource [static/index.html]
+[2024-05-30 11:08:14] INFO  org.quartz.impl.StdSchedulerFactory 1220 instantiate - Using default implementation for ThreadExecutor
+[2024-05-30 11:08:14] INFO  org.quartz.core.SchedulerSignalerImpl 61 <init> - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[2024-05-30 11:08:14] INFO  org.quartz.core.QuartzScheduler 229 <init> - Quartz Scheduler v.2.3.2 created.
+[2024-05-30 11:08:14] INFO  org.quartz.simpl.RAMJobStore 155 initialize - RAMJobStore initialized.
+[2024-05-30 11:08:14] INFO  org.quartz.core.QuartzScheduler 294 initialize - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[2024-05-30 11:08:14] INFO  org.quartz.impl.StdSchedulerFactory 1374 instantiate - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[2024-05-30 11:08:14] INFO  org.quartz.impl.StdSchedulerFactory 1378 instantiate - Quartz scheduler version: 2.3.2
+[2024-05-30 11:08:14] INFO  org.quartz.core.QuartzScheduler 2293 setJobFactory - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3af2f846
+[2024-05-30 11:08:14] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 220 start - Tomcat started on port(s): 8080 (http) with context path ''
+[2024-05-30 11:08:14] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 729 startScheduler - Starting Quartz Scheduler now
+[2024-05-30 11:08:14] INFO  org.quartz.core.QuartzScheduler 547 start - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[2024-05-30 11:08:14] INFO  org.springframework.boot.StartupInfoLogger 61 logStarted - Started Neu6053Application in 3.073 seconds (JVM running for 4.25)
+[2024-05-30 11:08:26] INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-30 11:08:26] INFO  org.springframework.web.servlet.FrameworkServlet 525 initServletBean - Initializing Servlet 'dispatcherServlet'
+[2024-05-30 11:08:26] INFO  org.springframework.web.servlet.FrameworkServlet 547 initServletBean - Completed initialization in 1 ms
+[2024-05-30 11:08:26] INFO  org.springdoc.api.AbstractOpenApiResource 367 getOpenApi - Init duration for springdoc-openapi is: 203 ms
+[2024-05-30 11:08:38] INFO  com.alibaba.druid.pool.DruidDataSource 996 init - {dataSource-1} inited
+[2024-05-30 11:09:47] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 11:09:48] INFO  org.springframework.scheduling.quartz.SchedulerFactoryBean 847 destroy - Shutting down Quartz Scheduler
+[2024-05-30 11:09:48] INFO  org.quartz.core.QuartzScheduler 666 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[2024-05-30 11:09:48] INFO  org.quartz.core.QuartzScheduler 585 standby - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[2024-05-30 11:09:48] INFO  org.quartz.core.QuartzScheduler 740 shutdown - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[2024-05-30 11:09:48] INFO  com.alibaba.druid.pool.DruidDataSource 2138 close - {dataSource-1} closing ...
+[2024-05-30 11:09:48] INFO  com.alibaba.druid.pool.DruidDataSource 2211 close - {dataSource-1} closed
