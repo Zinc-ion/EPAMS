@@ -14,7 +14,9 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //把自定义的拦截器注册到全局拦截器中 排除登录和注册请求
-        registry.addInterceptor(loginInterceptor).excludePathPatterns("/admin/login","/admin/register",
+        registry.addInterceptor(loginInterceptor).excludePathPatterns(
+                "/admins/login","/admins/save",
+                "/supervisor/save",
                 "/swagger-ui.html","/swagger-resources/**","/webjars/**","/v3/**","/doc.html",
                 "/swagger-ui/**");
 

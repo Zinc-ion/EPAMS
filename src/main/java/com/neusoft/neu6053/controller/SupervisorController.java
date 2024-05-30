@@ -16,7 +16,7 @@ public class SupervisorController {
     @Autowired
     SupervisorService supervisorService;
 
-    @PostMapping("/addSupervisor")
+    @PostMapping("/save")
     public HttpResponseEntity addSupervisor(Supervisor supervisor) {
         if (supervisorService.addSupervisor(supervisor) == 1) {
             return HttpResponseEntity.success(supervisor);
@@ -25,7 +25,7 @@ public class SupervisorController {
         }
     }
 
-    @PostMapping("/deleteSupervisor")
+    @PostMapping("/delete")
     public HttpResponseEntity deleteSupervisor(Supervisor supervisor) {
         if (supervisorService.deleteSupervisor(supervisor) == 1) {
             return HttpResponseEntity.success(supervisor);
@@ -34,7 +34,7 @@ public class SupervisorController {
         }
     }
 
-    @PostMapping("/modifySupervisor")
+    @PostMapping("/modify")
     public HttpResponseEntity modifySupervisor(Supervisor supervisor) {
         if (supervisorService.modifySupervisor(supervisor) == 1) {
             return HttpResponseEntity.success(supervisor);
@@ -43,17 +43,17 @@ public class SupervisorController {
         }
     }
 
-    @PostMapping("/selectAllSupervisor")
+    @PostMapping("/selectAll")
     public HttpResponseEntity selectAllSupervisor(Integer curPage, Integer pageSize) {
         return HttpResponseEntity.success(supervisorService.selectAllSupervisor(curPage, pageSize));
     }
 
-    @PostMapping("/selectSupervisorByTel")
+    @PostMapping("/selectByTel")
     public HttpResponseEntity selectSupervisorByTel(Supervisor supervisor) {
         return HttpResponseEntity.success(supervisorService.selectSupervisorByTel(supervisor));
     }
 
-    @PostMapping("/selectSupervisorByName")
+    @PostMapping("/selectByName")
     public HttpResponseEntity selectSupervisorByName(Integer curPage, Integer pageSize, Supervisor supervisor) {
         return HttpResponseEntity.success(supervisorService.selectSupervisorByName(curPage, pageSize, supervisor));
     }

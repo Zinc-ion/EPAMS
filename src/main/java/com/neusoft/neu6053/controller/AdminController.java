@@ -18,7 +18,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/admins")
 @Tag(name = "AdminControllerAPI", description = "管理员相关接口")
 public class AdminController {
     @Autowired
