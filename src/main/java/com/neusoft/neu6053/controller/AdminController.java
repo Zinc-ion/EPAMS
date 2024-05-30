@@ -6,11 +6,9 @@ import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,5 +40,14 @@ public class AdminController {
         } else {
             return HttpResponseEntity.failure("Invalid admin code or password");
         }
+    }
+
+    @GetMapping(value = "/logout")
+    @ResponseBody
+    public HttpResponseEntity logout(HttpServletRequest request) {
+        String token = request.getHeader("token");
+        //删除redis的token
+        redisUtils.del(token);
+        return HttpResponseEntity.success("退出成功");
     }
 }

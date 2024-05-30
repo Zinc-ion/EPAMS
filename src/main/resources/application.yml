@@ -5,12 +5,6 @@ server:
     keep-alive-timeout: 60000
 
 
-mybatis-plus:
-  typeAliasesPackage: com.neusoft.neu6053.dao.entity
-  mapperLocations: classpath:mapper/*.xml
-  configuration:
-    cache-enabled: true
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台输出日志
 
 
 spring:
@@ -35,8 +29,27 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
 
+    druid:
+      filter:
+        slf4j:
+          enabled: true
+          statement-create-after-log-enabled: false
+          statement-close-after-log-enabled: false
+          result-set-open-after-log-enabled: false
+          result-set-close-after-log-enabled: false
 
-
+  redis:
+    port: 6379
+    host: 60.205.0.18
+    password: 123456
+    database: 0
+    jedis:
+      pool:
+        max-active: 100
+        max-idle: 8
+        min-idle: 0
+        max-wait: 60000
+    timeout: 1000
 
   servlet:
     multipart:
@@ -46,6 +59,20 @@ spring:
       # 文件请求的最大值
       max-request-size: 512MB
 
+    #配置mybatis-plus
+mybatis-plus:
+  typeAliasesPackage: com.neusoft.neu6053.dao.entity
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    cache-enabled: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台输出日志
+
+logging:
+  config: classpath:log4j2.xml
+
+log4j:
+  logger:
+    org.quartz: INFO
 
 #pagehelper分页配置 第二种和第三种不需要 重点讲的第一种需要
 pagehelper:
