@@ -34,6 +34,18 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
     }
 
     @Override
+    public boolean deleteSupervisorById(String[] telId) {
+        int flag = 0;
+        for (String id : telId) {
+            if(1 != supervisorMapper.deleteById(id)) {
+                flag++;
+            }
+        }
+        return flag == 0;
+    }
+
+
+    @Override
     public int modifySupervisor(Supervisor supervisor) {
         return supervisorMapper.updateById(supervisor);
     }
@@ -58,6 +70,22 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
         queryWrapper.like("real_name", supervisor.getRealName());
         Page<Supervisor> page = new Page<>(curPage, pageSize);
         return supervisorMapper.selectPage(page,queryWrapper).getRecords();
+    }
+
+    @Override
+    public List<Supervisor> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor) {
+        QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();
+        if (supervisor.getSex() != null) {
+            queryWrapper.eq("sex", supervisor.getSex());
+        }
+        if (supervisor.getTelId() != null) {
+            queryWrapper.eq("tel_id", supervisor.getTelId());
+        }
+        if (supervisor.getRealName() != null) {
+            queryWrapper.like("real_name", supervisor.getRealName());
+        }
+        Page<Supervisor> page = new Page<>(curPage, pageSize);
+        return supervisorMapper.selectPage(page, queryWrapper).getRecords();
     }
 }
 

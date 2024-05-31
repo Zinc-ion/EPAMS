@@ -194,5 +194,43 @@ class SupervisorApplicationTests {
         assert result == 1;
     }
 
+    @Test
+    public void testSelectByParams() {
+        Supervisor supervisor = new Supervisor();
+        supervisor.setTelId("111111");
+        supervisor.setPassword("123456");
+        supervisor.setBirthday("10.16");
+        supervisor.setSex(1);
+        supervisor.setRemarks("");
+        supervisor.setRealName("string");
+        supervisorService.addSupervisor(supervisor);
+
+        Supervisor supervisor1 = new Supervisor();
+        supervisor1.setRealName("string");
+
+
+        List<Supervisor> supervisors = supervisorService.selectSupervisorByParams(1, 10, supervisor1);
+        assert !supervisors.isEmpty();
+        supervisorService.deleteSupervisor(supervisor);
+    }
+
+    @Test
+    public void testDeleteSupervisorById() {
+        Supervisor supervisor = new Supervisor();
+        supervisor.setTelId("111111");
+        supervisor.setPassword("123456");
+        supervisor.setBirthday("10.16");
+        supervisor.setSex(1);
+        supervisor.setRemarks("");
+        supervisor.setRealName("zhou");
+        supervisorService.addSupervisor(supervisor);
+
+        String[] telId = new String[1];
+        telId[0] = "111111";
+        boolean result = supervisorService.deleteSupervisorById(telId);
+        assert result;
+    }
+
+
 
 }

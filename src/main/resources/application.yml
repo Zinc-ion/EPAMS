@@ -5,8 +5,6 @@ server:
     keep-alive-timeout: 60000
 
 
-
-
 spring:
   datasource:
     url: jdbc:mysql://60.205.0.18:3310/EPAMS?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
@@ -58,6 +56,7 @@ spring:
       max-file-size: 512MB
       # 文件请求的最大值
       max-request-size: 512MB
+
 
     #配置mybatis-plus
 mybatis-plus:

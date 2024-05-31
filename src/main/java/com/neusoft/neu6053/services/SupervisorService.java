@@ -16,6 +16,9 @@ public interface SupervisorService extends IService<Supervisor> {
 
     int deleteSupervisor(Supervisor supervisor);
 
+//    根据id批量删除
+    boolean deleteSupervisorById(String[] telId);
+
     int modifySupervisor(Supervisor supervisor);
 
 //    分页查询所有监督员
@@ -27,6 +30,8 @@ public interface SupervisorService extends IService<Supervisor> {
 //    姓名模糊查询
     List<Supervisor> selectSupervisorByName(Integer curPage, Integer pageSize,Supervisor supervisor);
 
+    //    多条件查询，条件包括性别、手机号、姓名（模糊查询）
+    List<Supervisor> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor);
 
 
 
