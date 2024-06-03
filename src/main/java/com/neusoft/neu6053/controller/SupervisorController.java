@@ -4,15 +4,20 @@ import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.neusoft.neu6053.services.SupervisorService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/supervisor")
 @Tag(name = "SupervisorControllerAPI", description = "监督员相关接口")
 public class SupervisorController {
-    @Autowired
-    SupervisorService supervisorService;
+    /**
+     * 使用构造器注入，避免使用@Autowired注解
+     * 使用@RequiredArgsConstructor注解，对所有final修饰的成员变量生成构造器
+     */
+    private final SupervisorService supervisorService;
+
 
     @PostMapping("/save")
     public HttpResponseEntity addSupervisor(@RequestBody Supervisor supervisor) {
@@ -32,6 +37,7 @@ public class SupervisorController {
         }
     }
 
+    //批量删除
     @PostMapping("/deleteById")
     public HttpResponseEntity deleteSupervisorById(@RequestBody String[] telId) {
         if (supervisorService.deleteSupervisorById(telId) ) {

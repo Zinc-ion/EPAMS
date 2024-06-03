@@ -1,8 +1,10 @@
 package com.neusoft.neu6053.utils;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.Map;
@@ -10,9 +12,14 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Component
+@RequiredArgsConstructor
 public class RedisUtils {
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    /**
+     * 使用构造器注入，避免使用@Autowired注解
+     * 使用@RequiredArgsConstructor注解，对所有final修饰的成员变量生成构造器
+     */
+    private final RedisTemplate<String, Object> redisTemplate;
+
 
     /**
      * 指定缓存失效时间

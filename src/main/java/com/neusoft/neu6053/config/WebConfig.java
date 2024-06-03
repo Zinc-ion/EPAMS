@@ -1,15 +1,18 @@
 package com.neusoft.neu6053.config;
-
 import com.neusoft.neu6053.config.interceptor.LoginInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@RequiredArgsConstructor
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-    @Autowired
-    private LoginInterceptor loginInterceptor;
+    /**
+     * 使用构造器注入，避免使用@Autowired注解
+     * 使用@RequiredArgsConstructor注解，对所有final修饰的成员变量生成构造器
+     */
+    private final LoginInterceptor loginInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

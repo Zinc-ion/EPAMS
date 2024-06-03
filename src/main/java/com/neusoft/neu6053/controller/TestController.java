@@ -2,16 +2,25 @@ package com.neusoft.neu6053.controller;
 
 import com.neusoft.neu6053.utils.RedisUtils;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.TimeUnit;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 @Tag(name = "TestControllerAPI", description = "测试控制器接口")
 public class TestController {
+    /**
+     * 使用构造器注入，避免使用@Autowired注解
+     * 使用@RequiredArgsConstructor注解，对所有final修饰的成员变量生成构造器
+     */
+    private final RedisTemplate<String, Object> redisTemplate;
+
+    private final RedisUtils redisUtils;
+
 
     @GetMapping("/testGet")
     public String testGet() {
@@ -22,12 +31,6 @@ public class TestController {
     public String testPost(@RequestBody String body) {
         return "This is a test POST API. You posted: " + body;
     }
-
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
-
-    @Autowired
-    private RedisUtils redisUtils;
 
     @GetMapping("/testRedisSet")
     @ResponseBody

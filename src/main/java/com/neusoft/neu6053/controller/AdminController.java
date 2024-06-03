@@ -5,7 +5,8 @@ import com.neusoft.neu6053.services.AdminService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,15 +16,17 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/admins")
 @Tag(name = "AdminControllerAPI", description = "管理员相关接口")
 public class AdminController {
-    @Autowired
-    private AdminService adminService;
-
-    @Autowired
-    private RedisUtils redisUtils;
+    /**
+     * 使用构造器注入，避免使用@Autowired注解
+     * 使用@RequiredArgsConstructor注解，对所有final修饰的成员变量生成构造器
+     */
+    private final AdminService adminService;
+    private final RedisUtils redisUtils;
 
     @PostMapping("/login")
     public HttpResponseEntity login(@RequestBody Admin admin) {

@@ -11,7 +11,9 @@ import java.util.List;
 
 @SpringBootTest
 class SupervisorApplicationTests {
-
+    /**
+     * 测试类中不能使用@RequiredArgsConstructor注解
+     */
     @Autowired
     private SupervisorMapper supervisorMapper;
 

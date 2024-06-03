@@ -4,8 +4,8 @@ import com.neusoft.neu6053.utils.RedisUtils;
 import com.neusoft.neu6053.utils.ThreadLocalUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,11 +14,17 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
-    @Autowired
-    private RedisUtils redisUtils;
-
-    @Autowired
-    private ThreadLocalUtil threadLocalUtil;
+    private final RedisUtils redisUtils;
+    private final ThreadLocalUtil threadLocalUtil;
+    /**
+    * 构造器注入
+    */
+    public LoginInterceptor(RedisUtils redisUtils, ThreadLocalUtil threadLocalUtil) {
+        Assert.notNull(redisUtils, "redisUtils must not be null");
+        Assert.notNull(threadLocalUtil, "threadLocalUtil must not be null");
+        this.redisUtils = redisUtils;
+        this.threadLocalUtil = threadLocalUtil;
+    }
 
     //Controller方法处理之前执行
     @Override

@@ -3,12 +3,12 @@ package com.neusoft.neu6053.services.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.neusoft.neu6053.dao.entity.Admin;
 import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.neusoft.neu6053.services.SupervisorService;
 import com.neusoft.neu6053.dao.mapper.SupervisorMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 
@@ -17,11 +17,16 @@ import java.util.List;
 * @description 针对表【supervisor】的数据库操作Service实现
 * @createDate 2024-05-24 13:51:35
 */
+@RequiredArgsConstructor
 @Service
 public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervisor>
     implements SupervisorService{
-    @Autowired
-    private SupervisorMapper supervisorMapper;
+    /**
+     * 使用构造器注入，避免使用@Autowired注解
+     * 使用@RequiredArgsConstructor注解，对所有final修饰的成员变量生成构造器
+     */
+    private final SupervisorMapper supervisorMapper;
+
 
     @Override
     public int addSupervisor(Supervisor supervisor) {
