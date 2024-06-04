@@ -13,19 +13,23 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
-    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
+    # 进行数据库连接池的配置    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
     #druid 数据源专有配置
-    initialSize: 5
-    minIdle: 5
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
+    min-idle: 5                                   # 数据库连接池的最小维持连接数
+    initial-size: 5                               # 初始化提供的连接数
+    max-total: 5                                  # 最大的连接数
+    max-wait-millis: 200                          # 等待连接获取的最大超时时间
+    time-between-eviction-runs-millis: 60000      # 连接池的清理线程运行时间间隔
+    min-evictable-idle-time-millis: 300000        # 连接池的最小空闲时间
+    validation-query: SELECT 1 FROM DUAL          # 验证连接是否有效的SQL语句
+    test-while-idle: true                         # 是否在空闲时检查连接的有效性
+    test-on-borrow: false                         # 是否在获取连接时检查连接的有效性
+    test-on-return: false                         # 是否在归还连接时检查连接的有效性
+    pool-prepared-statements: true                # 是否缓存预编译语句
+    max-open-prepared-statements: 20              # 缓存预编译语句的最大数量
+    filters: stat,wall,log4j2                      # 配置监控统计拦截的filters
+
+
 
     druid:
       filter:
