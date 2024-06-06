@@ -11,6 +11,25 @@ import java.util.List;
 * @createDate 2024-05-24 13:51:30
 */
 public interface AdminService extends IService<Admin> {
-    List<Admin> loginAdmin(Admin admin);
+    /**
+     * 管理员登录
+     * @param admin
+     * @return Admin
+     */
+    Admin loginAdmin(Admin admin);
+
+    /**
+     * 保存管理员信息
+     * @param admin
+     * @return int
+     */
+    int saveAdmin(Admin admin);
+
+    /**
+     * 根据adminCode查询管理员信息
+     * @param admin
+     * @return Admin
+     */
+    Admin selectAdminByCode(Admin admin);
 
 }

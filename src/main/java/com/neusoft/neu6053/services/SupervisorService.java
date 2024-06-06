@@ -12,25 +12,57 @@ import java.util.List;
 */
 public interface SupervisorService extends IService<Supervisor> {
 
+    /**
+     * 添加监督员信息
+     * @param supervisor
+     * @return int
+     */
     int addSupervisor(Supervisor supervisor);
 
+    /**
+     * 删除监督员信息
+     * @param supervisor
+     * @return int
+     */
     int deleteSupervisor(Supervisor supervisor);
 
-//    根据id批量删除
+    /**
+     * 根据id批量删除
+     * @param telId
+     * @return boolean
+     */
     boolean deleteSupervisorById(String[] telId);
 
+    /**
+     * 修改监督员信息
+     * @param supervisor
+     * @return int
+     */
     int modifySupervisor(Supervisor supervisor);
 
-//    分页查询所有监督员
+    /**
+     * 分页查询所有监督员信息
+     * @param curPage
+     * @param pageSize
+     * @return List<Supervisor>
+     */
     List<Supervisor> selectAllSupervisor(Integer curPage, Integer pageSize);
 
-//    主键手机号精确查询
+    /**
+     * 根据手机号查询监督员信息
+     * @param supervisor
+     * @return List<Supervisor>
+     */
     List<Supervisor> selectSupervisorByTel(Supervisor supervisor);
 
-//    姓名模糊查询
-    List<Supervisor> selectSupervisorByName(Integer curPage, Integer pageSize,Supervisor supervisor);
 
-    //    多条件查询，条件包括性别、手机号、姓名（模糊查询）
+    /**
+     * 多条件查询，条件包括性别、手机号、姓名（模糊查询）
+     * @param curPage
+     * @param pageSize
+     * @param supervisor
+     * @return List<Supervisor>
+     */
     List<Supervisor> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor);
 
 

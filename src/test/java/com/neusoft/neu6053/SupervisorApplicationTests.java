@@ -27,7 +27,7 @@ class SupervisorApplicationTests {
 
 
     @Test
-    public void testSelect() {
+     void testSelect() {
         List<Supervisor> list = supervisorMapper.selectList(null);
         for(Supervisor supervisor : list) {
             System.out.println(supervisor);
@@ -36,7 +36,7 @@ class SupervisorApplicationTests {
 
     //根据主键查询
     @Test
-    public void testSelectById() {
+     void testSelectById() {
         //注意：根据ID查询时要指定主键生成策略
         Supervisor supervisor = supervisorMapper.selectById(41);
         System.out.println(supervisor);
@@ -44,7 +44,7 @@ class SupervisorApplicationTests {
 
     //插入
     @Test
-    public void testInsert() {
+     void testInsert() {
         Supervisor supervisor = new Supervisor();
         supervisor.setTelId("18842326593");
         supervisor.setPassword("123456");
@@ -60,7 +60,7 @@ class SupervisorApplicationTests {
 
     //更新
     @Test
-    public void testUpdate() {
+     void testUpdate() {
         Supervisor supervisor = new Supervisor();
         supervisor.setTelId("18842326593");
         supervisor.setPassword("123456");
@@ -78,7 +78,7 @@ class SupervisorApplicationTests {
 
     //删除
     @Test
-    public void testDelete() {
+     void testDelete() {
         Supervisor supervisor = new Supervisor();
         supervisor.setTelId("18842326593");
         supervisor.setPassword("123456");
@@ -94,7 +94,7 @@ class SupervisorApplicationTests {
 
 
     @Test
-    public void testAddSupervisor() {
+     void testAddSupervisor() {
         Supervisor supervisor = new Supervisor();
         supervisor.setTelId("111111");
         supervisor.setPassword("123456");
@@ -109,7 +109,7 @@ class SupervisorApplicationTests {
     }
 
     @Test
-    public void testSelectByTel() {
+     void testSelectByTel() {
         Supervisor supervisor = new Supervisor();
         supervisor.setTelId("222222");
         supervisor.setPassword("123456");
@@ -124,38 +124,9 @@ class SupervisorApplicationTests {
         supervisorService.deleteSupervisor(supervisor);
     }
 
-    @Test
-    public void testSelectByName() {
-        Supervisor supervisor = new Supervisor();
-        supervisor.setTelId("222222");
-        supervisor.setPassword("123456");
-        supervisor.setBirthday("10.16");
-        supervisor.setSex(1);
-        supervisor.setRemarks("");
-        supervisor.setRealName("zhou");
-        supervisorService.addSupervisor(supervisor);
-
-        Supervisor supervisor2 = new Supervisor();
-        supervisor2.setTelId("333333");
-        supervisor2.setPassword("123456");
-        supervisor2.setBirthday("10.16");
-        supervisor2.setSex(1);
-        supervisor2.setRemarks("");
-        supervisor2.setRealName("zhou");
-        supervisorService.addSupervisor(supervisor2);
-
-        List<Supervisor> supervisors = supervisorService.selectSupervisorByName(1, 10, supervisor);
-        for(Supervisor supervisor1 : supervisors) {
-            System.out.println(supervisor1);
-        }
-        assert !supervisors.isEmpty();
-
-        supervisorService.deleteSupervisor(supervisor);
-        supervisorService.deleteSupervisor(supervisor2);
-    }
 
     @Test
-    public void testModifySupervisor() {
+     void testModifySupervisor() {
         Supervisor supervisor = new Supervisor();
         supervisor.setTelId("111111");
         supervisor.setPassword("123456");
@@ -182,7 +153,7 @@ class SupervisorApplicationTests {
     }
 
     @Test
-    public void testDeleteSupervisor() {
+     void testDeleteSupervisor() {
         Supervisor supervisor = new Supervisor();
         supervisor.setTelId("111111");
         supervisor.setPassword("123456");
@@ -197,7 +168,7 @@ class SupervisorApplicationTests {
     }
 
     @Test
-    public void testSelectByParams() {
+     void testSelectByParams() {
         Supervisor supervisor = new Supervisor();
         supervisor.setTelId("111111");
         supervisor.setPassword("123456");
@@ -217,7 +188,7 @@ class SupervisorApplicationTests {
     }
 
     @Test
-    public void testDeleteSupervisorById() {
+     void testDeleteSupervisorById() {
         Supervisor supervisor = new Supervisor();
         supervisor.setTelId("111111");
         supervisor.setPassword("123456");

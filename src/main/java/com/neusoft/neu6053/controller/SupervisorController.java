@@ -19,12 +19,12 @@ public class SupervisorController {
     private final SupervisorService supervisorService;
 
 
-    @PostMapping("/save")
+    @PostMapping("/add")
     public HttpResponseEntity addSupervisor(@RequestBody Supervisor supervisor) {
         if (supervisorService.addSupervisor(supervisor) == 1) {
             return HttpResponseEntity.success(supervisor);
         } else {
-            return HttpResponseEntity.failure("Failed to add supervisor");
+            return HttpResponseEntity.failure("添加失败，请更换tel_id后重试");
         }
     }
 
@@ -33,7 +33,7 @@ public class SupervisorController {
         if (supervisorService.deleteSupervisor(supervisor) == 1) {
             return HttpResponseEntity.success(supervisor);
         } else {
-            return HttpResponseEntity.failure("Failed to delete supervisor");
+            return HttpResponseEntity.failure("Failed to delete supervisor, please check the tel_id");
         }
     }
 
@@ -43,7 +43,7 @@ public class SupervisorController {
         if (supervisorService.deleteSupervisorById(telId) ) {
             return HttpResponseEntity.success("success to delete supervisor");
         } else {
-            return HttpResponseEntity.failure("Failed to delete supervisor");
+            return HttpResponseEntity.failure("Failed to delete supervisor, please check the tel_id");
         }
     }
 
@@ -52,7 +52,7 @@ public class SupervisorController {
         if (supervisorService.modifySupervisor(supervisor) == 1) {
             return HttpResponseEntity.success(supervisor);
         } else {
-            return HttpResponseEntity.failure("Failed to modify supervisor");
+            return HttpResponseEntity.failure("Failed to modify supervisor, please check the tel_id");
         }
     }
 
@@ -66,10 +66,6 @@ public class SupervisorController {
         return HttpResponseEntity.success(supervisorService.selectSupervisorByTel(supervisor));
     }
 
-    @PostMapping("/selectByName")
-    public HttpResponseEntity selectSupervisorByName(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Supervisor supervisor) {
-        return HttpResponseEntity.success(supervisorService.selectSupervisorByName(curPage, pageSize, supervisor));
-    }
 
     //    多条件查询，条件包括性别、手机号、姓名（模糊查询）
     @PostMapping("/selectByParams")

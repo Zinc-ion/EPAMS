@@ -27,17 +27,38 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
      */
     private final SupervisorMapper supervisorMapper;
 
-
+    /**
+     * 添加监督员信息
+     * @param supervisor
+     * @return int
+     */
     @Override
     public int addSupervisor(Supervisor supervisor) {
-        return supervisorMapper.insert(supervisor);
+        int flag;
+        try {
+            flag =  supervisorMapper.insert(supervisor);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return flag;
     }
 
+    /**
+     * 删除监督员信息
+     * @param supervisor
+     * @return int
+     */
     @Override
     public int deleteSupervisor(Supervisor supervisor) {
         return supervisorMapper.deleteById(supervisor);
     }
 
+    /**
+     * 根据id批量删除
+     * @param telId
+     * @return boolean
+     */
     @Override
     public boolean deleteSupervisorById(String[] telId) {
         int flag = 0;
@@ -50,11 +71,22 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
     }
 
 
+    /**
+     * 修改监督员信息
+     * @param supervisor
+     * @return int
+     */
     @Override
     public int modifySupervisor(Supervisor supervisor) {
         return supervisorMapper.updateById(supervisor);
     }
 
+    /**
+     * 分页查询所有监督员
+     * @param curPage
+     * @param pageSize
+     * @return List<Supervisor>
+     */
     @Override
     public List<Supervisor> selectAllSupervisor(Integer curPage, Integer pageSize) {
         QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();
@@ -62,6 +94,11 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
         return supervisorMapper.selectPage(page,queryWrapper).getRecords();
     }
 
+    /**
+     * 主键手机号精确查询
+     * @param supervisor
+     * @return List<Supervisor>
+     */
     @Override
     public List<Supervisor> selectSupervisorByTel(Supervisor supervisor) {
         QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();
@@ -69,14 +106,14 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
         return supervisorMapper.selectList(queryWrapper);
     }
 
-    @Override
-    public List<Supervisor> selectSupervisorByName(Integer curPage, Integer pageSize, Supervisor supervisor) {
-        QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like("real_name", supervisor.getRealName());
-        Page<Supervisor> page = new Page<>(curPage, pageSize);
-        return supervisorMapper.selectPage(page,queryWrapper).getRecords();
-    }
 
+    /**
+     * 多条件查询，条件包括性别、手机号、姓名（模糊查询）
+     * @param curPage
+     * @param pageSize
+     * @param supervisor
+     * @return List<Supervisor>
+     */
     @Override
     public List<Supervisor> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor) {
         QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();

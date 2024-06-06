@@ -1,6 +1,7 @@
 package com.neusoft.neu6053.services.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.neusoft.neu6053.dao.entity.Admin;
 import com.neusoft.neu6053.services.AdminService;
@@ -24,13 +25,39 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin>
      */
     private final AdminMapper adminMapper;
 
+    /**
+     * 管理员登录
+     * @param admin
+     * @return Admin
+     */
     @Override
-    public List<Admin> loginAdmin(Admin admin) {
+    public Admin loginAdmin(Admin admin) {
         QueryWrapper<Admin> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("admin_code", admin.getAdminCode());
         queryWrapper.eq("password", admin.getPassword());
-        List<Admin> ifLogin = adminMapper.selectList(queryWrapper);
-        return ifLogin;
+        return adminMapper.selectOne(queryWrapper);
+    }
+
+    /**
+     * 保存管理员信息
+     * @param admin
+     * @return int
+     */
+    @Override
+    public int saveAdmin(Admin admin) {
+        return adminMapper.insert(admin);
+    }
+
+    /**
+     * 根据adminCode查询管理员信息
+     * @param admin
+     * @return Admin
+     */
+    @Override
+    public Admin selectAdminByCode(Admin admin) {
+        QueryWrapper<Admin> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("admin_code", admin.getAdminCode());
+        return adminMapper.selectOne(queryWrapper);
     }
 }
 

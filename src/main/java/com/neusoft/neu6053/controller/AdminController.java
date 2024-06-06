@@ -4,6 +4,7 @@ import com.neusoft.neu6053.dao.entity.Admin;
 import com.neusoft.neu6053.services.AdminService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
+import com.neusoft.neu6053.utils.UUIDUtil;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
@@ -30,15 +31,15 @@ public class AdminController {
 
     @PostMapping("/login")
     public HttpResponseEntity login(@RequestBody Admin admin) {
-        List<Admin> isLogin = adminService.loginAdmin(admin);
-        if (!isLogin.isEmpty()) {
+        Admin isLogin = adminService.loginAdmin(admin);
+        if (isLogin != null) {
             //生成token
-            String token = UUID.randomUUID().toString().replaceAll("-", "");
+            String token = UUIDUtil.getOneUUID();
             //保存token,key为token,value为AdminId,有效期为1个小时
-            redisUtils.set(token, isLogin.get(0).getAdminId(), 1, TimeUnit.HOURS);
+            redisUtils.set(token, isLogin.getAdminId(), 1, TimeUnit.HOURS);
             Map<String, Object> map = new HashMap<>();
             map.put("token", token);
-            map.put("admin", isLogin.get(0));
+            map.put("admin", isLogin);
             return HttpResponseEntity.success(map);
         } else {
             return HttpResponseEntity.failure("Invalid admin code or password");
@@ -52,5 +53,17 @@ public class AdminController {
         //删除redis的token
         redisUtils.del(token);
         return HttpResponseEntity.success("退出成功");
+    }
+
+    @PostMapping("/add")
+    public HttpResponseEntity addAdmin(@RequestBody Admin admin) {
+        if(adminService.selectAdminByCode(admin) != null) {                 //查询账户名是否重复
+            return HttpResponseEntity.failure("Admin code already exists");
+        }
+        if (1 == adminService.saveAdmin(admin)) {
+            return HttpResponseEntity.success(admin);
+        } else {
+            return HttpResponseEntity.failure("Failed to save admin");
+        }
     }
 }

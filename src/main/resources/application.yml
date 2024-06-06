@@ -14,7 +14,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
 
     # 进行数据库连接池的配置    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
-    #druid 数据源专有配置
+    #druid 数据源专有配置 不可放到druid子目录下，会导致druidconfig配置文件无法识别到此处配置，直接放到datasource下即可
     min-idle: 5                                   # 数据库连接池的最小维持连接数
     initial-size: 5                               # 初始化提供的连接数
     max-total: 5                                  # 最大的连接数
@@ -27,7 +27,7 @@ spring:
     test-on-return: false                         # 是否在归还连接时检查连接的有效性
     pool-prepared-statements: true                # 是否缓存预编译语句
     max-open-prepared-statements: 20              # 缓存预编译语句的最大数量
-    filters: stat,wall,log4j2                      # 配置监控统计拦截的filters
+    filters: stat,wall,log4j2                     # 配置监控统计拦截的filters
 
 
 
