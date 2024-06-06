@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.neu6053.dao.mapper.InspectorMapper">
+
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.Inspector">
+            <id property="telId" column="tel_id" jdbcType="INTEGER"/>
+            <result property="inspectorCode" column="inspector_code" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="community" column="community" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        tel_id,inspector_code,password,
+        name,community
+    </sql>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.neu6053.dao.mapper.ConfirmationMapper">
+
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.Confirmation">
+            <id property="confId" column="conf_id" jdbcType="INTEGER"/>
+            <result property="informationId" column="information_id" jdbcType="INTEGER"/>
+            <result property="inspectorName" column="inspector_name" jdbcType="VARCHAR"/>
+            <result property="supervisorName" column="supervisor_name" jdbcType="VARCHAR"/>
+            <result property="province" column="province" jdbcType="VARCHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="community" column="community" jdbcType="VARCHAR"/>
+            <result property="pollutionLevel" column="pollution_level" jdbcType="VARCHAR"/>
+            <result property="so2" column="SO2" jdbcType="INTEGER"/>
+            <result property="co" column="CO" jdbcType="INTEGER"/>
+            <result property="pm25" column="PM25" jdbcType="INTEGER"/>
+            <result property="data" column="data" jdbcType="DATE"/>
+            <result property="time" column="time" jdbcType="TIME"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        conf_id,information_id,inspector_name,
+        supervisor_name,province,city,
+        community,pollution_level,SO2,
+        CO,PM25,data,
+        time
+    </sql>
+</mapper>
