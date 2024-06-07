@@ -75,6 +75,31 @@ public class InformationApplicationTests {
     }
 
 
+    @Test
+    void testSelectInformationByParams() {
+        Information information = new Information();
+        information.setProvince("省");
+
+        Information information1 = new Information();
+        information1.setCity("市");
+
+        Information information2 = new Information();
+        information2.setPollutionLevel("2");
+        information2.setDate(java.sql.Date.valueOf("2024-06-05"));
+        information2.setState(0);
+
+        Information information3 = new Information();
+        information3.setProvince("湖北省");
+        information3.setCity("武汉市");
+        information3.setPollutionLevel("4");
+        information3.setDate(java.sql.Date.valueOf("2024-06-05"));
+        information3.setState(0);
+
+        assert informationService.selectInformationByParams(1, 10, information) != null;
+        assert informationService.selectInformationByParams(1, 10, information1) != null;
+        assert informationService.selectInformationByParams(1, 10, information2) != null;
+        assert informationService.selectInformationByParams(1, 10, information3) != null;
+    }
 
 
 

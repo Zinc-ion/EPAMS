@@ -1,5 +1,6 @@
 package com.neusoft.neu6053;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.neusoft.neu6053.services.ConfirmationService;
 import org.junit.jupiter.api.Test;
@@ -76,6 +77,29 @@ public class ConfirmationApplicationTests {
     @Test
     public void testGetAllConfirmations() {
         assert confirmationService.getAllConfirmations(1, 10) != null;
+    }
+
+    @Test
+    public void testSelectConfirmationByParams() {
+
+        Confirmation confirmation = new Confirmation();
+        confirmation.setProvince("省");
+
+        Confirmation confirmation1 = new Confirmation();
+        confirmation1.setCity("市");
+
+        Confirmation confirmation2 = new Confirmation();
+        confirmation2.setDate(Date.valueOf("2024-06-05"));
+
+        Confirmation confirmation3 = new Confirmation();
+        confirmation3.setProvince("省");
+        confirmation3.setCity("市");
+        confirmation3.setDate(Date.valueOf("2024-06-05"));
+
+        assert confirmationService.selectConfirmationByParams(1,10,confirmation) != null;
+        assert confirmationService.selectConfirmationByParams(1,10,confirmation1) != null;
+        assert confirmationService.selectConfirmationByParams(1,10,confirmation2) != null;
+        assert confirmationService.selectConfirmationByParams(1,10,confirmation3) != null;
     }
 
 }

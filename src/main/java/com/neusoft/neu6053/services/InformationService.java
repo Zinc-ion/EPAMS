@@ -51,7 +51,7 @@ public interface InformationService extends IService<Information> {
 
 
     /**
-     * 多条件查询，条件包括省、市、预估污染等级、反馈日期、是否指派
+     * 多条件查询，条件包括省(模糊)、市(模糊)、预估污染等级、反馈日期、是否指派
      * @param curPage
      * @param pageSize
      * @param information

@@ -103,13 +103,13 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
         Page<Confirmation> page = new Page<>(curPage, pageSize);
         QueryWrapper<Confirmation> queryWrapper = new QueryWrapper<>();
         if(confirmation.getProvince() != null) {
-            queryWrapper.eq("province", confirmation.getProvince());
+            queryWrapper.like("province", confirmation.getProvince());
         }
         if(confirmation.getCity() != null) {
-            queryWrapper.eq("city", confirmation.getCity());
+            queryWrapper.like("city", confirmation.getCity());
         }
         if(confirmation.getDate() != null) {
-            queryWrapper.eq("data", confirmation.getDate());
+            queryWrapper.eq("date", confirmation.getDate());
         }
         return confirmationMapper.selectPage(page, queryWrapper).getRecords();
     }

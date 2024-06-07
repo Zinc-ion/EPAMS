@@ -76,16 +76,16 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         Page<Information> page = new Page<>(curPage, pageSize);
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
         if(information.getProvince() != null) {
-            queryWrapper.eq("province", information.getProvince());
+            queryWrapper.like("province", information.getProvince());
         }
         if(information.getCity() != null) {
-            queryWrapper.eq("city", information.getCity());
+            queryWrapper.like("city", information.getCity());
         }
         if(information.getPollutionLevel() != null) {
-            queryWrapper.like("pollution_level", information.getPollutionLevel());
+            queryWrapper.eq("pollution_level", information.getPollutionLevel());
         }
         if(information.getDate() != null) {
-            queryWrapper.eq("data", information.getDate());
+            queryWrapper.eq("date", information.getDate());
         }
         if(information.getState() != null) {
             queryWrapper.eq("state", information.getState());

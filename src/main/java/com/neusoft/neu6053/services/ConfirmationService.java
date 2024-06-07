@@ -49,7 +49,7 @@ public interface ConfirmationService extends IService<Confirmation> {
     List<Confirmation> getAllConfirmations(Integer curPage, Integer pageSize);
 
     /**
-     * 多条件查询，条件包括省、市、确认日期
+     * 多条件查询，条件包括省(模糊)、市（模糊）、确认日期
      * @param curPage
      * @param pageSize
      * @param confirmation
