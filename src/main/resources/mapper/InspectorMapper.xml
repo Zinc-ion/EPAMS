@@ -5,15 +5,15 @@
 <mapper namespace="com.neusoft.neu6053.dao.mapper.InspectorMapper">
 
     <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.Inspector">
-            <id property="telId" column="tel_id" jdbcType="INTEGER"/>
-            <result property="inspectorCode" column="inspector_code" jdbcType="VARCHAR"/>
+            <id property="telId" column="tel_id" jdbcType="VARCHAR"/>
             <result property="password" column="password" jdbcType="VARCHAR"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="community" column="community" jdbcType="VARCHAR"/>
+            <result property="province" column="province" jdbcType="VARCHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        tel_id,inspector_code,password,
-        name,community
+        tel_id,password,name,
+        province,city
     </sql>
 </mapper>
