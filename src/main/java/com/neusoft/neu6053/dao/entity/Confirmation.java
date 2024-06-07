@@ -47,7 +47,7 @@ public class Confirmation implements Serializable {
     private String city;
 
     /**
-     * 社区
+     * 社区详细地址
      */
     private String community;
 
