@@ -59,17 +59,17 @@ public class Confirmation implements Serializable {
     /**
      * 二氧化硫浓度
      */
-    private Integer so2;
+    private Double so2;
 
     /**
      * 一氧化碳浓度
      */
-    private Integer co;
+    private Double co;
 
     /**
      * PM2.5浓度
      */
-    private Integer pm25;
+    private Double pm25;
 
     /**
      * 确认日期

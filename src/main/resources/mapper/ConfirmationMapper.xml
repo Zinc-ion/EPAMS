@@ -13,9 +13,9 @@
             <result property="city" column="city" jdbcType="VARCHAR"/>
             <result property="community" column="community" jdbcType="VARCHAR"/>
             <result property="pollutionLevel" column="pollution_level" jdbcType="VARCHAR"/>
-            <result property="so2" column="SO2" jdbcType="INTEGER"/>
-            <result property="co" column="CO" jdbcType="INTEGER"/>
-            <result property="pm25" column="PM25" jdbcType="INTEGER"/>
+            <result property="so2" column="SO2" jdbcType="DOUBLE"/>
+            <result property="co" column="CO" jdbcType="DOUBLE"/>
+            <result property="pm25" column="PM25" jdbcType="DOUBLE"/>
             <result property="data" column="data" jdbcType="DATE"/>
             <result property="time" column="time" jdbcType="TIME"/>
     </resultMap>
