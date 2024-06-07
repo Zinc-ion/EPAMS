@@ -10,7 +10,7 @@
             <result property="city" column="city" jdbcType="VARCHAR"/>
             <result property="community" column="community" jdbcType="VARCHAR"/>
             <result property="pollutionLevel" column="pollution_level" jdbcType="VARCHAR"/>
-            <result property="data" column="data" jdbcType="DATE"/>
+            <result property="date" column="date" jdbcType="DATE"/>
             <result property="time" column="time" jdbcType="TIME"/>
             <result property="state" column="state" jdbcType="INTEGER"/>
             <result property="supervisorId" column="supervisor_id" jdbcType="INTEGER"/>
@@ -21,7 +21,7 @@
 
     <sql id="Base_Column_List">
         information_id,province,city,
-        community,pollution_level,data,
+        community,pollution_level,date,
         time,state,supervisor_id,
         inspector_id,feedback,deleted
     </sql>

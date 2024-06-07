@@ -1,5 +1,6 @@
 package com.neusoft.neu6053.services.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.neusoft.neu6053.dao.entity.Confirmation;
@@ -88,6 +89,29 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
     public List<Confirmation> getAllConfirmations(Integer curPage, Integer pageSize) {
         Page<Confirmation> page = new Page<>(curPage, pageSize);
         return confirmationMapper.selectPage(page, null).getRecords();
+    }
+
+    /**
+     * 多条件查询，条件包括省、市、确认日期
+     * @param curPage
+     * @param pageSize
+     * @param confirmation
+     * @return List<Confirmation>
+     */
+    @Override
+    public List<Confirmation> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation) {
+        Page<Confirmation> page = new Page<>(curPage, pageSize);
+        QueryWrapper<Confirmation> queryWrapper = new QueryWrapper<>();
+        if(confirmation.getProvince() != null) {
+            queryWrapper.eq("province", confirmation.getProvince());
+        }
+        if(confirmation.getCity() != null) {
+            queryWrapper.eq("city", confirmation.getCity());
+        }
+        if(confirmation.getDate() != null) {
+            queryWrapper.eq("data", confirmation.getDate());
+        }
+        return confirmationMapper.selectPage(page, queryWrapper).getRecords();
     }
 
 }

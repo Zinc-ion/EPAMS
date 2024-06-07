@@ -2,6 +2,7 @@ package com.neusoft.neu6053.services;
 
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.neusoft.neu6053.dao.entity.Information;
 
 import java.util.List;
 
@@ -46,5 +47,14 @@ public interface ConfirmationService extends IService<Confirmation> {
      * @return List<Confirmation>
      */
     List<Confirmation> getAllConfirmations(Integer curPage, Integer pageSize);
+
+    /**
+     * 多条件查询，条件包括省、市、确认日期
+     * @param curPage
+     * @param pageSize
+     * @param confirmation
+     * @return List<Confirmation>
+     */
+    List<Confirmation> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation);
 
 }

@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -44,7 +45,7 @@ public class Information implements Serializable {
     /**
      * 日期
      */
-    private Date data;
+    private Date date;
 
     /**
      * 时间
@@ -96,7 +97,7 @@ public class Information implements Serializable {
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getCommunity() == null ? other.getCommunity() == null : this.getCommunity().equals(other.getCommunity()))
             && (this.getPollutionLevel() == null ? other.getPollutionLevel() == null : this.getPollutionLevel().equals(other.getPollutionLevel()))
-            && (this.getData() == null ? other.getData() == null : this.getData().equals(other.getData()))
+            && (this.getDate() == null ? other.getDate() == null : this.getDate().equals(other.getDate()))
             && (this.getTime() == null ? other.getTime() == null : this.getTime().equals(other.getTime()))
             && (this.getState() == null ? other.getState() == null : this.getState().equals(other.getState()))
             && (this.getSupervisorId() == null ? other.getSupervisorId() == null : this.getSupervisorId().equals(other.getSupervisorId()))
@@ -114,7 +115,7 @@ public class Information implements Serializable {
         result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getCommunity() == null) ? 0 : getCommunity().hashCode());
         result = prime * result + ((getPollutionLevel() == null) ? 0 : getPollutionLevel().hashCode());
-        result = prime * result + ((getData() == null) ? 0 : getData().hashCode());
+        result = prime * result + ((getDate() == null) ? 0 : getDate().hashCode());
         result = prime * result + ((getTime() == null) ? 0 : getTime().hashCode());
         result = prime * result + ((getState() == null) ? 0 : getState().hashCode());
         result = prime * result + ((getSupervisorId() == null) ? 0 : getSupervisorId().hashCode());
@@ -135,7 +136,7 @@ public class Information implements Serializable {
         sb.append(", city=").append(city);
         sb.append(", community=").append(community);
         sb.append(", pollutionLevel=").append(pollutionLevel);
-        sb.append(", data=").append(data);
+        sb.append(", date=").append(date);
         sb.append(", time=").append(time);
         sb.append(", state=").append(state);
         sb.append(", supervisorId=").append(supervisorId);

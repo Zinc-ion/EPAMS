@@ -27,7 +27,7 @@ public class InformationApplicationTests {
         information.setCity("武汉市");
         information.setCommunity("洪山区");
         information.setPollutionLevel("2");
-        information.setData(java.sql.Date.valueOf("2024-06-06"));
+        information.setDate(java.sql.Date.valueOf("2024-06-06"));
         information.setTime(java.sql.Time.valueOf("15:57:11"));
         information.setState(0);
         information.setSupervisorId(-2);
@@ -52,7 +52,7 @@ public class InformationApplicationTests {
         information.setCity("武汉市");
         information.setCommunity("洪山区");
         information.setPollutionLevel("2");
-        information.setData(java.sql.Date.valueOf("2024-06-06"));
+        information.setDate(java.sql.Date.valueOf("2024-06-06"));
         information.setTime(java.sql.Time.valueOf("15:57:11"));
         information.setState(0);
         information.setSupervisorId(-2);

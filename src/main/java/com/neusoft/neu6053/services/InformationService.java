@@ -3,6 +3,7 @@ package com.neusoft.neu6053.services;
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.neusoft.neu6053.dao.entity.Information;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.neusoft.neu6053.dao.entity.Supervisor;
 
 import java.util.List;
 
@@ -47,5 +48,15 @@ public interface InformationService extends IService<Information> {
      * @return List<Information>
      */
     List<Information> getAllInformations(Integer curPage, Integer pageSize);
+
+
+    /**
+     * 多条件查询，条件包括省、市、预估污染等级、反馈日期、是否指派
+     * @param curPage
+     * @param pageSize
+     * @param information
+     * @return List<Information>
+     */
+    List<Information> selectInformationByParams(Integer curPage, Integer pageSize, Information information);
 
 }

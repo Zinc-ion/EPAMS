@@ -1,5 +1,6 @@
 package com.neusoft.neu6053.services.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.neusoft.neu6053.dao.entity.Confirmation;
@@ -68,7 +69,30 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     public List<Information> getAllInformations(Integer curPage, Integer pageSize) {
         Page<Information> page = new Page<>(curPage, pageSize);
         return informationMapper.selectPage(page, null).getRecords();
-}
+    }
+
+    @Override
+    public List<Information> selectInformationByParams(Integer curPage, Integer pageSize, Information information) {
+        Page<Information> page = new Page<>(curPage, pageSize);
+        QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
+        if(information.getProvince() != null) {
+            queryWrapper.eq("province", information.getProvince());
+        }
+        if(information.getCity() != null) {
+            queryWrapper.eq("city", information.getCity());
+        }
+        if(information.getPollutionLevel() != null) {
+            queryWrapper.like("pollution_level", information.getPollutionLevel());
+        }
+        if(information.getDate() != null) {
+            queryWrapper.eq("data", information.getDate());
+        }
+        if(information.getState() != null) {
+            queryWrapper.eq("state", information.getState());
+        }
+
+        return informationMapper.selectPage(page, queryWrapper).getRecords();
+    }
 
 }
 

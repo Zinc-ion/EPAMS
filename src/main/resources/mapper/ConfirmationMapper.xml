@@ -16,7 +16,7 @@
             <result property="so2" column="SO2" jdbcType="DOUBLE"/>
             <result property="co" column="CO" jdbcType="DOUBLE"/>
             <result property="pm25" column="PM25" jdbcType="DOUBLE"/>
-            <result property="data" column="data" jdbcType="DATE"/>
+            <result property="date" column="date" jdbcType="DATE"/>
             <result property="time" column="time" jdbcType="TIME"/>
     </resultMap>
 
@@ -24,7 +24,7 @@
         conf_id,information_id,inspector_name,
         supervisor_name,province,city,
         community,pollution_level,SO2,
-        CO,PM25,data,
+        CO,PM25,date,
         time
     </sql>
 </mapper>

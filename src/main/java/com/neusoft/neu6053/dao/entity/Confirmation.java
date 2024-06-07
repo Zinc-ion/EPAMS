@@ -74,7 +74,7 @@ public class Confirmation implements Serializable {
     /**
      * 确认日期
      */
-    private Date data;
+    private Date date;
 
     /**
      * 确认时间
@@ -107,7 +107,7 @@ public class Confirmation implements Serializable {
             && (this.getSo2() == null ? other.getSo2() == null : this.getSo2().equals(other.getSo2()))
             && (this.getCo() == null ? other.getCo() == null : this.getCo().equals(other.getCo()))
             && (this.getPm25() == null ? other.getPm25() == null : this.getPm25().equals(other.getPm25()))
-            && (this.getData() == null ? other.getData() == null : this.getData().equals(other.getData()))
+            && (this.getDate() == null ? other.getDate() == null : this.getDate().equals(other.getDate()))
             && (this.getTime() == null ? other.getTime() == null : this.getTime().equals(other.getTime()));
     }
 
@@ -126,7 +126,7 @@ public class Confirmation implements Serializable {
         result = prime * result + ((getSo2() == null) ? 0 : getSo2().hashCode());
         result = prime * result + ((getCo() == null) ? 0 : getCo().hashCode());
         result = prime * result + ((getPm25() == null) ? 0 : getPm25().hashCode());
-        result = prime * result + ((getData() == null) ? 0 : getData().hashCode());
+        result = prime * result + ((getDate() == null) ? 0 : getDate().hashCode());
         result = prime * result + ((getTime() == null) ? 0 : getTime().hashCode());
         return result;
     }
@@ -148,7 +148,7 @@ public class Confirmation implements Serializable {
         sb.append(", so2=").append(so2);
         sb.append(", co=").append(co);
         sb.append(", pm25=").append(pm25);
-        sb.append(", data=").append(data);
+        sb.append(", date=").append(date);
         sb.append(", time=").append(time);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

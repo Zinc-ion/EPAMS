@@ -995,3 +995,243 @@ deleted )  VALUES  ( ?,
 [2024-06-07 10:16:11] DEBUG 136 statementLog - {conn-10005, pstmt-20008} closed
 [2024-06-07 10:16:11] DEBUG 136 statementLog - {conn-10005, pstmt-20009} closed
 [2024-06-07 10:16:11] DEBUG 136 statementLog - {conn-10005, pstmt-20010} closed
+[2024-06-07 10:32:34] DEBUG 136 statementLog - {conn-10001, stmt-20000} created
+[2024-06-07 10:32:34] DEBUG 136 statementLog - {conn-10001, stmt-20000, rs-50000} query executed. 171.5629 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:34] DEBUG 136 statementLog - {conn-10001, stmt-20000} closed
+[2024-06-07 10:32:34] DEBUG 136 statementLog - {conn-10002, stmt-20001} created
+[2024-06-07 10:32:34] DEBUG 136 statementLog - {conn-10002, stmt-20001, rs-50001} query executed. 29.8704 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:34] DEBUG 136 statementLog - {conn-10002, stmt-20001} closed
+[2024-06-07 10:32:35] DEBUG 136 statementLog - {conn-10003, stmt-20002} created
+[2024-06-07 10:32:35] DEBUG 136 statementLog - {conn-10003, stmt-20002, rs-50002} query executed. 30.7813 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:35] DEBUG 136 statementLog - {conn-10003, stmt-20002} closed
+[2024-06-07 10:32:35] DEBUG 136 statementLog - {conn-10004, stmt-20003} created
+[2024-06-07 10:32:35] DEBUG 136 statementLog - {conn-10004, stmt-20003, rs-50003} query executed. 32.9696 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:35] DEBUG 136 statementLog - {conn-10004, stmt-20003} closed
+[2024-06-07 10:32:35] DEBUG 136 statementLog - {conn-10005, stmt-20004} created
+[2024-06-07 10:32:35] DEBUG 136 statementLog - {conn-10005, stmt-20004, rs-50004} query executed. 33.3323 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:35] DEBUG 136 statementLog - {conn-10005, stmt-20004} closed
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} created. UPDATE information  SET province=?,
+city=?,
+community=?,
+pollution_level=?,
+date=?,
+time=?,
+state=?,
+supervisor_id=?,
+inspector_id=?,
+feedback=?,
+deleted=?  WHERE information_id=?
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Parameters : [湖北省, 武汉市, 洪山区, 2, 2024-06-06, 15:57:11, 0, -2, -2, 无, 0, 3]
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Types : [VARCHAR, VARCHAR, VARCHAR, VARCHAR, DATE, TIME, INTEGER, INTEGER, INTEGER, VARCHAR, INTEGER, INTEGER]
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} executed. 75.3942 millis. UPDATE information  SET province=?,
+city=?,
+community=?,
+pollution_level=?,
+date=?,
+time=?,
+state=?,
+supervisor_id=?,
+inspector_id=?,
+feedback=?,
+deleted=?  WHERE information_id=?
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} clearParameters. 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, stmt-20005} clearBatch. 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20006} created. SELECT COUNT(*) AS total FROM information
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Parameters : []
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Types : []
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20006} executed. 36.7371 millis. SELECT COUNT(*) AS total FROM information
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20006} clearParameters. 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, stmt-20006} clearBatch. 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20007} created. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Parameters : [10]
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Types : [BIGINT]
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20007} executed. 33.7215 millis. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20007} clearParameters. 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, stmt-20007} clearBatch. 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20008} created. SELECT information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted FROM information WHERE information_id=? 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20008} Parameters : [3]
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20008} Types : [INTEGER]
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20008} executed. 31.0634 millis. SELECT information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted FROM information WHERE information_id=? 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20008} clearParameters. 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, stmt-20008} clearBatch. 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20009} created. DELETE FROM information WHERE information_id=?
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20009} Parameters : [3]
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20009} Types : [INTEGER]
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20009} executed. 69.5986 millis. DELETE FROM information WHERE information_id=?
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, pstmt-20009} clearParameters. 
+[2024-06-07 10:32:36] DEBUG 136 statementLog - {conn-10005, stmt-20009} clearBatch. 
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20010} created. INSERT INTO information  ( province,
+city,
+community,
+pollution_level,
+date,
+time,
+state,
+supervisor_id,
+inspector_id,
+feedback,
+deleted )  VALUES  ( ?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+? )
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20010} Parameters : [湖北省, 武汉市, 洪山区, 2, 2024-06-06 00:00:00.0, 1970-01-01 15:57:11.0, 0, -2, -2, 无, 0]
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20010} Types : [VARCHAR, VARCHAR, VARCHAR, VARCHAR, TIMESTAMP, TIMESTAMP, INTEGER, INTEGER, INTEGER, VARCHAR, INTEGER]
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20010} executed. 67.2509 millis. INSERT INTO information  ( province,
+city,
+community,
+pollution_level,
+date,
+time,
+state,
+supervisor_id,
+inspector_id,
+feedback,
+deleted )  VALUES  ( ?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+? )
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20010} clearParameters. 
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, stmt-20010} clearBatch. 
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20005} closed
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20006} closed
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20007} closed
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20008} closed
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20009} closed
+[2024-06-07 10:32:37] DEBUG 136 statementLog - {conn-10005, pstmt-20010} closed
+[2024-06-07 10:32:51] DEBUG 136 statementLog - {conn-10001, stmt-20000} created
+[2024-06-07 10:32:51] DEBUG 136 statementLog - {conn-10001, stmt-20000, rs-50000} query executed. 161.1351 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:51] DEBUG 136 statementLog - {conn-10001, stmt-20000} closed
+[2024-06-07 10:32:52] DEBUG 136 statementLog - {conn-10002, stmt-20001} created
+[2024-06-07 10:32:52] DEBUG 136 statementLog - {conn-10002, stmt-20001, rs-50001} query executed. 30.0014 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:52] DEBUG 136 statementLog - {conn-10002, stmt-20001} closed
+[2024-06-07 10:32:52] DEBUG 136 statementLog - {conn-10003, stmt-20002} created
+[2024-06-07 10:32:52] DEBUG 136 statementLog - {conn-10003, stmt-20002, rs-50002} query executed. 30.9921 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:52] DEBUG 136 statementLog - {conn-10003, stmt-20002} closed
+[2024-06-07 10:32:52] DEBUG 136 statementLog - {conn-10004, stmt-20003} created
+[2024-06-07 10:32:52] DEBUG 136 statementLog - {conn-10004, stmt-20003, rs-50003} query executed. 36.3037 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:52] DEBUG 136 statementLog - {conn-10004, stmt-20003} closed
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, stmt-20004} created
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, stmt-20004, rs-50004} query executed. 35.2015 millis. SELECT 1 FROM DUAL
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, stmt-20004} closed
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20005} created. SELECT conf_id,information_id,inspector_name,supervisor_name,province,city,community,pollution_level,so2,co,pm25,date,time FROM confirmation WHERE conf_id=? 
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Parameters : [1]
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Types : [INTEGER]
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20005} executed. 32.2343 millis. SELECT conf_id,information_id,inspector_name,supervisor_name,province,city,community,pollution_level,so2,co,pm25,date,time FROM confirmation WHERE conf_id=? 
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20005} clearParameters. 
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, stmt-20005} clearBatch. 
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20006} created. DELETE FROM confirmation WHERE conf_id=?
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Parameters : [1]
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Types : [INTEGER]
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20006} executed. 68.6565 millis. DELETE FROM confirmation WHERE conf_id=?
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20006} clearParameters. 
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, stmt-20006} clearBatch. 
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20007} created. UPDATE confirmation  SET information_id=?,
+inspector_name=?,
+supervisor_name=?,
+province=?,
+city=?,
+community=?,
+pollution_level=?,
+so2=?,
+co=?,
+pm25=?,
+date=?,
+time=?  WHERE conf_id=?
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Parameters : [-2, 张三, 李四, 辽宁, 沈阳市, 浑南区, 2, 0.1, 3.2, 0.1, 2024-06-06, 15:57:14, 1]
+[2024-06-07 10:32:53] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Types : [INTEGER, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, DOUBLE, DOUBLE, DOUBLE, DATE, TIME, INTEGER]
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20007} executed. 73.0743 millis. UPDATE confirmation  SET information_id=?,
+inspector_name=?,
+supervisor_name=?,
+province=?,
+city=?,
+community=?,
+pollution_level=?,
+so2=?,
+co=?,
+pm25=?,
+date=?,
+time=?  WHERE conf_id=?
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20007} clearParameters. 
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, stmt-20007} clearBatch. 
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20008} created. INSERT INTO confirmation  ( information_id,
+inspector_name,
+supervisor_name,
+province,
+city,
+community,
+pollution_level,
+so2,
+co,
+pm25,
+date,
+time )  VALUES  ( ?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+? )
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20008} Parameters : [-2, 张三, 李四, 辽宁, 沈阳市, 浑南区, 2, 0.1, 3.2, 0.1, 2024-06-06 00:00:00.0, 1970-01-01 15:57:14.0]
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20008} Types : [INTEGER, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, DOUBLE, DOUBLE, DOUBLE, TIMESTAMP, TIMESTAMP]
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20008} executed. 72.0761 millis. INSERT INTO confirmation  ( information_id,
+inspector_name,
+supervisor_name,
+province,
+city,
+community,
+pollution_level,
+so2,
+co,
+pm25,
+date,
+time )  VALUES  ( ?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+? )
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20008} clearParameters. 
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, stmt-20008} clearBatch. 
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20009} created. SELECT COUNT(*) AS total FROM confirmation
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20009} Parameters : []
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20009} Types : []
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20009} executed. 31.5945 millis. SELECT COUNT(*) AS total FROM confirmation
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20009} clearParameters. 
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, stmt-20009} clearBatch. 
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20010} created. SELECT  conf_id,information_id,inspector_name,supervisor_name,province,city,community,pollution_level,so2,co,pm25,date,time  FROM confirmation LIMIT ?
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20010} Parameters : [10]
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20010} Types : [BIGINT]
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20010} executed. 33.357 millis. SELECT  conf_id,information_id,inspector_name,supervisor_name,province,city,community,pollution_level,so2,co,pm25,date,time  FROM confirmation LIMIT ?
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20010} clearParameters. 
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, stmt-20010} clearBatch. 
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20005} closed
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20006} closed
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20007} closed
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20008} closed
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20009} closed
+[2024-06-07 10:32:54] DEBUG 136 statementLog - {conn-10005, pstmt-20010} closed

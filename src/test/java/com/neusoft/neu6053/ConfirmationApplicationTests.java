@@ -34,7 +34,7 @@ public class ConfirmationApplicationTests {
         confirmation.setSo2(0.1);
         confirmation.setCo(3.2);
         confirmation.setPm25(0.1);
-        confirmation.setData(java.sql.Date.valueOf("2024-06-06"));
+        confirmation.setDate(java.sql.Date.valueOf("2024-06-06"));
         confirmation.setTime(java.sql.Time.valueOf("15:57:14"));
         assert confirmationService.addConfirmation(confirmation) == 1;
 
@@ -61,7 +61,7 @@ public class ConfirmationApplicationTests {
         confirmation.setSo2(0.1);
         confirmation.setCo(3.2);
         confirmation.setPm25(0.1);
-        confirmation.setData(java.sql.Date.valueOf("2024-06-06"));
+        confirmation.setDate(java.sql.Date.valueOf("2024-06-06"));
         confirmation.setTime(java.sql.Time.valueOf("15:57:14"));
         assert confirmationService.updateConfirmation(confirmation) == 1;
     }
