@@ -3,6 +3,7 @@ package com.neusoft.neu6053;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.neusoft.neu6053.services.ConfirmationService;
+import com.neusoft.neu6053.utils.TimeUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,20 +24,26 @@ public class ConfirmationApplicationTests {
     }
 
     @Test
+    void testTimeUtil() {
+        System.out.println(TimeUtil.getCurrentSqlDate());
+        System.out.println(TimeUtil.getCurrentSqlTime());
+    }
+
+    @Test
     public void testAddConfirmation() {
         Confirmation confirmation = new Confirmation();
         confirmation.setInformationId(-2);
         confirmation.setInspectorName("张三");
         confirmation.setSupervisorName("李四");
-        confirmation.setProvince("辽宁");
-        confirmation.setCity("沈阳市");
-        confirmation.setCommunity("浑南区");
+        confirmation.setProvince("海南省");
+        confirmation.setCity("三亚市");
+        confirmation.setCommunity("海棠区");
         confirmation.setPollutionLevel("2");
         confirmation.setSo2(0.1);
         confirmation.setCo(3.2);
         confirmation.setPm25(0.1);
-        confirmation.setDate(java.sql.Date.valueOf("2024-06-06"));
-        confirmation.setTime(java.sql.Time.valueOf("15:57:14"));
+        confirmation.setDate(TimeUtil.getCurrentSqlDate());
+        confirmation.setTime(TimeUtil.getCurrentSqlTime());
         assert confirmationService.addConfirmation(confirmation) == 1;
 
     }

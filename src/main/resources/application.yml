@@ -7,7 +7,8 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://60.205.0.18:3310/EPAMS?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://60.205.0.18:3310/EPAMS?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    #    serverTimezone记得从UTC修改为GMT%2B8 北京时间东八区 不然会差8小时，同时不能改成CCT，会连不上数据库
     username: root
     password: neu6053
     driver-class-name: com.mysql.cj.jdbc.Driver
