@@ -4,6 +4,7 @@ import com.neusoft.neu6053.dao.entity.Admin;
 import com.neusoft.neu6053.services.AdminService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
+import com.neusoft.neu6053.utils.RoleUtil;
 import com.neusoft.neu6053.utils.UUIDUtil;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -35,14 +36,15 @@ public class AdminController {
         if (isLogin != null) {
             //生成token
             String token = UUIDUtil.getOneUUID();
-            //保存token,key为token,value为AdminId,有效期为1个小时
-            redisUtils.set(token, isLogin.getAdminId(), 1, TimeUnit.HOURS);
+            //保存token,key为token,value为AdminId,有效期为1个小时 value加上前缀admin用于区分角色
+            redisUtils.set(token, RoleUtil.ADMIN + isLogin.getAdminId(), 1, TimeUnit.HOURS);
+            //返回值
             Map<String, Object> map = new HashMap<>();
             map.put("token", token);
-            map.put("admin", isLogin);
+            map.put(RoleUtil.ADMIN, isLogin);
             return HttpResponseEntity.success(map);
         } else {
-            return HttpResponseEntity.failure("Invalid admin code or password");
+            return HttpResponseEntity.failure("管理员账户或密码错误");
         }
     }
 

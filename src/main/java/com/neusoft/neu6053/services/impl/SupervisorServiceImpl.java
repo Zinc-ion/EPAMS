@@ -27,6 +27,20 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
      */
     private final SupervisorMapper supervisorMapper;
 
+
+    /**
+     * 监督员登录
+     * @param supervisor
+     * @return Supervisor
+     */
+    @Override
+    public Supervisor loginSupervisor(Supervisor supervisor) {
+        QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("tel_id", supervisor.getTelId());
+        queryWrapper.eq("password", supervisor.getPassword());
+        return supervisorMapper.selectOne(queryWrapper);
+    }
+
     /**
      * 添加监督员信息
      * @param supervisor

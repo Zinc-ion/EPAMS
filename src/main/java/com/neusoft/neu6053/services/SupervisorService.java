@@ -13,6 +13,13 @@ import java.util.List;
 public interface SupervisorService extends IService<Supervisor> {
 
     /**
+     * 监督员登录
+     * @param supervisor
+     * @return Supervisor
+     */
+    Supervisor loginSupervisor(Supervisor supervisor);
+
+    /**
      * 添加监督员信息
      * @param supervisor
      * @return int
