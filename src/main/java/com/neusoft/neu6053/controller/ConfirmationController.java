@@ -1,6 +1,7 @@
 package com.neusoft.neu6053.controller;
 
 import com.neusoft.neu6053.dao.entity.Confirmation;
+import com.neusoft.neu6053.dao.viewObject.ProvinceGropConfListVO;
 import com.neusoft.neu6053.dao.viewObject.ProvinceGropConfVO;
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
@@ -18,8 +19,6 @@ import java.util.List;
 @Tag(name = "ConfirmationControllerAPI", description = "AQI确认信息相关接口")
 public class ConfirmationController {
     private final ConfirmationService confirmationService;
-
-    private static List<ProvinceGropConfVO> provinceGropConfVOList = new ArrayList<>();
 
 
     @Operation(
@@ -108,16 +107,29 @@ public class ConfirmationController {
             summary = "AQI确认信息省分组分项查询接口",
             description = "根据省份分组AQI确认信息,返回各省各指数超标累计值，pageSize为-1时不分页"
     )
-    @PostMapping("/select/selectProvinceGroup")
-    public HttpResponseEntity selectProvinceGroup(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Confirmation confirmation) {
+    @PostMapping("/select/selectProvinceGroupValue")
+    public HttpResponseEntity selectProvinceGroupValue() {
         List<Confirmation> confirmations = confirmationService.getAllConfirmations(0,-1);
-        List<ProvinceGropConfVO> provinceGropConfVOS = new ArrayList<>();
+        List<ProvinceGropConfVO> provinceGropConfVOList = ProvinceGropConfListVO.getProvinceGropConfVOList();
         for(Confirmation c:confirmations){
-
-
+            for (ProvinceGropConfVO p : provinceGropConfVOList) {
+                if (c.getProvince().equals(p.getProvinceName())) {
+                    if (c.getSo2() >= 50) {
+                        p.setSo2(p.getSo2() + 1);
+                    }
+                    if (c.getCo() >= 4) {
+                        p.setCo(p.getCo() + 1);
+                    }
+                    if (c.getPm25() >= 35) {
+                        p.setPm25(p.getPm25() + 1);
+                    }
+                    if (Integer.parseInt(c.getPollutionLevel()) >= 3) {
+                        p.setAqi(p.getAqi() + 1);
+                    }
+                }
+            }
         }
-
-        return new HttpResponseEntity();
+        return HttpResponseEntity.success(provinceGropConfVOList);
     }
 
 

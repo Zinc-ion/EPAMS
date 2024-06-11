@@ -2,6 +2,7 @@ package com.neusoft.neu6053.dao.viewObject;
 
 public class ProvinceGropConfVO {
     private int provinceId;
+
     private String provinceName;
 
     private int so2;
