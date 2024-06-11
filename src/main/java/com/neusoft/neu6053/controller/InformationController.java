@@ -3,6 +3,7 @@ package com.neusoft.neu6053.controller;
 import com.neusoft.neu6053.dao.entity.Information;
 import com.neusoft.neu6053.services.InformationService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.*;
 public class InformationController {
     private final InformationService informationService;
 
+    @Operation(
+            summary = "AQI反馈信息新增接口",
+            description = "新增AQI反馈信息，返回反馈信息对象"
+    )
     @PostMapping("/add")
     public HttpResponseEntity addInformation(@RequestBody Information information) {
         if (informationService.addInformation(information) == 1) {
@@ -23,6 +28,10 @@ public class InformationController {
         }
     }
 
+    @Operation(
+            summary = "AQI反馈信息删除接口",
+            description = "根据information_id删除AQI反馈信息，返回删除的反馈信息对象"
+    )
     @PostMapping("/delete/deleteById")
     public HttpResponseEntity deleteInformation(@RequestBody Information information) {
         if (informationService.deleteInformation(information) == 1) {
@@ -32,6 +41,10 @@ public class InformationController {
         }
     }
 
+    @Operation(
+            summary = "AQI反馈信息批量删除接口",
+            description = "根据information_id数组批量删除AQI反馈信息，返回提示信息"
+    )
     //批量删除
     @PostMapping("/delete/deleteByIdGroup")
     public HttpResponseEntity deleteInformationByIdGroup(@RequestBody int[] IdGroup) {
@@ -42,6 +55,10 @@ public class InformationController {
         }
     }
 
+    @Operation(
+            summary = "AQI反馈信息修改接口",
+            description = "根据information_id修改AQI反馈信息，返回修改后的反馈信息对象"
+    )
     @PostMapping("/modify")
     public HttpResponseEntity modifyInformation(@RequestBody Information information) {
         if (informationService.updateInformation(information) == 1) {
@@ -51,17 +68,29 @@ public class InformationController {
         }
     }
 
+    @Operation(
+            summary = "AQI反馈信息查询接口",
+            description = "分页查询AQI反馈信息，返回反馈信息列表"
+    )
     @PostMapping("/select/selectAll")
     public HttpResponseEntity selectAllInformation(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
         return HttpResponseEntity.success(informationService.getAllInformations(curPage, pageSize));
     }
 
+    @Operation(
+            summary = "AQI反馈信息根据Id查询接口",
+            description = "根据information_id查询AQI反馈信息，返回反馈信息对象"
+    )
     @PostMapping("/select/selectById")
     public HttpResponseEntity selectInformationById(@RequestBody Information information) {
         return HttpResponseEntity.success(informationService.getInformationById(information));
     }
 
 
+    @Operation(
+            summary = "AQI反馈信息多条件查询接口",
+            description = "多条件查询，条件包括省(模糊)、市(模糊)、预估污染等级、反馈日期、是否指派，返回AQI反馈信息对象"
+    )
     //    多条件查询，条件包括省(模糊)、市(模糊)、预估污染等级、反馈日期、是否指派
     @PostMapping("/select/selectByParams")
     public HttpResponseEntity selectInformationByParams(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Information information) {

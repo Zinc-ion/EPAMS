@@ -6,6 +6,11 @@ import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
 import com.neusoft.neu6053.utils.RoleUtil;
 import com.neusoft.neu6053.utils.UUIDUtil;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
@@ -30,6 +35,10 @@ public class AdminController {
     private final AdminService adminService;
     private final RedisUtils redisUtils;
 
+    @Operation(
+            summary = "admin登录接口",
+            description = "根据adminCode和password登录admin账户，返回admin信息与登录token"
+    )
     @PostMapping("/login")
     public HttpResponseEntity login(@RequestBody Admin admin) {
         Admin isLogin = adminService.loginAdmin(admin);
@@ -48,6 +57,10 @@ public class AdminController {
         }
     }
 
+    @Operation(
+            summary = "admin登出接口",
+            description = "根据请求头中token信息识别admin并登出，删除redis中的token信息"
+    )
     @GetMapping(value = "/logout")
     @ResponseBody
     public HttpResponseEntity logout(HttpServletRequest request) {
@@ -57,6 +70,11 @@ public class AdminController {
         return HttpResponseEntity.success("退出成功");
     }
 
+
+    @Operation(
+            summary = "admin注册接口",
+            description = "注册admin，adminCode唯一，返回注册的admin信息"
+    )
     @PostMapping("/add")
     public HttpResponseEntity addAdmin(@RequestBody Admin admin) {
         if(adminService.selectAdminByCode(admin) != null) {                 //查询账户名是否重复

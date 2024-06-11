@@ -1230,3 +1230,56 @@ deleted )  VALUES  ( ?,
 [2024-06-11 11:42:51] DEBUG 136 statementLog - {conn-10005, pstmt-20008} closed
 [2024-06-11 11:42:51] DEBUG 136 statementLog - {conn-10005, pstmt-20009} closed
 [2024-06-11 11:42:51] DEBUG 136 statementLog - {conn-10005, pstmt-20011} closed
+[2024-06-11 11:45:15] DEBUG 136 statementLog - {conn-10001, stmt-20000} created
+[2024-06-11 11:45:15] DEBUG 136 statementLog - {conn-10001, stmt-20000, rs-50000} query executed. 125.6858 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:45:15] DEBUG 136 statementLog - {conn-10001, stmt-20000} closed
+[2024-06-11 11:45:16] DEBUG 136 statementLog - {conn-10002, stmt-20001} created
+[2024-06-11 11:45:16] DEBUG 136 statementLog - {conn-10002, stmt-20001, rs-50001} query executed. 31.7177 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:45:16] DEBUG 136 statementLog - {conn-10002, stmt-20001} closed
+[2024-06-11 11:45:16] DEBUG 136 statementLog - {conn-10003, stmt-20002} created
+[2024-06-11 11:45:16] DEBUG 136 statementLog - {conn-10003, stmt-20002, rs-50002} query executed. 30.3084 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:45:16] DEBUG 136 statementLog - {conn-10003, stmt-20002} closed
+[2024-06-11 11:45:16] DEBUG 136 statementLog - {conn-10004, stmt-20003} created
+[2024-06-11 11:45:16] DEBUG 136 statementLog - {conn-10004, stmt-20003, rs-50003} query executed. 30.337 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:45:16] DEBUG 136 statementLog - {conn-10004, stmt-20003} closed
+[2024-06-11 11:45:17] DEBUG 136 statementLog - {conn-10005, stmt-20004} created
+[2024-06-11 11:45:17] DEBUG 136 statementLog - {conn-10005, stmt-20004, rs-50004} query executed. 29.9034 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:45:17] DEBUG 136 statementLog - {conn-10005, stmt-20004} closed
+[2024-06-11 11:45:17] DEBUG 136 statementLog - {conn-10005, pstmt-20005} created. SELECT  admin_id,admin_code,password,remarks  FROM admins 
+ 
+ WHERE (admin_code = ? AND password = ?)
+[2024-06-11 11:45:17] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Parameters : [string, string]
+[2024-06-11 11:45:17] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Types : [VARCHAR, VARCHAR]
+[2024-06-11 11:45:17] DEBUG 136 statementLog - {conn-10005, pstmt-20005} executed. 28.158 millis. SELECT  admin_id,admin_code,password,remarks  FROM admins 
+ 
+ WHERE (admin_code = ? AND password = ?)
+[2024-06-11 11:45:17] DEBUG 136 statementLog - {conn-10005, pstmt-20005} clearParameters. 
+[2024-06-11 11:45:17] DEBUG 136 statementLog - {conn-10005, stmt-20005} clearBatch. 
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20006} created. SELECT COUNT(*) AS total FROM information
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Parameters : []
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Types : []
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20006} executed. 31.0965 millis. SELECT COUNT(*) AS total FROM information
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20006} clearParameters. 
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, stmt-20006} clearBatch. 
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20007} created. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Parameters : [5]
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Types : [BIGINT]
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20007} executed. 29.9029 millis. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, pstmt-20007} clearParameters. 
+[2024-06-11 11:45:34] DEBUG 136 statementLog - {conn-10005, stmt-20007} clearBatch. 
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, stmt-20008} created
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, stmt-20008, rs-50008} query executed. 30.8618 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, stmt-20008} closed
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Parameters : []
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Types : []
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, pstmt-20006} executed. 39.7553 millis. SELECT COUNT(*) AS total FROM information
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, pstmt-20006} clearParameters. 
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, stmt-20006} clearBatch. 
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Parameters : [5]
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Types : [BIGINT]
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, pstmt-20007} executed. 27.3572 millis. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, pstmt-20007} clearParameters. 
+[2024-06-11 11:47:43] DEBUG 136 statementLog - {conn-10005, stmt-20007} clearBatch. 
+[2024-06-11 11:54:00] DEBUG 136 statementLog - {conn-10005, pstmt-20005} closed
+[2024-06-11 11:54:00] DEBUG 136 statementLog - {conn-10005, pstmt-20006} closed
+[2024-06-11 11:54:00] DEBUG 136 statementLog - {conn-10005, pstmt-20007} closed

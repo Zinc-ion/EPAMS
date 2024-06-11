@@ -8,6 +8,7 @@ import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
 import com.neusoft.neu6053.utils.RoleUtil;
 import com.neusoft.neu6053.utils.UUIDUtil;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,10 @@ public class InspectorController {
     private final InspectorService inspectorService;
     private final RedisUtils redisUtils;
 
+    @Operation(
+            summary = "inspector登录接口",
+            description = "根据telId和password登录inspector账户，返回inspector信息与登录token"
+    )
     @PostMapping("/login")
     public HttpResponseEntity login(@RequestBody Inspector inspector) {
         Inspector isLogin = inspectorService.loginInspector(inspector);
@@ -43,6 +48,10 @@ public class InspectorController {
         }
     }
 
+    @Operation(
+            summary = "inspector退出接口",
+            description = "根据请求头中token识别对应网格员，删除redis中的token"
+    )
     @GetMapping(value = "/logout")
     @ResponseBody
     public HttpResponseEntity logout(HttpServletRequest request) {
@@ -53,6 +62,10 @@ public class InspectorController {
     }
 
 
+    @Operation(
+            summary = "inspector注册接口",
+            description = "注册inspector账户，返回inspector对象"
+    )
     @PostMapping("/add")
     public HttpResponseEntity addInspector(@RequestBody Inspector inspector) {
         if (inspectorService.saveInspector(inspector) == 1) {
@@ -62,17 +75,29 @@ public class InspectorController {
         }
     }
 
+    @Operation(
+            summary = "inspector查询接口",
+            description = "根据tel_id查询inspector账户，返回inspector对象"
+    )
     @PostMapping("/select/selectByTel")
     public HttpResponseEntity selectInspectorByTel(@RequestBody Inspector inspector) {
         return HttpResponseEntity.success(inspectorService.selectInspectorByTel(inspector));
     }
 
 
+    @Operation(
+            summary = "inspector条件查询接口",
+            description = "根据省份和城市查询inspector账户，返回inspector对象"
+    )
     @PostMapping("/select/selectByProvinceAndCity")
     public HttpResponseEntity selectInspectorByProvinceAndCity(@RequestBody Inspector inspector) {
         return HttpResponseEntity.success(inspectorService.selectInspectorByProvinceAndCity(inspector));
     }
 
+    @Operation(
+            summary = "inspector删除接口",
+            description = "根据tel_id删除inspector账户，返回删除的inspector对象"
+    )
     @PostMapping("/delete/deleteById")
     public HttpResponseEntity deleteInspectorById(@RequestBody Inspector inspector) {
         if (inspectorService.deleteInspectorByTel(inspector) == 1) {
@@ -82,6 +107,10 @@ public class InspectorController {
         }
     }
 
+    @Operation(
+            summary = "inspector批量删除接口",
+            description = "根据tel_id数组批量删除inspector账户，返回提示信息"
+    )
     //批量删除
     @PostMapping("/delete/deleteByIdGroup")
     public HttpResponseEntity deleteInspectorByIdGroup(@RequestBody String[] telId) {
@@ -93,6 +122,10 @@ public class InspectorController {
     }
 
 
+    @Operation(
+            summary = "inspector修改接口",
+            description = "根据tel_id修改inspector账户，返回修改后的inspector对象"
+    )
     @PostMapping("/modify")
     public HttpResponseEntity modifyInspector(@RequestBody Inspector inspector) {
         if (inspectorService.modifyInspector(inspector) == 1) {
@@ -101,10 +134,6 @@ public class InspectorController {
             return HttpResponseEntity.failure("修改网格员信息失败，请检查tel_id");
         }
     }
-
-
-
-
 
 
     

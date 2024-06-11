@@ -7,6 +7,7 @@ import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
 import com.neusoft.neu6053.utils.RoleUtil;
 import com.neusoft.neu6053.utils.UUIDUtil;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,10 @@ public class SupervisorController {
     private final RedisUtils redisUtils;
 
 
+    @Operation(
+            summary = "supervisor登录接口",
+            description = "根据telId和password登录supervisor账户，返回supervisor信息与登录token"
+    )
     @PostMapping("/login")
     public HttpResponseEntity login(@RequestBody Supervisor supervisor) {
         Supervisor isLogin = supervisorService.loginSupervisor(supervisor);
@@ -47,6 +52,11 @@ public class SupervisorController {
         }
     }
 
+
+    @Operation(
+            summary = "supervisor退出接口",
+            description = "根据请求头中token识别对应监督员，删除redis中的token"
+    )
     @GetMapping(value = "/logout")
     public HttpResponseEntity logout(HttpServletRequest request) {
         String token = request.getHeader("token");
@@ -56,8 +66,10 @@ public class SupervisorController {
     }
 
 
-
-
+    @Operation(
+            summary = "supervisor注册接口",
+            description = "注册supervisor账户，返回supervisor对象"
+    )
     @PostMapping("/add")
     public HttpResponseEntity addSupervisor(@RequestBody Supervisor supervisor) {
         if (supervisorService.addSupervisor(supervisor) == 1) {
@@ -67,6 +79,10 @@ public class SupervisorController {
         }
     }
 
+    @Operation(
+            summary = "supervisor删除接口",
+            description = "根据tel_id删除supervisor账户，返回删除的supervisor对象"
+    )
     @PostMapping("/delete/deleteById")
     public HttpResponseEntity deleteSupervisorById(@RequestBody Supervisor supervisor) {
         if (supervisorService.deleteSupervisorById(supervisor) == 1) {
@@ -76,6 +92,10 @@ public class SupervisorController {
         }
     }
 
+    @Operation(
+            summary = "supervisor批量删除接口",
+            description = "根据tel_id数组批量删除supervisor账户，返回提示信息"
+    )
     //批量删除
     @PostMapping("/delete/deleteByIdGroup")
     public HttpResponseEntity deleteSupervisorByIdGroup(@RequestBody String[] telId) {
@@ -86,6 +106,10 @@ public class SupervisorController {
         }
     }
 
+    @Operation(
+            summary = "supervisor修改接口",
+            description = "根据tel_id修改supervisor账户，返回修改后的supervisor对象"
+    )
     @PostMapping("/modify")
     public HttpResponseEntity modifySupervisor(@RequestBody Supervisor supervisor) {
         if (supervisorService.modifySupervisor(supervisor) == 1) {
@@ -95,17 +119,29 @@ public class SupervisorController {
         }
     }
 
+    @Operation(
+            summary = "supervisor查询接口",
+            description = "分页查询所有supervisor账户，返回supervisor列表"
+    )
     @PostMapping("/select/selectAll")
     public HttpResponseEntity selectAllSupervisor(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
         return HttpResponseEntity.success(supervisorService.selectAllSupervisor(curPage, pageSize));
     }
 
+    @Operation(
+            summary = "supervisor根据Id查询接口",
+            description = "根据tel_id查询supervisor账户，返回supervisor对象"
+    )
     @PostMapping("/select/selectByTel")
     public HttpResponseEntity selectSupervisorByTel(@RequestBody Supervisor supervisor) {
         return HttpResponseEntity.success(supervisorService.selectSupervisorByTel(supervisor));
     }
 
 
+    @Operation(
+            summary = "supervisor条件查询接口",
+            description = "多条件查询，条件包括性别、手机号、姓名（模糊查询）查询supervisor账户，返回supervisor对象"
+    )
     //    多条件查询，条件包括性别、手机号、姓名（模糊查询）
     @PostMapping("/select/selectByParams")
     public HttpResponseEntity selectSupervisorByParams(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Supervisor supervisor) {
