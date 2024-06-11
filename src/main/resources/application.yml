@@ -48,19 +48,26 @@ spring:
     database: 0
     timeout: 5000 #超时时间
 
-    lettuce:
+    jedis:
       pool:
-        MaxTotal: 50 #最大连接数
-        minIdle: 1
-        maxWaitMillis: 5000
-        maxIdle: 5
-        testOnBorrow: true
-        testOnReturn: true
-        testWhileIdle: true
-      cluster:   # 解决redis 240秒超时问题
-        refresh:
-          adaptive: true
-          period: 20
+        max-idle: 6
+        max-active: 32
+        max-wait: 100
+        min-idle: 4
+
+#    lettuce:
+#      pool:
+#        MaxTotal: 50 #最大连接数
+#        minIdle: 1
+#        maxWaitMillis: 5000
+#        maxIdle: 5
+#        testOnBorrow: true
+#        testOnReturn: true
+#        testWhileIdle: true
+#      cluster:   # 解决redis 240秒超时问题
+#        refresh:
+#          adaptive: true
+#          period: 20
 
   servlet:
     multipart:

@@ -312,3 +312,921 @@
 [2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, pstmt-20005} clearParameters. 
 [2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, stmt-20005} clearBatch. 
 [2024-06-11 10:54:53] DEBUG 136 statementLog - {conn-10005, pstmt-20005} closed
+[2024-06-11 10:56:33] DEBUG 136 statementLog - {conn-10001, stmt-20000} created
+[2024-06-11 10:56:34] DEBUG 136 statementLog - {conn-10001, stmt-20000, rs-50000} query executed. 146.9582 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:56:34] DEBUG 136 statementLog - {conn-10001, stmt-20000} closed
+[2024-06-11 10:56:34] DEBUG 136 statementLog - {conn-10002, stmt-20001} created
+[2024-06-11 10:56:34] DEBUG 136 statementLog - {conn-10002, stmt-20001, rs-50001} query executed. 36.371 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:56:34] DEBUG 136 statementLog - {conn-10002, stmt-20001} closed
+[2024-06-11 10:56:35] DEBUG 136 statementLog - {conn-10003, stmt-20002} created
+[2024-06-11 10:56:35] DEBUG 136 statementLog - {conn-10003, stmt-20002, rs-50002} query executed. 62.5573 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:56:35] DEBUG 136 statementLog - {conn-10003, stmt-20002} closed
+[2024-06-11 10:56:35] DEBUG 136 statementLog - {conn-10004, stmt-20003} created
+[2024-06-11 10:56:35] DEBUG 136 statementLog - {conn-10004, stmt-20003, rs-50003} query executed. 96.893 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:56:35] DEBUG 136 statementLog - {conn-10004, stmt-20003} closed
+[2024-06-11 10:56:36] DEBUG 136 statementLog - {conn-10005, stmt-20004} created
+[2024-06-11 10:56:36] DEBUG 136 statementLog - {conn-10005, stmt-20004, rs-50004} query executed. 31.9539 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:56:36] DEBUG 136 statementLog - {conn-10005, stmt-20004} closed
+[2024-06-11 10:56:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} created. SELECT  admin_id,admin_code,password,remarks  FROM admins 
+ 
+ WHERE (admin_code = ? AND password = ?)
+[2024-06-11 10:56:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Parameters : [string, string]
+[2024-06-11 10:56:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Types : [VARCHAR, VARCHAR]
+[2024-06-11 10:56:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} executed. 161.2498 millis. SELECT  admin_id,admin_code,password,remarks  FROM admins 
+ 
+ WHERE (admin_code = ? AND password = ?)
+[2024-06-11 10:56:36] DEBUG 136 statementLog - {conn-10005, pstmt-20005} clearParameters. 
+[2024-06-11 10:56:36] DEBUG 136 statementLog - {conn-10005, stmt-20005} clearBatch. 
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, stmt-20006} created
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, stmt-20006, rs-50006} query executed. 119.9368 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, stmt-20006} closed
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20007} created. SELECT COUNT(*) AS total FROM information
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Parameters : []
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Types : []
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20007} executed. 115.5526 millis. SELECT COUNT(*) AS total FROM information
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20007} clearParameters. 
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, stmt-20007} clearBatch. 
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20008} created. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20008} Parameters : [4]
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20008} Types : [BIGINT]
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20008} executed. 194.268 millis. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, pstmt-20008} clearParameters. 
+[2024-06-11 10:58:02] DEBUG 136 statementLog - {conn-10005, stmt-20008} clearBatch. 
+[2024-06-11 10:58:24] DEBUG 136 statementLog - {conn-10005, pstmt-20009} created. UPDATE information  SET province=?,
+city=?,
+community=?,
+pollution_level=?,
+date=?,
+time=?,
+state=?,
+supervisor_id=?,
+inspector_id=?,
+feedback=?,
+deleted=?  WHERE information_id=?
+[2024-06-11 10:58:24] DEBUG 136 statementLog - {conn-10005, pstmt-20009} Parameters : [string, string, string, string, 2024-06-11 10:58:23.135, 2024-06-11 10:58:23.135, 0, 0, 0, string, 0, 0]
+[2024-06-11 10:58:24] DEBUG 136 statementLog - {conn-10005, pstmt-20009} Types : [VARCHAR, VARCHAR, VARCHAR, VARCHAR, TIMESTAMP, TIMESTAMP, INTEGER, INTEGER, INTEGER, VARCHAR, INTEGER, INTEGER]
+[2024-06-11 10:58:24] DEBUG 136 statementLog - {conn-10005, pstmt-20009} executed. 219.4015 millis. UPDATE information  SET province=?,
+city=?,
+community=?,
+pollution_level=?,
+date=?,
+time=?,
+state=?,
+supervisor_id=?,
+inspector_id=?,
+feedback=?,
+deleted=?  WHERE information_id=?
+[2024-06-11 10:58:24] DEBUG 136 statementLog - {conn-10005, pstmt-20009} clearParameters. 
+[2024-06-11 10:58:24] DEBUG 136 statementLog - {conn-10005, stmt-20009} clearBatch. 
+[2024-06-11 10:58:33] DEBUG 136 statementLog - {conn-10005, pstmt-20010} created. DELETE FROM information WHERE information_id=?
+[2024-06-11 10:58:33] DEBUG 136 statementLog - {conn-10005, pstmt-20010} Parameters : [0]
+[2024-06-11 10:58:33] DEBUG 136 statementLog - {conn-10005, pstmt-20010} Types : [INTEGER]
+[2024-06-11 10:58:33] DEBUG 136 statementLog - {conn-10005, pstmt-20010} executed. 111.2295 millis. DELETE FROM information WHERE information_id=?
+[2024-06-11 10:58:33] DEBUG 136 statementLog - {conn-10005, pstmt-20010} clearParameters. 
+[2024-06-11 10:58:33] DEBUG 136 statementLog - {conn-10005, stmt-20010} clearBatch. 
+[2024-06-11 11:09:50] DEBUG 136 statementLog - {conn-10005, stmt-20011} created
+[2024-06-11 11:10:00] ERROR 151 statementLogError - {conn-10005, stmt-20011} execute error. SELECT 1 FROM DUAL com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 686,288 milliseconds ago. The last packet sent successfully to the server was 686,361 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1200) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2866) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeQuery(FilterAdapter.java:2513) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeQuery(FilterEventAdapter.java:296) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.wall.WallFilter.statement_executeQuery(WallFilter.java:546) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeQuery(FilterAdapter.java:2513) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeQuery(FilterEventAdapter.java:296) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeQuery(StatementProxyImpl.java:215) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.vendor.MySqlValidConnectionChecker.isValidConnection(MySqlValidConnectionChecker.java:140) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.testConnectionInternal(DruidAbstractDataSource.java:1518) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1525) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5058) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.logging.LogFilter.dataSource_getConnection(LogFilter.java:909) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.dataSource_getConnection(FilterAdapter.java:2759) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.stat.StatFilter.dataSource_getConnection(StatFilter.java:704) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1448) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1440) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:83) ~[druid-1.2.16.jar:?]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:49) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.9.jar:3.5.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:106) ~[mybatis-plus-extension-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:62) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy135.update(Unknown Source) ~[?:?]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194) ~[mybatis-3.5.9.jar:3.5.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy96.update(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:64) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:148) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy100.updateById(Unknown Source) ~[?:?]
+	at com.neusoft.neu6053.services.impl.InspectorServiceImpl.modifyInspector(InspectorServiceImpl.java:51) ~[classes/:?]
+	at com.neusoft.neu6053.services.impl.InspectorServiceImpl$$FastClassBySpringCGLIB$$d2765c87.invoke(<generated>) ~[classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704) ~[spring-aop-5.3.29.jar:5.3.29]
+	at com.neusoft.neu6053.services.impl.InspectorServiceImpl$$EnhancerBySpringCGLIB$$d319a5a1.modifyInspector(<generated>) ~[classes/:?]
+	at com.neusoft.neu6053.controller.InspectorController.modifyInspector(InspectorController.java:98) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.78.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.78.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:114) ~[druid-1.2.16.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at java.lang.Thread.run(Thread.java:748) ~[?:1.8.0_144]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 686,288 milliseconds ago. The last packet sent successfully to the server was 686,361 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_144]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_144]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:581) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:663) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1168) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 114 more
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_144]
+	at sun.security.ssl.InputRecord.readFully(InputRecord.java:465) ~[?:1.8.0_144]
+	at sun.security.ssl.InputRecord.read(InputRecord.java:503) ~[?:1.8.0_144]
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:983) ~[?:1.8.0_144]
+	at sun.security.ssl.SSLSocketImpl.readDataRecord(SSLSocketImpl.java:940) ~[?:1.8.0_144]
+	at sun.security.ssl.AppInputStream.read(AppInputStream.java:105) ~[?:1.8.0_144]
+	at java.io.FilterInputStream.read(FilterInputStream.java:133) ~[?:1.8.0_144]
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeaderLocal(SimplePacketReader.java:81) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:575) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:663) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1168) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 114 more
+
+[2024-06-11 11:10:00] DEBUG 136 statementLog - {conn-10005, stmt-20011} closed
+[2024-06-11 11:10:00] DEBUG 136 statementLog - {conn-10004, stmt-20012} created
+[2024-06-11 11:10:00] DEBUG 136 statementLog - {conn-10006, stmt-20013} created
+[2024-06-11 11:10:01] DEBUG 136 statementLog - {conn-10006, stmt-20013, rs-50009} query executed. 54.501 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:10:01] DEBUG 136 statementLog - {conn-10006, stmt-20013} closed
+[2024-06-11 11:10:10] ERROR 151 statementLogError - {conn-10004, stmt-20012} execute error. SELECT 1 FROM DUAL com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 814,341 milliseconds ago. The last packet sent successfully to the server was 814,374 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1200) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2866) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeQuery(FilterAdapter.java:2513) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeQuery(FilterEventAdapter.java:296) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.wall.WallFilter.statement_executeQuery(WallFilter.java:546) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeQuery(FilterAdapter.java:2513) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeQuery(FilterEventAdapter.java:296) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeQuery(StatementProxyImpl.java:215) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.vendor.MySqlValidConnectionChecker.isValidConnection(MySqlValidConnectionChecker.java:140) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.testConnectionInternal(DruidAbstractDataSource.java:1518) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1525) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5058) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.logging.LogFilter.dataSource_getConnection(LogFilter.java:909) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.dataSource_getConnection(FilterAdapter.java:2759) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.stat.StatFilter.dataSource_getConnection(StatFilter.java:704) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1448) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1440) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:83) ~[druid-1.2.16.jar:?]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:49) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.9.jar:3.5.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:106) ~[mybatis-plus-extension-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:62) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy135.update(Unknown Source) ~[?:?]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194) ~[mybatis-3.5.9.jar:3.5.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy96.update(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:64) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:148) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy100.updateById(Unknown Source) ~[?:?]
+	at com.neusoft.neu6053.services.impl.InspectorServiceImpl.modifyInspector(InspectorServiceImpl.java:51) ~[classes/:?]
+	at com.neusoft.neu6053.services.impl.InspectorServiceImpl$$FastClassBySpringCGLIB$$d2765c87.invoke(<generated>) ~[classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704) ~[spring-aop-5.3.29.jar:5.3.29]
+	at com.neusoft.neu6053.services.impl.InspectorServiceImpl$$EnhancerBySpringCGLIB$$d319a5a1.modifyInspector(<generated>) ~[classes/:?]
+	at com.neusoft.neu6053.controller.InspectorController.modifyInspector(InspectorController.java:98) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.78.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.78.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:114) ~[druid-1.2.16.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at java.lang.Thread.run(Thread.java:748) ~[?:1.8.0_144]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 814,341 milliseconds ago. The last packet sent successfully to the server was 814,374 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_144]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_144]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:581) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:663) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1168) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 114 more
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_144]
+	at sun.security.ssl.InputRecord.readFully(InputRecord.java:465) ~[?:1.8.0_144]
+	at sun.security.ssl.InputRecord.read(InputRecord.java:503) ~[?:1.8.0_144]
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:983) ~[?:1.8.0_144]
+	at sun.security.ssl.SSLSocketImpl.readDataRecord(SSLSocketImpl.java:940) ~[?:1.8.0_144]
+	at sun.security.ssl.AppInputStream.read(AppInputStream.java:105) ~[?:1.8.0_144]
+	at java.io.FilterInputStream.read(FilterInputStream.java:133) ~[?:1.8.0_144]
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeaderLocal(SimplePacketReader.java:81) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:575) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:663) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1168) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 114 more
+
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10004, stmt-20012} closed
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10006, pstmt-20014} created. UPDATE inspector  SET password=?,
+name=?,
+province=?,
+city=?  WHERE tel_id=?
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10006, pstmt-20014} Parameters : [string, string, string, string, 0]
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10006, pstmt-20014} Types : [VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR]
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10006, pstmt-20014} executed. 208.9385 millis. UPDATE inspector  SET password=?,
+name=?,
+province=?,
+city=?  WHERE tel_id=?
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10006, pstmt-20014} clearParameters. 
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10006, stmt-20014} clearBatch. 
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10007, stmt-20015} created
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10007, stmt-20015, rs-50010} query executed. 37.7449 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:10:10] DEBUG 136 statementLog - {conn-10007, stmt-20015} closed
+[2024-06-11 11:26:23] DEBUG 136 statementLog - {conn-10007, stmt-20016} created
+[2024-06-11 11:26:33] ERROR 151 statementLogError - {conn-10007, stmt-20016} execute error. SELECT 1 FROM DUAL com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 982,747 milliseconds ago. The last packet sent successfully to the server was 982,778 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1200) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2866) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeQuery(FilterAdapter.java:2513) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeQuery(FilterEventAdapter.java:296) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.wall.WallFilter.statement_executeQuery(WallFilter.java:546) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeQuery(FilterAdapter.java:2513) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeQuery(FilterEventAdapter.java:296) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeQuery(StatementProxyImpl.java:215) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.vendor.MySqlValidConnectionChecker.isValidConnection(MySqlValidConnectionChecker.java:140) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.testConnectionInternal(DruidAbstractDataSource.java:1518) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1525) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5058) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.logging.LogFilter.dataSource_getConnection(LogFilter.java:909) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.dataSource_getConnection(FilterAdapter.java:2759) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.stat.StatFilter.dataSource_getConnection(StatFilter.java:704) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1448) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1440) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:83) ~[druid-1.2.16.jar:?]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor.willDoQuery(PaginationInnerInterceptor.java:135) ~[mybatis-plus-extension-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:75) ~[mybatis-plus-extension-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:62) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy135.query(Unknown Source) ~[?:?]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.9.jar:3.5.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy96.selectList(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForIPage(MybatisMapperMethod.java:121) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:85) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:148) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy99.selectPage(Unknown Source) ~[?:?]
+	at com.neusoft.neu6053.services.impl.InformationServiceImpl.getAllInformations(InformationServiceImpl.java:82) ~[classes/:?]
+	at com.neusoft.neu6053.services.impl.InformationServiceImpl$$FastClassBySpringCGLIB$$b8b7e0f2.invoke(<generated>) ~[classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704) ~[spring-aop-5.3.29.jar:5.3.29]
+	at com.neusoft.neu6053.services.impl.InformationServiceImpl$$EnhancerBySpringCGLIB$$5af2cdc2.getAllInformations(<generated>) ~[classes/:?]
+	at com.neusoft.neu6053.controller.InformationController.selectAllInformation(InformationController.java:56) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.78.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.78.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:114) ~[druid-1.2.16.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at java.lang.Thread.run(Thread.java:748) ~[?:1.8.0_144]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 982,747 milliseconds ago. The last packet sent successfully to the server was 982,778 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_144]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_144]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:581) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:663) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1168) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 114 more
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_144]
+	at sun.security.ssl.InputRecord.readFully(InputRecord.java:465) ~[?:1.8.0_144]
+	at sun.security.ssl.InputRecord.read(InputRecord.java:503) ~[?:1.8.0_144]
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:983) ~[?:1.8.0_144]
+	at sun.security.ssl.SSLSocketImpl.readDataRecord(SSLSocketImpl.java:940) ~[?:1.8.0_144]
+	at sun.security.ssl.AppInputStream.read(AppInputStream.java:105) ~[?:1.8.0_144]
+	at java.io.FilterInputStream.read(FilterInputStream.java:133) ~[?:1.8.0_144]
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeaderLocal(SimplePacketReader.java:81) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:575) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:663) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1168) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 114 more
+
+[2024-06-11 11:26:33] DEBUG 136 statementLog - {conn-10007, stmt-20016} closed
+[2024-06-11 11:26:33] DEBUG 136 statementLog - {conn-10006, stmt-20017} created
+[2024-06-11 11:26:33] DEBUG 136 statementLog - {conn-10008, stmt-20018} created
+[2024-06-11 11:26:33] DEBUG 136 statementLog - {conn-10008, stmt-20018, rs-50011} query executed. 27.3503 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:26:33] DEBUG 136 statementLog - {conn-10008, stmt-20018} closed
+[2024-06-11 11:26:43] ERROR 151 statementLogError - {conn-10006, stmt-20017} execute error. SELECT 1 FROM DUAL com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 993,254 milliseconds ago. The last packet sent successfully to the server was 993,348 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1200) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2866) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeQuery(FilterAdapter.java:2513) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeQuery(FilterEventAdapter.java:296) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.wall.WallFilter.statement_executeQuery(WallFilter.java:546) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeQuery(FilterAdapter.java:2513) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeQuery(FilterEventAdapter.java:296) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeQuery(FilterChainImpl.java:2863) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeQuery(StatementProxyImpl.java:215) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.vendor.MySqlValidConnectionChecker.isValidConnection(MySqlValidConnectionChecker.java:140) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.testConnectionInternal(DruidAbstractDataSource.java:1518) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1525) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5058) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.logging.LogFilter.dataSource_getConnection(LogFilter.java:909) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterAdapter.dataSource_getConnection(FilterAdapter.java:2759) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.stat.StatFilter.dataSource_getConnection(StatFilter.java:704) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5054) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1448) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1440) ~[druid-1.2.16.jar:?]
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:83) ~[druid-1.2.16.jar:?]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-5.3.29.jar:5.3.29]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor.willDoQuery(PaginationInnerInterceptor.java:135) ~[mybatis-plus-extension-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:75) ~[mybatis-plus-extension-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:62) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.sun.proxy.$Proxy135.query(Unknown Source) ~[?:?]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.9.jar:3.5.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy96.selectList(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForIPage(MybatisMapperMethod.java:121) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:85) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:148) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy99.selectPage(Unknown Source) ~[?:?]
+	at com.neusoft.neu6053.services.impl.InformationServiceImpl.getAllInformations(InformationServiceImpl.java:82) ~[classes/:?]
+	at com.neusoft.neu6053.services.impl.InformationServiceImpl$$FastClassBySpringCGLIB$$b8b7e0f2.invoke(<generated>) ~[classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704) ~[spring-aop-5.3.29.jar:5.3.29]
+	at com.neusoft.neu6053.services.impl.InformationServiceImpl$$EnhancerBySpringCGLIB$$5af2cdc2.getAllInformations(<generated>) ~[classes/:?]
+	at com.neusoft.neu6053.controller.InformationController.selectAllInformation(InformationController.java:56) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_144]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.78.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.78.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:114) ~[druid-1.2.16.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.78.jar:9.0.78]
+	at java.lang.Thread.run(Thread.java:748) ~[?:1.8.0_144]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 993,254 milliseconds ago. The last packet sent successfully to the server was 993,348 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_144]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_144]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_144]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_144]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:581) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:663) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1168) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 114 more
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_144]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_144]
+	at sun.security.ssl.InputRecord.readFully(InputRecord.java:465) ~[?:1.8.0_144]
+	at sun.security.ssl.InputRecord.read(InputRecord.java:503) ~[?:1.8.0_144]
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:983) ~[?:1.8.0_144]
+	at sun.security.ssl.SSLSocketImpl.readDataRecord(SSLSocketImpl.java:940) ~[?:1.8.0_144]
+	at sun.security.ssl.AppInputStream.read(AppInputStream.java:105) ~[?:1.8.0_144]
+	at java.io.FilterInputStream.read(FilterInputStream.java:133) ~[?:1.8.0_144]
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeaderLocal(SimplePacketReader.java:81) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:575) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:663) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1168) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 114 more
+
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10006, stmt-20017} closed
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20019} created. SELECT COUNT(*) AS total FROM information
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20019} Parameters : []
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20019} Types : []
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20019} executed. 31.7212 millis. SELECT COUNT(*) AS total FROM information
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20019} clearParameters. 
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, stmt-20019} clearBatch. 
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20020} created. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20020} Parameters : [4]
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20020} Types : [BIGINT]
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20020} executed. 34.2749 millis. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, pstmt-20020} clearParameters. 
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10008, stmt-20020} clearBatch. 
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10009, stmt-20021} created
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10009, stmt-20021, rs-50014} query executed. 30.7297 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:26:43] DEBUG 136 statementLog - {conn-10009, stmt-20021} closed
+[2024-06-11 11:29:37] DEBUG 136 statementLog - {conn-10008, pstmt-20019} closed
+[2024-06-11 11:29:37] DEBUG 136 statementLog - {conn-10008, pstmt-20020} closed
+[2024-06-11 11:37:59] DEBUG 136 statementLog - {conn-10001, stmt-20000} created
+[2024-06-11 11:37:59] DEBUG 136 statementLog - {conn-10001, stmt-20000, rs-50000} query executed. 129.231701 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:37:59] DEBUG 136 statementLog - {conn-10001, stmt-20000} closed
+[2024-06-11 11:38:00] DEBUG 136 statementLog - {conn-10002, stmt-20001} created
+[2024-06-11 11:38:00] DEBUG 136 statementLog - {conn-10002, stmt-20001, rs-50001} query executed. 32.3394 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:38:00] DEBUG 136 statementLog - {conn-10002, stmt-20001} closed
+[2024-06-11 11:38:00] DEBUG 136 statementLog - {conn-10003, stmt-20002} created
+[2024-06-11 11:38:00] DEBUG 136 statementLog - {conn-10003, stmt-20002, rs-50002} query executed. 32.5741 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:38:00] DEBUG 136 statementLog - {conn-10003, stmt-20002} closed
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10004, stmt-20003} created
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10004, stmt-20003, rs-50003} query executed. 31.805701 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10004, stmt-20003} closed
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10005, stmt-20004} created
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10005, stmt-20004, rs-50004} query executed. 31.4519 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10005, stmt-20004} closed
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10005, pstmt-20005} created. SELECT  admin_id,admin_code,password,remarks  FROM admins 
+ 
+ WHERE (admin_code = ? AND password = ?)
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Parameters : [string, string]
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Types : [VARCHAR, VARCHAR]
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10005, pstmt-20005} executed. 71.6194 millis. SELECT  admin_id,admin_code,password,remarks  FROM admins 
+ 
+ WHERE (admin_code = ? AND password = ?)
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10005, pstmt-20005} clearParameters. 
+[2024-06-11 11:38:01] DEBUG 136 statementLog - {conn-10005, stmt-20005} clearBatch. 
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20006} created. SELECT COUNT(*) AS total FROM information
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Parameters : []
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20006} Types : []
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20006} executed. 30.630001 millis. SELECT COUNT(*) AS total FROM information
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20006} clearParameters. 
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, stmt-20006} clearBatch. 
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20007} created. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Parameters : [4]
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20007} Types : [BIGINT]
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20007} executed. 33.803801 millis. SELECT  information_id,province,city,community,pollution_level,date,time,state,supervisor_id,inspector_id,feedback,deleted  FROM information LIMIT ?
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, pstmt-20007} clearParameters. 
+[2024-06-11 11:38:21] DEBUG 136 statementLog - {conn-10005, stmt-20007} clearBatch. 
+[2024-06-11 11:38:40] DEBUG 136 statementLog - {conn-10005, pstmt-20008} created. UPDATE information  SET province=?,
+city=?,
+community=?,
+pollution_level=?,
+date=?,
+time=?,
+state=?,
+supervisor_id=?,
+inspector_id=?,
+feedback=?,
+deleted=?  WHERE information_id=?
+[2024-06-11 11:38:40] DEBUG 136 statementLog - {conn-10005, pstmt-20008} Parameters : [string, string, string, string, 2024-06-11 11:38:39.056, 2024-06-11 11:38:39.056, 0, 0, 0, string, 0, 0]
+[2024-06-11 11:38:40] DEBUG 136 statementLog - {conn-10005, pstmt-20008} Types : [VARCHAR, VARCHAR, VARCHAR, VARCHAR, TIMESTAMP, TIMESTAMP, INTEGER, INTEGER, INTEGER, VARCHAR, INTEGER, INTEGER]
+[2024-06-11 11:38:41] DEBUG 136 statementLog - {conn-10005, pstmt-20008} executed. 61.286299 millis. UPDATE information  SET province=?,
+city=?,
+community=?,
+pollution_level=?,
+date=?,
+time=?,
+state=?,
+supervisor_id=?,
+inspector_id=?,
+feedback=?,
+deleted=?  WHERE information_id=?
+[2024-06-11 11:38:41] DEBUG 136 statementLog - {conn-10005, pstmt-20008} clearParameters. 
+[2024-06-11 11:38:41] DEBUG 136 statementLog - {conn-10005, stmt-20008} clearBatch. 
+[2024-06-11 11:39:14] DEBUG 136 statementLog - {conn-10005, pstmt-20009} created. SELECT  tel_id,password,real_name,birthday,sex,remarks  FROM supervisor 
+ 
+ WHERE (tel_id = ? AND password = ?)
+[2024-06-11 11:39:14] DEBUG 136 statementLog - {conn-10005, pstmt-20009} Parameters : [string, string]
+[2024-06-11 11:39:14] DEBUG 136 statementLog - {conn-10005, pstmt-20009} Types : [VARCHAR, VARCHAR]
+[2024-06-11 11:39:14] DEBUG 136 statementLog - {conn-10005, pstmt-20009} executed. 50.1944 millis. SELECT  tel_id,password,real_name,birthday,sex,remarks  FROM supervisor 
+ 
+ WHERE (tel_id = ? AND password = ?)
+[2024-06-11 11:39:14] DEBUG 136 statementLog - {conn-10005, pstmt-20009} clearParameters. 
+[2024-06-11 11:39:14] DEBUG 136 statementLog - {conn-10005, stmt-20009} clearBatch. 
+[2024-06-11 11:40:31] DEBUG 136 statementLog - {conn-10005, stmt-20010} created
+[2024-06-11 11:40:31] DEBUG 136 statementLog - {conn-10005, stmt-20010, rs-50009} query executed. 31.0403 millis. SELECT 1 FROM DUAL
+[2024-06-11 11:40:31] DEBUG 136 statementLog - {conn-10005, stmt-20010} closed
+[2024-06-11 11:40:31] DEBUG 136 statementLog - {conn-10005, pstmt-20011} created. INSERT INTO information  ( information_id,
+province,
+city,
+community,
+pollution_level,
+date,
+time,
+state,
+supervisor_id,
+inspector_id,
+feedback,
+deleted )  VALUES  ( ?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+? )
+[2024-06-11 11:40:31] DEBUG 136 statementLog - {conn-10005, pstmt-20011} Parameters : [0, string, string, string, string, 2024-06-11 11:40:29.714, 2024-06-11 11:40:29.714, 0, 0, 0, string, 0]
+[2024-06-11 11:40:31] DEBUG 136 statementLog - {conn-10005, pstmt-20011} Types : [INTEGER, VARCHAR, VARCHAR, VARCHAR, VARCHAR, TIMESTAMP, TIMESTAMP, INTEGER, INTEGER, INTEGER, VARCHAR, INTEGER]
+[2024-06-11 11:40:31] DEBUG 136 statementLog - {conn-10005, pstmt-20011} executed. 68.5061 millis. INSERT INTO information  ( information_id,
+province,
+city,
+community,
+pollution_level,
+date,
+time,
+state,
+supervisor_id,
+inspector_id,
+feedback,
+deleted )  VALUES  ( ?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+? )
+[2024-06-11 11:40:31] DEBUG 136 statementLog - {conn-10005, pstmt-20011} clearParameters. 
+[2024-06-11 11:40:31] DEBUG 136 statementLog - {conn-10005, stmt-20011} clearBatch. 
+[2024-06-11 11:42:51] DEBUG 136 statementLog - {conn-10005, pstmt-20005} closed
+[2024-06-11 11:42:51] DEBUG 136 statementLog - {conn-10005, pstmt-20006} closed
+[2024-06-11 11:42:51] DEBUG 136 statementLog - {conn-10005, pstmt-20007} closed
+[2024-06-11 11:42:51] DEBUG 136 statementLog - {conn-10005, pstmt-20008} closed
+[2024-06-11 11:42:51] DEBUG 136 statementLog - {conn-10005, pstmt-20009} closed
+[2024-06-11 11:42:51] DEBUG 136 statementLog - {conn-10005, pstmt-20011} closed
