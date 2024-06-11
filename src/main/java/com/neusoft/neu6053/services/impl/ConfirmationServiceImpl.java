@@ -93,7 +93,7 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
     }
 
     /**
-     * 分页获取所有确认AQI信息
+     * 分页获取所有确认AQI信息 pageSize为-1时不分页
      * @param curPage
      * @param pageSize
      * @return List<Confirmation>

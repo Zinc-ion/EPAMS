@@ -70,7 +70,7 @@ public class InformationController {
 
     @Operation(
             summary = "AQI反馈信息查询接口",
-            description = "分页查询AQI反馈信息，返回反馈信息列表"
+            description = "分页查询AQI反馈信息，返回反馈信息列表，pageSize为-1时不分页"
     )
     @PostMapping("/select/selectAll")
     public HttpResponseEntity selectAllInformation(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
@@ -89,7 +89,7 @@ public class InformationController {
 
     @Operation(
             summary = "AQI反馈信息多条件查询接口",
-            description = "多条件查询，条件包括省(模糊)、市(模糊)、预估污染等级、反馈日期、是否指派，返回AQI反馈信息对象"
+            description = "多条件查询，条件包括省(模糊)、市(模糊)、预估污染等级、反馈日期、是否指派，返回AQI反馈信息对象，pageSize为-1时不分页"
     )
     //    多条件查询，条件包括省(模糊)、市(模糊)、预估污染等级、反馈日期、是否指派
     @PostMapping("/select/selectByParams")

@@ -1,6 +1,7 @@
 package com.neusoft.neu6053.controller;
 
 import com.neusoft.neu6053.dao.entity.Confirmation;
+import com.neusoft.neu6053.dao.viewObject.ProvinceGropConfVO;
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import io.swagger.v3.oas.annotations.Operation;
@@ -8,12 +9,17 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/conf")
 @Tag(name = "ConfirmationControllerAPI", description = "AQI确认信息相关接口")
 public class ConfirmationController {
     private final ConfirmationService confirmationService;
+
+    private static List<ProvinceGropConfVO> provinceGropConfVOList = new ArrayList<>();
 
 
     @Operation(
@@ -71,7 +77,7 @@ public class ConfirmationController {
 
     @Operation(
             summary = "AQI确认信息查询接口",
-            description = "分页查询所有AQI确认信息，返回确认信息列表"
+            description = "分页查询所有AQI确认信息，返回确认信息列表 pageSize为-1时不分页"
     )
     @PostMapping("/select/selectAll")
     public HttpResponseEntity selectAllConfirmation(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
@@ -90,13 +96,32 @@ public class ConfirmationController {
 
     @Operation(
             summary = "AQI确认信息多条件查询接口",
-            description = "根据省(模糊)、市（模糊）、确认日期查询AQI确认信息，返回确认信息列表"
+            description = "根据省(模糊)、市（模糊）、确认日期查询AQI确认信息，返回确认信息列表，pageSize为-1时不分页"
     )
     //    多条件查询，条件包括省(模糊)、市（模糊）、确认日期
     @PostMapping("/select/selectByParams")
     public HttpResponseEntity selectConfirmationByParams(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Confirmation confirmation) {
         return HttpResponseEntity.success(confirmationService.selectConfirmationByParams(curPage, pageSize, confirmation));
     }
+
+    @Operation(
+            summary = "AQI确认信息省分组分项查询接口",
+            description = "根据省份分组AQI确认信息,返回各省各指数超标累计值，pageSize为-1时不分页"
+    )
+    @PostMapping("/select/selectProvinceGroup")
+    public HttpResponseEntity selectProvinceGroup(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Confirmation confirmation) {
+        List<Confirmation> confirmations = confirmationService.getAllConfirmations(0,-1);
+        List<ProvinceGropConfVO> provinceGropConfVOS = new ArrayList<>();
+        for(Confirmation c:confirmations){
+
+
+        }
+
+        return new HttpResponseEntity();
+    }
+
+
+
 
 
 

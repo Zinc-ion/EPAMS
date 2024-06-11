@@ -121,7 +121,7 @@ public class SupervisorController {
 
     @Operation(
             summary = "supervisor查询接口",
-            description = "分页查询所有supervisor账户，返回supervisor列表"
+            description = "分页查询所有supervisor账户，返回supervisor列表，pageSize为-1时不分页"
     )
     @PostMapping("/select/selectAll")
     public HttpResponseEntity selectAllSupervisor(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
@@ -140,7 +140,7 @@ public class SupervisorController {
 
     @Operation(
             summary = "supervisor条件查询接口",
-            description = "多条件查询，条件包括性别、手机号、姓名（模糊查询）查询supervisor账户，返回supervisor对象"
+            description = "多条件查询，条件包括性别、手机号、姓名（模糊查询）查询supervisor账户，返回supervisor对象，pageSize为-1时不分页"
     )
     //    多条件查询，条件包括性别、手机号、姓名（模糊查询）
     @PostMapping("/select/selectByParams")

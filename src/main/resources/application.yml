@@ -1,11 +1,19 @@
 server:
-  port: 8080
+  port: 8085
   tomcat:
     connection-timeout: 60000
     keep-alive-timeout: 60000
 
 
 spring:
+  devtools:  #热部署
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+    freemarker:
+      cache: false    #页面不加载缓存，修改即时生效
+
   datasource:
     url: jdbc:mysql://60.205.0.18:3310/EPAMS?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
     #    serverTimezone记得从UTC修改为GMT%2B8 北京时间东八区 不然会差8小时，同时不能改成CCT，会连不上数据库
@@ -30,8 +38,7 @@ spring:
     max-open-prepared-statements: 20              # 缓存预编译语句的最大数量
     filters: stat,wall,log4j2                     # 配置监控统计拦截的filters
 
-
-
+    #druid 数据源监控配置
     druid:
       filter:
         slf4j:
