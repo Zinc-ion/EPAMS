@@ -32,17 +32,17 @@ public class InformationController {
         }
     }
 
-//    //批量删除
-//    @PostMapping("/deleteById")
-//    public HttpResponseEntity deleteInformationById(@RequestBody String[] telId) {
-//        if (informationService.deleteInformationById(telId) ) {
-//            return HttpResponseEntity.success("success to delete information");
-//        } else {
-//            return HttpResponseEntity.failure("Failed to delete information, please check the tel_id");
-//        }
-//    }
+    //批量删除
+    @PostMapping("/delete/deleteByIdGroup")
+    public HttpResponseEntity deleteInformationByIdGroup(@RequestBody int[] IdGroup) {
+        if (informationService.deleteInformationByIdGroup(IdGroup) ) {
+            return HttpResponseEntity.success("批量删除AQI反馈信息成功");
+        } else {
+            return HttpResponseEntity.failure("批量删除AQI反馈信息失败，请检查information_id");
+        }
+    }
 
-    @PostMapping("/modify/modifyById")
+    @PostMapping("/modify")
     public HttpResponseEntity modifyInformation(@RequestBody Information information) {
         if (informationService.updateInformation(information) == 1) {
             return HttpResponseEntity.success(information);

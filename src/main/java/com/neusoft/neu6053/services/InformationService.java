@@ -27,6 +27,14 @@ public interface InformationService extends IService<Information> {
      */
     int deleteInformation(Information information);
 
+
+    /**
+     * 根据id批量删除
+     * @param informationIds
+     * @return boolean
+     */
+    boolean deleteInformationByIdGroup(int[] informationIds);
+
     /**
      * 更新AQI反馈信息
      * @param information

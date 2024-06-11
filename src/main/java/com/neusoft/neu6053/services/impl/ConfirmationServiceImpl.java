@@ -55,6 +55,18 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
         return flag;
     }
 
+    @Override
+    public boolean deleteConfirmationByIdGroup(int[] confIds) {
+        int flag = 0;
+        for (int id : confIds) {
+            if(1 != confirmationMapper.deleteById(id)) {
+                flag++;
+            }
+        }
+        return flag == 0;
+    }
+
+
     /**
      * 更新确认AQI信息
      * @param confirmation

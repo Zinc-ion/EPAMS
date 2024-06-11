@@ -64,7 +64,7 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
      * @return int
      */
     @Override
-    public int deleteSupervisor(Supervisor supervisor) {
+    public int deleteSupervisorById(Supervisor supervisor) {
         return supervisorMapper.deleteById(supervisor);
     }
 
@@ -74,7 +74,7 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
      * @return boolean
      */
     @Override
-    public boolean deleteSupervisorById(String[] telId) {
+    public boolean deleteSupervisorByIdGroup(String[] telId) {
         int flag = 0;
         for (String id : telId) {
             if(1 != supervisorMapper.deleteById(id)) {

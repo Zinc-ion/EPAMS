@@ -34,17 +34,17 @@ public class ConfirmationController {
         }
     }
 
-//    //批量删除
-//    @PostMapping("/deleteById")
-//    public HttpResponseEntity deleteConfirmationById(@RequestBody String[] telId) {
-//        if (confirmationService.deleteConfirmationById(telId) ) {
-//            return HttpResponseEntity.success("success to delete confirmation");
-//        } else {
-//            return HttpResponseEntity.failure("Failed to delete confirmation, please check the tel_id");
-//        }
-//    }
+    //批量删除
+    @PostMapping("/delete/deleteByIdGroup")
+    public HttpResponseEntity deleteConfirmationByIdGroup(@RequestBody int[] IdGroup) {
+        if (confirmationService.deleteConfirmationByIdGroup(IdGroup) ) {
+            return HttpResponseEntity.success("批量删除AQI确认信息成功");
+        } else {
+            return HttpResponseEntity.failure("批量删除AQI确认信息失败，请检查conf_id");
+        }
+    }
 
-    @PostMapping("/modify/modifyById")
+    @PostMapping("/modify")
     public HttpResponseEntity modifyConfirmation(@RequestBody Confirmation confirmation) {
         if (confirmationService.updateConfirmation(confirmation) == 1) {
             return HttpResponseEntity.success(confirmation);

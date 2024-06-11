@@ -80,6 +80,18 @@ public class InspectorServiceImpl extends ServiceImpl<InspectorMapper, Inspector
         }
         return flag;
     }
+
+
+    @Override
+    public boolean deleteInspectorByTelGroup(String[] telId) {
+        int flag = 0;
+        for (String id : telId) {
+            if(1 != inspectorMapper.deleteById(id)) {
+                flag++;
+            }
+        }
+        return flag == 0;
+    }
 }
 
 

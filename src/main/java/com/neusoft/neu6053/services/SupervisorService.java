@@ -31,14 +31,14 @@ public interface SupervisorService extends IService<Supervisor> {
      * @param supervisor
      * @return int
      */
-    int deleteSupervisor(Supervisor supervisor);
+    int deleteSupervisorById(Supervisor supervisor);
 
     /**
      * 根据id批量删除
      * @param telId
      * @return boolean
      */
-    boolean deleteSupervisorById(String[] telId);
+    boolean deleteSupervisorByIdGroup(String[] telId);
 
     /**
      * 修改监督员信息

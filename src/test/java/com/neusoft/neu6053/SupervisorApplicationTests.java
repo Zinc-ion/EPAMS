@@ -105,7 +105,7 @@ class SupervisorApplicationTests {
         int result = supervisorService.addSupervisor(supervisor);
         System.out.println(result);
         assert result == 1;
-        supervisorService.deleteSupervisor(supervisor);
+        supervisorService.deleteSupervisorById(supervisor);
     }
 
     @Test
@@ -121,7 +121,7 @@ class SupervisorApplicationTests {
 
         List<Supervisor> supervisors = supervisorService.selectSupervisorByTel(supervisor);
         assert supervisors.size() == 1;
-        supervisorService.deleteSupervisor(supervisor);
+        supervisorService.deleteSupervisorById(supervisor);
     }
 
 
@@ -149,7 +149,7 @@ class SupervisorApplicationTests {
         System.out.println("修改后：" + supervisorService.selectSupervisorByTel(supervisor1).get(0));
         assert result == 1;
 
-        supervisorService.deleteSupervisor(supervisor1);
+        supervisorService.deleteSupervisorById(supervisor1);
     }
 
     @Test
@@ -163,7 +163,7 @@ class SupervisorApplicationTests {
         supervisor.setRealName("zhou");
         supervisorService.addSupervisor(supervisor);
 
-        int result = supervisorService.deleteSupervisor(supervisor);
+        int result = supervisorService.deleteSupervisorById(supervisor);
         assert result == 1;
     }
 
@@ -184,7 +184,7 @@ class SupervisorApplicationTests {
 
         List<Supervisor> supervisors = supervisorService.selectSupervisorByParams(1, 10, supervisor1);
         assert !supervisors.isEmpty();
-        supervisorService.deleteSupervisor(supervisor);
+        supervisorService.deleteSupervisorById(supervisor);
     }
 
     @Test
@@ -200,7 +200,7 @@ class SupervisorApplicationTests {
 
         String[] telId = new String[1];
         telId[0] = "111111";
-        boolean result = supervisorService.deleteSupervisorById(telId);
+        boolean result = supervisorService.deleteSupervisorByIdGroup(telId);
         assert result;
     }
 

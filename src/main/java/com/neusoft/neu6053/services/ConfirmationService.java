@@ -27,6 +27,14 @@ public interface ConfirmationService extends IService<Confirmation> {
     int deleteConfirmation(Confirmation confirmation);
 
     /**
+     * 根据id批量删除
+     * @param confIds
+     * @return boolean
+     */
+    boolean deleteConfirmationByIdGroup(int[] confIds);
+
+
+    /**
      * 更新确认AQI信息
      * @param confirmation
      * @return int

@@ -35,17 +35,17 @@ public class SupervisorAccessInterceptor implements HandlerInterceptor {
             //token+redis验证
             String token = request.getHeader("token");
             if (!redisUtils.hasKey(token)) {
-                logger.info("token过期，请重新登录");
+                logger.info("监督员token过期，请重新登录");
                 //token失效 拦截请求
                 throw new RuntimeException();
             } else {
                 //刷新token有效期
                 redisUtils.expire(token, 1, TimeUnit.HOURS);
-                if (token.startsWith(RoleUtil.SUPERVISOR) || token.startsWith(RoleUtil.ADMIN)) {
-                    //如果token以SUPERVISOR或ADMIN开头则放行访问所有以SUPERVISOR开头的接口
+                if (((String)redisUtils.get(token)).startsWith(RoleUtil.SUPERVISOR) || token.startsWith(RoleUtil.ADMIN)) {
+                    //如果value以SUPERVISOR或ADMIN开头则放行访问所有以SUPERVISOR开头的接口
                     return true;
                 } else {
-                    logger.info("权限不足");
+                    logger.info("监督员权限不足");
                     //抛异常拦截请求
                     throw new RuntimeException();
                 }

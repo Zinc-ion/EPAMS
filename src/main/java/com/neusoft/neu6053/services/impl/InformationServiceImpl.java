@@ -49,6 +49,17 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     }
 
     @Override
+    public boolean deleteInformationByIdGroup(int[] informationIds) {
+        int flag = 0;
+        for (int id : informationIds) {
+            if(1 != informationMapper.deleteById(id)) {
+                flag++;
+            }
+        }
+        return flag == 0;
+    }
+
+    @Override
     public int updateInformation(Information information) {
         int flag;
         try {

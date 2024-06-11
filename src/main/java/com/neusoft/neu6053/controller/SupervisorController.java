@@ -67,9 +67,9 @@ public class SupervisorController {
         }
     }
 
-    @PostMapping("/delete")
-    public HttpResponseEntity deleteSupervisor(@RequestBody Supervisor supervisor) {
-        if (supervisorService.deleteSupervisor(supervisor) == 1) {
+    @PostMapping("/delete/deleteById")
+    public HttpResponseEntity deleteSupervisorById(@RequestBody Supervisor supervisor) {
+        if (supervisorService.deleteSupervisorById(supervisor) == 1) {
             return HttpResponseEntity.success(supervisor);
         } else {
             return HttpResponseEntity.failure("Failed to delete supervisor, please check the tel_id");
@@ -77,9 +77,9 @@ public class SupervisorController {
     }
 
     //批量删除
-    @PostMapping("/deleteById")
-    public HttpResponseEntity deleteSupervisorById(@RequestBody String[] telId) {
-        if (supervisorService.deleteSupervisorById(telId) ) {
+    @PostMapping("/delete/deleteByIdGroup")
+    public HttpResponseEntity deleteSupervisorByIdGroup(@RequestBody String[] telId) {
+        if (supervisorService.deleteSupervisorByIdGroup(telId) ) {
             return HttpResponseEntity.success("success to delete supervisor");
         } else {
             return HttpResponseEntity.failure("Failed to delete supervisor, please check the tel_id");
@@ -95,19 +95,19 @@ public class SupervisorController {
         }
     }
 
-    @PostMapping("/selectAll")
+    @PostMapping("/select/selectAll")
     public HttpResponseEntity selectAllSupervisor(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
         return HttpResponseEntity.success(supervisorService.selectAllSupervisor(curPage, pageSize));
     }
 
-    @PostMapping("/selectByTel")
+    @PostMapping("/select/selectByTel")
     public HttpResponseEntity selectSupervisorByTel(@RequestBody Supervisor supervisor) {
         return HttpResponseEntity.success(supervisorService.selectSupervisorByTel(supervisor));
     }
 
 
     //    多条件查询，条件包括性别、手机号、姓名（模糊查询）
-    @PostMapping("/selectByParams")
+    @PostMapping("/select/selectByParams")
     public HttpResponseEntity selectSupervisorByParams(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Supervisor supervisor) {
         return HttpResponseEntity.success(supervisorService.selectSupervisorByParams(curPage, pageSize, supervisor));
     }

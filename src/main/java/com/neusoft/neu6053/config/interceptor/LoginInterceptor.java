@@ -32,7 +32,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             //token+redis验证
             String token = request.getHeader("token");
             if (!redisUtils.hasKey(token)) {
-                logger.info("token过期，请重新登录");
+                logger.info("登录token过期，请重新登录");
                 //token失效 拦截请求
                 throw new RuntimeException();
             } else {

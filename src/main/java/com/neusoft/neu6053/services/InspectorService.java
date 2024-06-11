@@ -2,6 +2,7 @@ package com.neusoft.neu6053.services;
 
 import com.neusoft.neu6053.dao.entity.Inspector;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.neusoft.neu6053.dao.entity.Supervisor;
 
 import java.util.List;
 
@@ -53,6 +54,15 @@ public interface InspectorService extends IService<Inspector> {
      * @return int
      */
     int deleteInspectorByTel(Inspector inspector);
+
+
+
+    /**
+     * 根据tel_id删除网格员信息
+     * @param telId
+     * @return boolean
+     */
+    boolean deleteInspectorByTelGroup(String[] telId);
 
 
 }
