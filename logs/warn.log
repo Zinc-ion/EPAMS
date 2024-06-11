@@ -65,3 +65,4 @@
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.94.Final.jar:4.1.94.Final]
 	at java.lang.Thread.run(Thread.java:748) ~[?:1.8.0_144]
 
+[2024-06-11 10:53:08] WARN  org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration 65 checkTemplateLocationExists - Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.check-template-location=false)

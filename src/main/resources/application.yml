@@ -46,13 +46,21 @@ spring:
     host: 60.205.0.18
     password: 123456
     database: 0
-    jedis:
+    timeout: 5000 #超时时间
+
+    lettuce:
       pool:
-        max-active: 100
-        max-idle: 8
-        min-idle: 0
-        max-wait: 60000
-    timeout: 1000
+        MaxTotal: 50 #最大连接数
+        minIdle: 1
+        maxWaitMillis: 5000
+        maxIdle: 5
+        testOnBorrow: true
+        testOnReturn: true
+        testWhileIdle: true
+      cluster:   # 解决redis 240秒超时问题
+        refresh:
+          adaptive: true
+          period: 20
 
   servlet:
     multipart:

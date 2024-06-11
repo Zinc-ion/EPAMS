@@ -286,3 +286,29 @@
 [2024-06-11 10:49:16] DEBUG 136 statementLog - {conn-10005, pstmt-20008} closed
 [2024-06-11 10:49:16] DEBUG 136 statementLog - {conn-10005, pstmt-20009} closed
 [2024-06-11 10:49:16] DEBUG 136 statementLog - {conn-10005, pstmt-20010} closed
+[2024-06-11 10:53:50] DEBUG 136 statementLog - {conn-10001, stmt-20000} created
+[2024-06-11 10:53:51] DEBUG 136 statementLog - {conn-10001, stmt-20000, rs-50000} query executed. 275.5635 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:53:51] DEBUG 136 statementLog - {conn-10001, stmt-20000} closed
+[2024-06-11 10:53:52] DEBUG 136 statementLog - {conn-10002, stmt-20001} created
+[2024-06-11 10:53:52] DEBUG 136 statementLog - {conn-10002, stmt-20001, rs-50001} query executed. 76.2919 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:53:52] DEBUG 136 statementLog - {conn-10002, stmt-20001} closed
+[2024-06-11 10:53:53] DEBUG 136 statementLog - {conn-10003, stmt-20002} created
+[2024-06-11 10:53:53] DEBUG 136 statementLog - {conn-10003, stmt-20002, rs-50002} query executed. 50.7809 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:53:53] DEBUG 136 statementLog - {conn-10003, stmt-20002} closed
+[2024-06-11 10:53:54] DEBUG 136 statementLog - {conn-10004, stmt-20003} created
+[2024-06-11 10:53:54] DEBUG 136 statementLog - {conn-10004, stmt-20003, rs-50003} query executed. 42.3335 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:53:54] DEBUG 136 statementLog - {conn-10004, stmt-20003} closed
+[2024-06-11 10:53:55] DEBUG 136 statementLog - {conn-10005, stmt-20004} created
+[2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, stmt-20004, rs-50004} query executed. 323.2779 millis. SELECT 1 FROM DUAL
+[2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, stmt-20004} closed
+[2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, pstmt-20005} created. SELECT  admin_id,admin_code,password,remarks  FROM admins 
+ 
+ WHERE (admin_code = ? AND password = ?)
+[2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Parameters : [string, string]
+[2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, pstmt-20005} Types : [VARCHAR, VARCHAR]
+[2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, pstmt-20005} executed. 219.3148 millis. SELECT  admin_id,admin_code,password,remarks  FROM admins 
+ 
+ WHERE (admin_code = ? AND password = ?)
+[2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, pstmt-20005} clearParameters. 
+[2024-06-11 10:53:56] DEBUG 136 statementLog - {conn-10005, stmt-20005} clearBatch. 
+[2024-06-11 10:54:53] DEBUG 136 statementLog - {conn-10005, pstmt-20005} closed

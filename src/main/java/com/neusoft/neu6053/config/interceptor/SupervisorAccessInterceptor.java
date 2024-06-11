@@ -41,7 +41,7 @@ public class SupervisorAccessInterceptor implements HandlerInterceptor {
             } else {
                 //刷新token有效期
                 redisUtils.expire(token, 1, TimeUnit.HOURS);
-                if (((String)redisUtils.get(token)).startsWith(RoleUtil.SUPERVISOR) || token.startsWith(RoleUtil.ADMIN)) {
+                if (((String)redisUtils.get(token)).startsWith(RoleUtil.SUPERVISOR) || ((String)redisUtils.get(token)).startsWith(RoleUtil.ADMIN)) {
                     //如果value以SUPERVISOR或ADMIN开头则放行访问所有以SUPERVISOR开头的接口
                     return true;
                 } else {
