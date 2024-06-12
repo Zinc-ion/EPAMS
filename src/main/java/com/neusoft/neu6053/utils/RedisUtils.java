@@ -1,13 +1,18 @@
 package com.neusoft.neu6053.utils;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DefaultStringRedisConnection;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
+import redis.clients.jedis.Jedis;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,88 +27,45 @@ public class RedisUtils {
      */
     private final RedisTemplate<String, Object> redisTemplate;
 
+    //RedisTemplate模板类并不支持模糊查询。
+    //同时使用StringRedisTemplate模板类实现模糊查询
+    private final StringRedisTemplate stringRedisTemplate;
 
 
-//    /**
-//     *
-//     * @Title: set
-//     * @Description: 写入缓存并指定库
-//     * @param key
-//     * @param value 为对象时flag_json必须为true
-//     * @param db    缓存的数据库
-//     * @param flag_json  是否将value值转为json
-//     * @param timeOut  时效（秒）   永久传null
-//     * @return boolean
-//     */
-//    public boolean set(final String key, Object value,int db,boolean flag_json,Long timeOut) {
-//        boolean result = false;
-//        try {
-//            RedisConnection redisConnection = redisTemplate.getConnectionFactory().getConnection();
-//            DefaultStringRedisConnection stringRedisConnection = new DefaultStringRedisConnection(redisConnection);
-//            stringRedisConnection.select(db);
-//            if(flag_json){
-//                stringRedisConnection.set(key, JsonUtils.object2Json(value));
-//            }else{
-//                stringRedisConnection.set(key, value.toString());
-//            }
-//            if(timeOut != null && timeOut != 0){
-//                stringRedisConnection.expire(key, timeOut);
-//            }
-//            stringRedisConnection.close();
-//            result = true;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return result;
-//    }
-//
-//    /**
-//     *
-//     * @Title: get
-//     * @Description: 读取指定db的缓存
-//     * @param key
-//     * @param db
-//     * @return Object
-//     */
-//    public Object get(final String key,int db) {
-//        Object result = null;
-//        try {
-//            RedisConnection redisConnection = redisTemplate.getConnectionFactory().getConnection();
-//            DefaultStringRedisConnection stringRedisConnection = new DefaultStringRedisConnection(redisConnection);
-//            stringRedisConnection.select(db);
-//            result = stringRedisConnection.get(key);
-//            //关闭连接
-//            stringRedisConnection.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return result;
-//    }
-//
-//    /**
-//     * 删除指定db的key
-//     *
-//     * @param key
-//     * @param db
-//     */
-//    public void remove(final String key ,int db) {
-//        try {
-//            RedisConnection redisConnection = redisTemplate.getConnectionFactory().getConnection();
-//            DefaultStringRedisConnection stringRedisConnection = new DefaultStringRedisConnection(redisConnection);
-//            stringRedisConnection.select(db);
-//            if(stringRedisConnection.exists(key)){
-//                stringRedisConnection.del(key);
-//            }
-//            //关闭连接
-//            stringRedisConnection.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    /**
+     * 模糊查询所有keys,返回匹配的keySet
+     * *：通配任意多个字符
+     * ?：通配单个字符
+     * []：通配括号内的某一个字符
+     */
+    public Set<String> getKeysSet(String keys) {
+        return stringRedisTemplate.keys(keys );
+    }
 
+    /**
+     * 模糊查询所有key，返回匹配key对应的所有valueList (String)类型
+     */
+    public List<String> getValuesList(String keys) {
+        Set<String> keysList = stringRedisTemplate.keys(keys);
+        if (keysList != null) {
+            return stringRedisTemplate.opsForValue().multiGet(keysList);
+        } else {
+            return new ArrayList<>();
+        }
+    }
 
-
-
+    /**
+     * 模糊删除所有匹配的keys，返回boolean类型
+     */
+    public boolean deleteKeys(String keys) {
+        Set<String> keysList = stringRedisTemplate.keys(keys);
+        if (keysList != null) {
+            stringRedisTemplate.delete(keysList);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     /**

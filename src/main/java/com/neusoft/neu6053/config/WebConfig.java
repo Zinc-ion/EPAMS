@@ -4,9 +4,12 @@ import com.neusoft.neu6053.config.interceptor.InspectorAccessInterceptor;
 import com.neusoft.neu6053.config.interceptor.LoginInterceptor;
 import com.neusoft.neu6053.config.interceptor.SupervisorAccessInterceptor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +38,25 @@ public class WebConfig implements WebMvcConfigurer {
     );
 
 
+    /**
+     * 跨域配置
+     * @param registry
+     */
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOriginPatterns("*")// 设置允许跨域请求的域名
+                .allowedHeaders("*")// 设置允许的请求头
+                .allowCredentials(true)// 是否允许证书
+                .allowedMethods("*")// 允许的方法
+                .maxAge(3600);// 跨域允许时间
+    }
+
+
+    /**
+     * 拦截器配置
+     * @param registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //把自定义的拦截器注册到全局拦截器中 排除登录和注册请求
@@ -81,4 +103,7 @@ public class WebConfig implements WebMvcConfigurer {
                         "/inspector/logout");
 
     }
+
+
+
 }

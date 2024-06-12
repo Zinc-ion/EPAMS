@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor
@@ -34,8 +35,10 @@ public class InspectorController {
     public HttpResponseEntity login(@RequestBody Inspector inspector) {
         Inspector isLogin = inspectorService.loginInspector(inspector);
         if (isLogin != null) {
-            //生成token
-            String token = UUIDUtil.getOneUUID();
+            //模糊删除redis中重复的token，保证一个账户只有一个token
+            redisUtils.deleteKeys("*" + RoleUtil.INSPECTOR + isLogin.getTelId() + "*");
+            //生成token 以inspector+telId+UUID为token，前缀用于模糊删除
+            String token = RoleUtil.INSPECTOR + isLogin.getTelId() + UUIDUtil.getOneUUID();
             //保存token,key为token,value为AdminId,有效期为1个小时 value加上前缀inspector用于区分角色
             redisUtils.set(token, RoleUtil.INSPECTOR + isLogin.getTelId(), 1, TimeUnit.HOURS);
             //返回值
