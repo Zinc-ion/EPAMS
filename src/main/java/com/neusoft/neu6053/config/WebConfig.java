@@ -29,19 +29,19 @@ public class WebConfig implements WebMvcConfigurer {
 
 
 
-    /**
-     * 跨域配置
-     * @param registry
-     */
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOriginPatterns("*")// 设置允许跨域请求的域名
-                .allowedHeaders("*")// 设置允许的请求头
-                .allowCredentials(true)// 是否允许证书
-                .allowedMethods("*")// 允许的方法
-                .maxAge(3600);// 跨域允许时间
-    }
+//    /**
+//     * 跨域配置
+//     * @param registry
+//     */
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")
+//                .allowedOriginPatterns("*")// 设置允许跨域请求的域名
+//                .allowedHeaders("*")// 设置允许的请求头
+//                .allowCredentials(true)// 是否允许证书
+//                .allowedMethods("*")// 允许的方法
+//                .maxAge(3600);// 跨域允许时间
+//    }
 
     private  final List<String> excludePaths = Arrays.asList(
             "/admins/login","/admins/add","/admins/logout",

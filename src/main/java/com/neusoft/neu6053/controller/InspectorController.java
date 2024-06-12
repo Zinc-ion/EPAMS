@@ -1,8 +1,6 @@
 package com.neusoft.neu6053.controller;
 
-import com.neusoft.neu6053.dao.entity.Admin;
 import com.neusoft.neu6053.dao.entity.Inspector;
-import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.neusoft.neu6053.services.InspectorService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor

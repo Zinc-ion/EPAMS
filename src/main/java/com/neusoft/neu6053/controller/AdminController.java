@@ -7,10 +7,7 @@ import com.neusoft.neu6053.utils.RedisUtils;
 import com.neusoft.neu6053.utils.RoleUtil;
 import com.neusoft.neu6053.utils.UUIDUtil;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 

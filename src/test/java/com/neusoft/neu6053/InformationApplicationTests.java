@@ -30,8 +30,8 @@ public class InformationApplicationTests {
         information.setDate(java.sql.Date.valueOf("2024-06-06"));
         information.setTime(java.sql.Time.valueOf("15:57:11"));
         information.setState(0);
-        information.setSupervisorId(-2);
-        information.setInspectorId(-2);
+        information.setSupervisorId("xj");
+        information.setInspectorId("xj");
         information.setFeedback("无");
         information.setDeleted(0);
         assert informationService.addInformation(information) == 1;
@@ -55,8 +55,8 @@ public class InformationApplicationTests {
         information.setDate(java.sql.Date.valueOf("2024-06-06"));
         information.setTime(java.sql.Time.valueOf("15:57:11"));
         information.setState(0);
-        information.setSupervisorId(-2);
-        information.setInspectorId(-2);
+        information.setSupervisorId("-2");
+        information.setInspectorId("-2");
         information.setFeedback("无");
         information.setDeleted(0);
         assert informationService.updateInformation(information) == 1;

@@ -1,8 +1,7 @@
 package com.neusoft.neu6053.controller;
 
 import com.neusoft.neu6053.dao.entity.Confirmation;
-import com.neusoft.neu6053.dao.viewObject.ProvinceGropConfListVO;
-import com.neusoft.neu6053.dao.viewObject.ProvinceGropConfVO;
+
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,8 +9,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController

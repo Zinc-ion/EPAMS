@@ -1,6 +1,5 @@
 package com.neusoft.neu6053.controller;
 
-import com.neusoft.neu6053.dao.entity.Admin;
 import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.neusoft.neu6053.services.SupervisorService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
