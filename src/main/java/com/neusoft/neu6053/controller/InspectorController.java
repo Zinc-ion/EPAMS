@@ -22,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/inspector")
+@CrossOrigin(origins = "http://localhost:8081")
 @Tag(name = "InspectorControllerAPI", description = "网格员相关接口")
 public class InspectorController {
     private final InspectorService inspectorService;

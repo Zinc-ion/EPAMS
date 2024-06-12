@@ -16,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/conf")
+@CrossOrigin(origins = "http://localhost:8081")
 @Tag(name = "ConfirmationControllerAPI", description = "AQI确认信息相关接口")
 public class ConfirmationController {
     private final ConfirmationService confirmationService;

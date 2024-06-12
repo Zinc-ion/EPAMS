@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/info")
+@CrossOrigin(origins = "http://localhost:8081")
 @Tag(name = "InformationControllerAPI", description = "AQI反馈信息相关接口")
 public class InformationController {
     private final InformationService informationService;

@@ -23,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/admins")
+@CrossOrigin(origins = "http://localhost:8081")
 @Tag(name = "AdminControllerAPI", description = "管理员相关接口")
 public class AdminController {
     /**
