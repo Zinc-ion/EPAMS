@@ -60,7 +60,7 @@ public class WebConfig implements WebMvcConfigurer {
         //把自定义的拦截器注册到全局拦截器中 排除登录和注册请求
         registry.addInterceptor(loginInterceptor)
                 .excludePathPatterns(excludePaths);
-//
+
 //        registry.addInterceptor(adminAccessInterceptor)
 //                /**
 //                 * 只管理员身份才能使用的接口：

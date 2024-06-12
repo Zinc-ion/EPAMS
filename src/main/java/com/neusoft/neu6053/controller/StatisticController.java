@@ -1,6 +1,8 @@
 package com.neusoft.neu6053.controller;
 
 import com.neusoft.neu6053.dao.entity.Confirmation;
+import com.neusoft.neu6053.dao.viewObject.AQILevelListVO;
+import com.neusoft.neu6053.dao.viewObject.AQILevelStatisticsVO;
 import com.neusoft.neu6053.dao.viewObject.ProvinceGropConfListVO;
 import com.neusoft.neu6053.dao.viewObject.ProvinceGropConfVO;
 import com.neusoft.neu6053.services.ConfirmationService;
@@ -50,4 +52,22 @@ public class StatisticController {
         }
         return HttpResponseEntity.success(provinceGropConfVOList);
     }
+
+    @Operation(
+            summary = "AQI空气质量指数分布查询接口",
+            description = "返回各级别AQI空气质量指数分布情况"
+    )
+    @PostMapping("/selectAQILevelList")
+    public HttpResponseEntity selectAQILevelList() {
+        List<AQILevelStatisticsVO> aqiLevelStatisticsVOList = AQILevelListVO.getProvinceGropConfVOList();
+        confirmationService.getAllConfirmations(0,-1).forEach(c -> {
+            int level = Integer.parseInt(c.getPollutionLevel());
+            aqiLevelStatisticsVOList.get(level - 1).setCount(aqiLevelStatisticsVOList.get(level - 1).getCount() + 1);
+        });
+        return HttpResponseEntity.success(aqiLevelStatisticsVOList);
+    }
+
+
+
+
 }
