@@ -4,6 +4,7 @@ import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.neusoft.neu6053.dao.entity.Information;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.neusoft.neu6053.dao.entity.Supervisor;
+import com.neusoft.neu6053.dao.viewObject.AQIFeedBackVO;
 
 import java.util.List;
 
@@ -81,6 +82,6 @@ public interface InformationService extends IService<Information> {
      * @param information
      * @return List<Information>
      */
-    List<Information> selectInformationByParams(Integer curPage, Integer pageSize, Information information);
+    List<AQIFeedBackVO> selectInformationByParams(Integer curPage, Integer pageSize, Information information);
 
 }

@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
-
 import lombok.Data;
 
 /**
@@ -33,12 +32,12 @@ public class Information implements Serializable {
     private String city;
 
     /**
-     * 社区详细地址
+     * 详细地址
      */
     private String community;
 
     /**
-     * 预估污染水平
+     * 预估污染水平（1~6数字）
      */
     private String pollutionLevel;
 
@@ -60,12 +59,12 @@ public class Information implements Serializable {
     /**
      * 监督员id
      */
-    private Integer supervisorId;
+    private String supervisorId;
 
     /**
      * 网格员id
      */
-    private Integer inspectorId;
+    private String inspectorId;
 
     /**
      * 反馈信息

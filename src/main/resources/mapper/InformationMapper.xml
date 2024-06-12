@@ -13,8 +13,8 @@
             <result property="date" column="date" jdbcType="DATE"/>
             <result property="time" column="time" jdbcType="TIME"/>
             <result property="state" column="state" jdbcType="INTEGER"/>
-            <result property="supervisorId" column="supervisor_id" jdbcType="INTEGER"/>
-            <result property="inspectorId" column="inspector_id" jdbcType="INTEGER"/>
+            <result property="supervisorId" column="supervisor_id" jdbcType="VARCHAR"/>
+            <result property="inspectorId" column="inspector_id" jdbcType="VARCHAR"/>
             <result property="feedback" column="feedback" jdbcType="VARCHAR"/>
             <result property="deleted" column="deleted" jdbcType="INTEGER"/>
     </resultMap>

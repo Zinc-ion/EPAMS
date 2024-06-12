@@ -5,11 +5,15 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.neusoft.neu6053.dao.entity.Information;
+import com.neusoft.neu6053.dao.entity.Supervisor;
+import com.neusoft.neu6053.dao.mapper.SupervisorMapper;
+import com.neusoft.neu6053.dao.viewObject.AQIFeedBackVO;
 import com.neusoft.neu6053.services.InformationService;
 import com.neusoft.neu6053.dao.mapper.InformationMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +27,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     implements InformationService{
 
     private final InformationMapper informationMapper;
+    private final SupervisorMapper supervisorMapper;
 
     @Override
     public int addInformation(Information information) {
@@ -101,7 +106,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     }
 
     @Override
-    public List<Information> selectInformationByParams(Integer curPage, Integer pageSize, Information information) {
+    public List<AQIFeedBackVO> selectInformationByParams(Integer curPage, Integer pageSize, Information information) {
         Page<Information> page = new Page<>(curPage, pageSize);
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
         if(information.getProvince() != null) {
@@ -119,8 +124,40 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         if(information.getState() != null) {
             queryWrapper.eq("state", information.getState());
         }
+        List<Information> records = informationMapper.selectPage(page, queryWrapper).getRecords();
 
-        return informationMapper.selectPage(page, queryWrapper).getRecords();
+        if (records.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        //填充VO
+        List<AQIFeedBackVO> aqiFeedBackVOS = new ArrayList<>();
+        for (Information record : records) {
+            AQIFeedBackVO aqiFeedBackVO = new AQIFeedBackVO();
+            aqiFeedBackVO.setFeedbackId(record.getInformationId());
+
+            Supervisor supervisor = supervisorMapper.selectById(record.getSupervisorId());
+            if (supervisor == null) {
+                return new ArrayList<>();
+            }
+
+            aqiFeedBackVO.setSupName(supervisor.getRealName());
+            aqiFeedBackVO.setSupSex(supervisor.getSex());
+            aqiFeedBackVO.setBirthday(supervisor.getBirthday());
+            aqiFeedBackVO.setSupTel(supervisor.getTelId());
+
+            aqiFeedBackVO.setProvince(record.getProvince());
+            aqiFeedBackVO.setCity(record.getCity());
+            aqiFeedBackVO.setCommunity(record.getCommunity());
+            aqiFeedBackVO.setFeedback(record.getFeedback());
+            aqiFeedBackVO.setPollutionLevel(record.getPollutionLevel());
+            aqiFeedBackVO.setDate(record.getDate());
+            aqiFeedBackVO.setTime(record.getTime());
+
+            aqiFeedBackVOS.add(aqiFeedBackVO);
+        }
+
+        return aqiFeedBackVOS;
     }
 
 
