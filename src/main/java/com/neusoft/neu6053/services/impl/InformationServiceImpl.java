@@ -77,6 +77,24 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     }
 
     @Override
+    public List<Information> getInformationByInsId(Integer curPage, Integer pageSize,Information information) {
+        QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("inspector_id", information.getInspectorId());
+        queryWrapper.eq("state", 1); // 1表示已经委派但未完成 0为未委派 2为已完成
+        Page<Information> page = new Page<>(curPage, pageSize);
+        return informationMapper.selectPage(page, queryWrapper).getRecords();
+    }
+
+    @Override
+    public List<Information> getInformationBySupId(Integer curPage, Integer pageSize,Information information) {
+        QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("supervisor_id", information.getSupervisorId());
+        Page<Information> page = new Page<>(curPage, pageSize);
+        return informationMapper.selectPage(page, queryWrapper).getRecords();
+
+    }
+
+    @Override
     public List<Information> getAllInformations(Integer curPage, Integer pageSize) {
         Page<Information> page = new Page<>(curPage, pageSize);
         return informationMapper.selectPage(page, null).getRecords();
@@ -104,6 +122,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
 
         return informationMapper.selectPage(page, queryWrapper).getRecords();
     }
+
 
 }
 

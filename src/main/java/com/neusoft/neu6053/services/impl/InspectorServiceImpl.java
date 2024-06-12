@@ -92,6 +92,9 @@ public class InspectorServiceImpl extends ServiceImpl<InspectorMapper, Inspector
         }
         return flag == 0;
     }
+
+
+
 }
 
 

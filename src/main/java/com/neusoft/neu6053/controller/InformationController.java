@@ -96,4 +96,22 @@ public class InformationController {
     public HttpResponseEntity selectInformationByParams(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Information information) {
         return HttpResponseEntity.success(informationService.selectInformationByParams(curPage, pageSize, information));
     }
+
+    @Operation(
+            summary = "根据inspector_id查询AQI反馈信息",
+            description = "根据inspector_id查询AQI反馈信息，pageSize为-1时不分页"
+    )
+    @PostMapping("/select/selectByInsId")
+    public HttpResponseEntity selectInformationByInsId(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Information information) {
+        return HttpResponseEntity.success(informationService.getInformationByInsId(curPage, pageSize, information));
+    }
+
+    @Operation(
+            summary = "根据supervisor_id查询AQI反馈信息",
+            description = "根据supervisor_id查询AQI反馈信息，pageSize为-1时不分页"
+    )
+    @PostMapping("/select/selectBySupId")
+    public HttpResponseEntity selectInformationBySupId(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Information information) {
+        return HttpResponseEntity.success(informationService.getInformationBySupId(curPage, pageSize, information));
+    }
 }

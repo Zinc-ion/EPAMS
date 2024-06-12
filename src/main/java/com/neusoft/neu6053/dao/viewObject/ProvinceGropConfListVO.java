@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProvinceGropConfListVO {
-    private static List<ProvinceGropConfVO> provinceGropConfVOList;
+
 
     public static List<ProvinceGropConfVO> getProvinceGropConfVOList() {
-        provinceGropConfVOList = new ArrayList<ProvinceGropConfVO>();
+        List<ProvinceGropConfVO> provinceGropConfVOList;
+        provinceGropConfVOList = new ArrayList<>();
         int id = 0;
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "北京市", 0, 0, 0, 0));
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "天津市", 0, 0, 0, 0));

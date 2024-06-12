@@ -50,6 +50,22 @@ public interface InformationService extends IService<Information> {
     Information getInformationById(Information information);
 
     /**
+     * 根据inspector_id获取被管理员分配的AQI反馈信息
+     * @param information
+     * @return Information
+     */
+    List<Information> getInformationByInsId(Integer curPage, Integer pageSize,Information information);
+
+    /**
+     * 根据supervisor_id获取监督员历史AQI反馈信息
+     * @param information
+     * @return Information
+     */
+    List<Information> getInformationBySupId(Integer curPage, Integer pageSize,Information information);
+
+
+
+    /**
      * 分页获取所有AQI反馈信息
      * @param curPage
      * @param pageSize
