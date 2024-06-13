@@ -1,10 +1,7 @@
 package com.neusoft.neu6053.controller;
 
 import com.neusoft.neu6053.dao.entity.Confirmation;
-import com.neusoft.neu6053.dao.viewObject.AQILevelListVO;
-import com.neusoft.neu6053.dao.viewObject.AQILevelStatisticsVO;
-import com.neusoft.neu6053.dao.viewObject.ProvinceGropConfListVO;
-import com.neusoft.neu6053.dao.viewObject.ProvinceGropConfVO;
+import com.neusoft.neu6053.dao.viewObject.*;
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,7 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
@@ -30,7 +32,8 @@ public class StatisticController {
     )
     @PostMapping("/selectProvinceGroupValue")
     public HttpResponseEntity selectProvinceGroupValue() {
-        List<Confirmation> confirmations = confirmationService.getAllConfirmations(0,-1);
+        Map<String, Object> map = confirmationService.getAllConfirmations(0,-1);
+        List<Confirmation> confirmations = (List<Confirmation>) map.get("data");
         List<ProvinceGropConfVO> provinceGropConfVOList = ProvinceGropConfListVO.getProvinceGropConfVOList();
         for(Confirmation c:confirmations){
             for (ProvinceGropConfVO p : provinceGropConfVOList) {
@@ -60,11 +63,48 @@ public class StatisticController {
     @PostMapping("/selectAQILevelList")
     public HttpResponseEntity selectAQILevelList() {
         List<AQILevelStatisticsVO> aqiLevelStatisticsVOList = AQILevelListVO.getProvinceGropConfVOList();
-        confirmationService.getAllConfirmations(0,-1).forEach(c -> {
+        List<Confirmation> confirmations = (List<Confirmation>) confirmationService.getAllConfirmations(0,-1).get("data");
+        confirmations.forEach(c -> {
             int level = Integer.parseInt(c.getPollutionLevel());
             aqiLevelStatisticsVOList.get(level - 1).setCount(aqiLevelStatisticsVOList.get(level - 1).getCount() + 1);
         });
         return HttpResponseEntity.success(aqiLevelStatisticsVOList);
+    }
+
+
+    @Operation(
+            summary = "AQI空气质量指数超标趋势",
+            description = "各月份AQI空气质量指数超标情况"
+    )
+    @PostMapping("/selectAQIExceedTrend")
+    public HttpResponseEntity selectAQIExceedTrend() {
+        List<AQIExceedTrendVO> aqiExceedTrendVOList = new ArrayList<>();
+        Map<String ,Object> map = confirmationService.getAllConfirmations(0, -1);
+        List<Confirmation> allConfirmations = (List<Confirmation>) map.get("data");
+        int count = 0;
+        int exceedCount = 0;
+        for (Confirmation conf : allConfirmations) {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+            String date = sdf.format(conf.getDate());
+            AQIExceedTrendVO aqiExceedTrendVO = new AQIExceedTrendVO();
+            try {
+                aqiExceedTrendVO.setYearAndMonth(sdf.parse(date));
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+            aqiExceedTrendVO.setCount(++count);
+            if (Integer.parseInt(conf.getPollutionLevel()) >= 3) {
+                aqiExceedTrendVO.setExceedCount(++exceedCount);
+            }
+            aqiExceedTrendVOList.add(aqiExceedTrendVO);
+
+
+
+        }
+
+
+        return HttpResponseEntity.success(aqiExceedTrendVOList);
     }
 
 

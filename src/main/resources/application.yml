@@ -8,7 +8,8 @@ server:
 spring:
   jackson:
     time-zone: GMT+8  #时区设置为东八区
-    #spring中对于@RestController或者@Controller+@ResponseBody 注解的接口方法的返回值默认是Json格式，所以当对于date类型的数据，在返回浏览器端是会被spring-boot默认的Jackson框架转换，而Jackson框架默认的时区GMT（相对于中国是少了8小时）。
+    #spring中对于@RestController或者@Controller+@ResponseBody 注解的接口方法的返回值默认是Json格式
+    #所以当对于date类型的数据，在返回浏览器端是会被spring-boot默认的Jackson框架转换，而Jackson框架默认的时区GMT（相对于中国是少了8小时）。
 
   devtools:  #热部署
     restart:

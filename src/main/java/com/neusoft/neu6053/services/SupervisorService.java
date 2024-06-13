@@ -4,6 +4,7 @@ import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author 1185911254@qq.com
@@ -53,7 +54,7 @@ public interface SupervisorService extends IService<Supervisor> {
      * @param pageSize
      * @return List<Supervisor>
      */
-    List<Supervisor> selectAllSupervisor(Integer curPage, Integer pageSize);
+    Map<String, Object> selectAllSupervisor(Integer curPage, Integer pageSize);
 
     /**
      * 根据手机号查询监督员信息
@@ -70,7 +71,7 @@ public interface SupervisorService extends IService<Supervisor> {
      * @param supervisor
      * @return List<Supervisor>
      */
-    List<Supervisor> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor);
+    Map<String, Object> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor);
 
 
 

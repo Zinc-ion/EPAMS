@@ -3,6 +3,8 @@ package com.neusoft.neu6053.services.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.neusoft.neu6053.dao.entity.Confirmation;
+import com.neusoft.neu6053.dao.entity.Inspector;
 import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.neusoft.neu6053.services.SupervisorService;
 import com.neusoft.neu6053.dao.mapper.SupervisorMapper;
@@ -10,7 +12,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author 1185911254@qq.com
@@ -102,10 +106,17 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
      * @return List<Supervisor>
      */
     @Override
-    public List<Supervisor> selectAllSupervisor(Integer curPage, Integer pageSize) {
+    public Map<String, Object> selectAllSupervisor(Integer curPage, Integer pageSize) {
         QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();
         Page<Supervisor> page = new Page<>(curPage, pageSize);
-        return supervisorMapper.selectPage(page,queryWrapper).getRecords();
+
+
+        List<Supervisor> records = supervisorMapper.selectPage(page,queryWrapper).getRecords();
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("data", records);
+        return map;
     }
 
     /**
@@ -129,7 +140,7 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
      * @return List<Supervisor>
      */
     @Override
-    public List<Supervisor> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor) {
+    public Map<String, Object> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor) {
         QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();
         if (supervisor.getSex() != null) {
             queryWrapper.eq("sex", supervisor.getSex());
@@ -141,7 +152,14 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
             queryWrapper.like("real_name", supervisor.getRealName());
         }
         Page<Supervisor> page = new Page<>(curPage, pageSize);
-        return supervisorMapper.selectPage(page, queryWrapper).getRecords();
+
+        List<Supervisor> records = supervisorMapper.selectPage(page, queryWrapper).getRecords();
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("data", records);
+        return map;
+
     }
 }
 

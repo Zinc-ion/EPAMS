@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.neusoft.neu6053.dao.entity.Information;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author 1185911254@qq.com
@@ -54,7 +55,7 @@ public interface ConfirmationService extends IService<Confirmation> {
      * @param pageSize
      * @return List<Confirmation>
      */
-    List<Confirmation> getAllConfirmations(Integer curPage, Integer pageSize);
+    Map<String, Object> getAllConfirmations(Integer curPage, Integer pageSize);
 
     /**
      * 多条件查询，条件包括省(模糊)、市（模糊）、确认日期
@@ -63,6 +64,6 @@ public interface ConfirmationService extends IService<Confirmation> {
      * @param confirmation
      * @return List<Confirmation>
      */
-    List<Confirmation> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation);
+    Map<String, Object> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation);
 
 }

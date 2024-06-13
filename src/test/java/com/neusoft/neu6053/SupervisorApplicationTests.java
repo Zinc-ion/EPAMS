@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class SupervisorApplicationTests {
@@ -182,7 +183,7 @@ class SupervisorApplicationTests {
         supervisor1.setRealName("string");
 
 
-        List<Supervisor> supervisors = supervisorService.selectSupervisorByParams(1, 10, supervisor1);
+        Map<String, Object> supervisors = supervisorService.selectSupervisorByParams(1, 10, supervisor1);
         assert !supervisors.isEmpty();
         supervisorService.deleteSupervisorById(supervisor);
     }

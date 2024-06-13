@@ -4,13 +4,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.neusoft.neu6053.dao.entity.Confirmation;
+import com.neusoft.neu6053.dao.entity.Information;
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.dao.mapper.ConfirmationMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author 1185911254@qq.com
@@ -99,9 +102,15 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
      * @param pageSize
      * @return List<Confirmation>
      */
-    public List<Confirmation> getAllConfirmations(Integer curPage, Integer pageSize) {
+    public Map<String, Object> getAllConfirmations(Integer curPage, Integer pageSize) {
         Page<Confirmation> page = new Page<>(curPage, pageSize);
-        return confirmationMapper.selectPage(page, null).getRecords();
+
+        List<Confirmation> records = confirmationMapper.selectPage(page, null).getRecords();
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("data", records);
+        return map;
     }
 
     /**
@@ -112,7 +121,7 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
      * @return List<Confirmation>
      */
     @Override
-    public List<Confirmation> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation) {
+    public Map<String, Object> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation) {
         Page<Confirmation> page = new Page<>(curPage, pageSize);
         QueryWrapper<Confirmation> queryWrapper = new QueryWrapper<>();
         if(confirmation.getProvince() != null) {
@@ -126,7 +135,14 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
             SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
             queryWrapper.like("date", sim.format(confirmation.getDate()));
         }
-        return confirmationMapper.selectPage(page, queryWrapper).getRecords();
+        List<Confirmation> records = confirmationMapper.selectPage(page, queryWrapper).getRecords();
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("data", records);
+        return map;
+
+
     }
 
 }

@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author 1185911254@qq.com
@@ -84,31 +86,46 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     }
 
     @Override
-    public List<Information> getInformationByInsId(Integer curPage, Integer pageSize,Information information) {
+    public Map<String, Object> getInformationByInsId(Integer curPage, Integer pageSize,Information information) {
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("inspector_id", information.getInspectorId());
         queryWrapper.eq("state", 1); // 1表示已经委派但未完成 0为未委派 2为已完成
         Page<Information> page = new Page<>(curPage, pageSize);
-        return informationMapper.selectPage(page, queryWrapper).getRecords();
+        List<Information> records = informationMapper.selectPage(page, queryWrapper).getRecords();
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("data", records);
+        return map;
     }
 
     @Override
-    public List<Information> getInformationBySupId(Integer curPage, Integer pageSize,Information information) {
+    public Map<String, Object> getInformationBySupId(Integer curPage, Integer pageSize,Information information) {
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("supervisor_id", information.getSupervisorId());
         Page<Information> page = new Page<>(curPage, pageSize);
-        return informationMapper.selectPage(page, queryWrapper).getRecords();
+        Map<String, Object> map = new HashMap<>();
+        List<Information> records = informationMapper.selectPage(page, queryWrapper).getRecords();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("data", records);
+        return map;
 
     }
 
     @Override
-    public List<Information> getAllInformations(Integer curPage, Integer pageSize) {
+    public Map<String, Object> getAllInformations(Integer curPage, Integer pageSize) {
+        Map<String, Object> map = new HashMap<>();
         Page<Information> page = new Page<>(curPage, pageSize);
-        return informationMapper.selectPage(page, null).getRecords();
+        List<Information> records = informationMapper.selectPage(page, null).getRecords();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("data", records);
+        return map;
     }
 
     @Override
-    public List<AQIFeedBackVO> selectInformationByParams(Integer curPage, Integer pageSize, Information information) {
+    public Map<String, Object> selectInformationByParams(Integer curPage, Integer pageSize, Information information) {
         Page<Information> page = new Page<>(curPage, pageSize);
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
         if(information.getProvince() != null) {
@@ -131,7 +148,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         List<Information> records = informationMapper.selectPage(page, queryWrapper).getRecords();
 
         if (records.isEmpty()) {
-            return new ArrayList<>();
+            return new HashMap<>();
         }
 
         //填充VO
@@ -142,7 +159,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
 
             Supervisor supervisor = supervisorMapper.selectById(record.getSupervisorId());
             if (supervisor == null) {
-                return new ArrayList<>();
+                return new HashMap<>();
             }
 
             aqiFeedBackVO.setSupName(supervisor.getRealName());
@@ -161,7 +178,11 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
             aqiFeedBackVOS.add(aqiFeedBackVO);
         }
 
-        return aqiFeedBackVOS;
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("data", aqiFeedBackVOS);
+        return map;
     }
 
 

@@ -7,6 +7,7 @@ import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.neusoft.neu6053.dao.viewObject.AQIFeedBackVO;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author 1185911254@qq.com
@@ -55,14 +56,14 @@ public interface InformationService extends IService<Information> {
      * @param information
      * @return Information
      */
-    List<Information> getInformationByInsId(Integer curPage, Integer pageSize,Information information);
+    Map<String, Object> getInformationByInsId(Integer curPage, Integer pageSize,Information information);
 
     /**
      * 根据supervisor_id获取监督员历史AQI反馈信息
      * @param information
      * @return Information
      */
-    List<Information> getInformationBySupId(Integer curPage, Integer pageSize,Information information);
+    Map<String, Object> getInformationBySupId(Integer curPage, Integer pageSize,Information information);
 
 
 
@@ -72,7 +73,7 @@ public interface InformationService extends IService<Information> {
      * @param pageSize
      * @return List<Information>
      */
-    List<Information> getAllInformations(Integer curPage, Integer pageSize);
+    Map<String, Object> getAllInformations(Integer curPage, Integer pageSize);
 
 
     /**
@@ -82,6 +83,6 @@ public interface InformationService extends IService<Information> {
      * @param information
      * @return List<Information>
      */
-    List<AQIFeedBackVO> selectInformationByParams(Integer curPage, Integer pageSize, Information information);
+    Map<String, Object> selectInformationByParams(Integer curPage, Integer pageSize, Information information);
 
 }
