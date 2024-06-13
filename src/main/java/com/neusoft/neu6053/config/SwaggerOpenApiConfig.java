@@ -34,7 +34,7 @@ import org.springframework.context.annotation.Bean;
         ),
         // ## 表示服务器地址或者URL模板列表，多个服务地址随时切换（只不过是有多台IP有当前的服务API）
         servers = {
-                @Server(url = "http://10.1.232.83:8085/", description = "本地服务器一服务"),
+                @Server(url = "http://localhost:8085/", description = "本地服务器一服务"),
 //                @Server(url = "http://192.168.2.236/demo/", description = "本地服务器二服务"),
         }
 //        externalDocs = @ExternalDocumentation(description = "更多内容请查看该链接", url = "xxx")

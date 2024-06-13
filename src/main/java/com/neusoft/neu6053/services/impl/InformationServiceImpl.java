@@ -13,6 +13,8 @@ import com.neusoft.neu6053.dao.mapper.InformationMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -119,7 +121,10 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
             queryWrapper.eq("pollution_level", information.getPollutionLevel());
         }
         if(information.getDate() != null) {
-            queryWrapper.eq("date", information.getDate());
+            //前端传入的是GMT格式时间，先转换为date类型再进行查询
+            SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
+            System.out.println("DATE:" + sim.format(information.getDate()));
+            queryWrapper.like("date", sim.format(information.getDate()));
         }
         if(information.getState() != null) {
             queryWrapper.eq("state", information.getState());
