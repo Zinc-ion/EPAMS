@@ -29,12 +29,16 @@ public class CrosFilter implements javax.servlet.Filter {
         //用于判断request来自ajax还是传统请求
         response.setHeader("Access-Control-Allow-Headers", "*");
 
-//        String method = request.getMethod();
-//        if(method.equalsIgnoreCase("OPTIONS")){
-//            servletResponse.getOutputStream().write("Success".getBytes("utf-8"));
-//        }else{
-//            filterChain.doFilter(servletRequest, servletResponse);
-//        }
+        /**
+         * 由于浏览器将CORS请求分为两类：简单请求（simple request）和非简单请求（not-simple-request）。
+         * 非简单请求 会在正式通信之前，增加一次HTTP请求，称之为预检请求。浏览器会先发起OPTIONS方法到服务器，以获知服务器是否允许该实际请求。
+         */
+        String method = request.getMethod();
+        if(method.equalsIgnoreCase("OPTIONS")){
+            servletResponse.getOutputStream().write("Success".getBytes("utf-8"));
+        }else{
+            filterChain.doFilter(servletRequest, servletResponse);
+        }
 
         filterChain.doFilter(servletRequest, servletResponse);
     }
