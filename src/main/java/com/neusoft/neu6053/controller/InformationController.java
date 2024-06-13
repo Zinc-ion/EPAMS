@@ -86,6 +86,15 @@ public class InformationController {
     }
 
     @Operation(
+            summary = "AQI反馈信息查询接口2",
+            description = "分页查询AQI反馈信息，返回反馈信息列表，pageSize为-1时不分页"
+    )
+    @PostMapping("/select/selectAll2")
+    public HttpResponseEntity selectAllInformation2(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
+        return HttpResponseEntity.success(informationService.getAllInformations2(curPage, pageSize));
+    }
+
+    @Operation(
             summary = "AQI反馈信息根据Id查询接口",
             description = "根据information_id查询AQI反馈信息，返回反馈信息对象"
     )

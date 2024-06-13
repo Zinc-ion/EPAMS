@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/supervisor")
 @Tag(name = "SupervisorControllerAPI", description = "监督员相关接口")
-public class SupervisorController {
+public class  SupervisorController {
     /**
      * 使用构造器注入，避免使用@Autowired注解
      * 使用@RequiredArgsConstructor注解，对所有final修饰的成员变量生成构造器

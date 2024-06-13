@@ -1,5 +1,6 @@
 package com.neusoft.neu6053.services;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.neusoft.neu6053.dao.entity.Information;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -74,6 +75,8 @@ public interface InformationService extends IService<Information> {
      * @return List<Information>
      */
     Map<String, Object> getAllInformations(Integer curPage, Integer pageSize);
+
+    IPage<Information> getAllInformations2(Integer curPage, Integer pageSize);
 
 
     /**

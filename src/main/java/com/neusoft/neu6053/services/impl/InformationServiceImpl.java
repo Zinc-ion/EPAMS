@@ -1,6 +1,7 @@
 package com.neusoft.neu6053.services.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.neusoft.neu6053.dao.entity.Confirmation;
@@ -123,6 +124,15 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         map.put("data", records);
         return map;
     }
+
+    @Override
+    public IPage<Information> getAllInformations2(Integer curPage, Integer pageSize) {
+        Page<Information> page = new Page<>(curPage, pageSize);
+        List<Information> records = informationMapper.selectPage(page, null).getRecords();
+        page.setRecords(records);
+        return page;
+    }
+
 
     @Override
     public Map<String, Object> selectInformationByParams(Integer curPage, Integer pageSize, Information information) {
