@@ -27,13 +27,14 @@ public class CrosFilter implements javax.servlet.Filter {
          */
         response.setHeader("Access-Control-Max-Age", "3600");
         //用于判断request来自ajax还是传统请求
-        response.setHeader("Access-Control-Allow-Headers", " Origin, X-Requested-With, Content-Type, Accept");
-        String method = request.getMethod();
-        if(method.equalsIgnoreCase("OPTIONS")){
-            servletResponse.getOutputStream().write("Success".getBytes("utf-8"));
-        }else{
-            filterChain.doFilter(servletRequest, servletResponse);
-        }
+        response.setHeader("Access-Control-Allow-Headers", "*");
+
+//        String method = request.getMethod();
+//        if(method.equalsIgnoreCase("OPTIONS")){
+//            servletResponse.getOutputStream().write("Success".getBytes("utf-8"));
+//        }else{
+//            filterChain.doFilter(servletRequest, servletResponse);
+//        }
 
         filterChain.doFilter(servletRequest, servletResponse);
     }
