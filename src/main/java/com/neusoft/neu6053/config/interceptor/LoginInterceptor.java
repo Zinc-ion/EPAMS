@@ -6,11 +6,15 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Enumeration;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 @Component
 @RequiredArgsConstructor
@@ -29,8 +33,23 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
         try {
+
+//            //2.获得所有头的名称
+//            Enumeration<String> headerNames = request.getHeaderNames();
+//            while(headerNames.hasMoreElements()) {//判断是否还有下一个元素
+//                String nextElement = headerNames.nextElement();//获取headerNames集合中的请求头
+//                String header2 = request.getHeader(nextElement);//通过请求头得到请求内容
+//                //log.info("请求头=========={}" + nextElement + "VALUE:" + header2);
+//                System.out.println(nextElement+":"+header2);
+//            }
+
             //token+redis验证
             String token = request.getHeader("token");
+            if(token == null){
+                logger.info("token为空，请重新登录");
+                //token失效 拦截请求
+                throw new RuntimeException();
+            }
             if (!redisUtils.hasKey(token)) {
                 logger.info("登录token过期，请重新登录");
                 //token失效 拦截请求

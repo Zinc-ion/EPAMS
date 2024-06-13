@@ -4,6 +4,7 @@ import com.neusoft.neu6053.dao.entity.Confirmation;
 
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
+import com.neusoft.neu6053.utils.TimeUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,9 @@ public class ConfirmationController {
     )
     @PostMapping("/add")
     public HttpResponseEntity addConfirmation(@RequestBody Confirmation confirmation) {
+        //设置时间
+        confirmation.setDate(TimeUtil.getCurrentSqlDate());
+        confirmation.setTime(TimeUtil.getCurrentSqlTime());
         if (confirmationService.addConfirmation(confirmation) == 1) {
             return HttpResponseEntity.success(confirmation);
         } else {

@@ -3,6 +3,7 @@ package com.neusoft.neu6053.controller;
 import com.neusoft.neu6053.dao.entity.Information;
 import com.neusoft.neu6053.services.InformationService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
+import com.neusoft.neu6053.utils.TimeUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,9 @@ public class InformationController {
     )
     @PostMapping("/add")
     public HttpResponseEntity addInformation(@RequestBody Information information) {
+        //设置日期时间
+        information.setDate(TimeUtil.getCurrentSqlDate());
+        information.setTime(TimeUtil.getCurrentSqlTime());
         if (informationService.addInformation(information) == 1) {
             return HttpResponseEntity.success(information);
         } else {

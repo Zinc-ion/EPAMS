@@ -123,7 +123,6 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         if(information.getDate() != null) {
             //前端传入的是GMT格式时间，先转换为date类型再进行查询
             SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
-            System.out.println("DATE:" + sim.format(information.getDate()));
             queryWrapper.like("date", sim.format(information.getDate()));
         }
         if(information.getState() != null) {

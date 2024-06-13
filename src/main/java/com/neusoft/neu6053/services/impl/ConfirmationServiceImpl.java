@@ -9,6 +9,7 @@ import com.neusoft.neu6053.dao.mapper.ConfirmationMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -121,7 +122,9 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
             queryWrapper.like("city", confirmation.getCity());
         }
         if(confirmation.getDate() != null) {
-            queryWrapper.eq("date", confirmation.getDate());
+            //前端传入的是GMT格式时间，先转换为date类型再进行查询
+            SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
+            queryWrapper.like("date", sim.format(confirmation.getDate()));
         }
         return confirmationMapper.selectPage(page, queryWrapper).getRecords();
     }

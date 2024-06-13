@@ -34,12 +34,7 @@ public class CrosFilter implements javax.servlet.Filter {
          * 非简单请求 会在正式通信之前，增加一次HTTP请求，称之为预检请求。浏览器会先发起OPTIONS方法到服务器，以获知服务器是否允许该实际请求。
          * 产生的原因 ：是因为前端在使用axios发送请求的时候，加入了自定义请求头(比如token)，然后 axios 就会产生options试探请求。
          */
-//        String method = request.getMethod();
-//        if(method.equalsIgnoreCase("OPTIONS")){
-//            servletResponse.getOutputStream().write("Success".getBytes("utf-8"));
-//        }else{
-//            filterChain.doFilter(servletRequest, servletResponse);
-//        }
+
 
         if ("OPTIONS".equals(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
