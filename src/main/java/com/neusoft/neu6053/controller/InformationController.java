@@ -26,7 +26,7 @@ public class InformationController {
     )
     @PostMapping("/add")
     public HttpResponseEntity addInformation(@RequestBody Information information) {
-        //设置日期时间
+        //设置日期时间与状态
         information.setDate(TimeUtil.getCurrentSqlDate());
         information.setTime(TimeUtil.getCurrentSqlTime());
         if (informationService.addInformation(information) == 1) {
@@ -73,6 +73,29 @@ public class InformationController {
             return HttpResponseEntity.success(information);
         } else {
             return HttpResponseEntity.failure("修改失败，请检测information_id");
+        }
+    }
+
+    @Operation(
+            summary = "AQI反馈信息委派接口",
+            description = "根据传入的information_id与inspectorId修改对应AQI反馈信息内state为1，inspectId修改为指定的网格员id，返回修改后的反馈信息对象"
+    )
+    @PostMapping("/assign")
+    public HttpResponseEntity assignInformation(@RequestBody Information information) {
+        Information infoModified = informationService.getInformationById(information);
+        //错误检测
+        if(infoModified == null) {
+            return HttpResponseEntity.failure("未找到表项，请检测information_id");
+        } else if (infoModified.getState() != 0) {
+            return HttpResponseEntity.failure("该信息已被委派或已完成，请检测information_id");
+        }
+
+        infoModified.setState(1);
+        infoModified.setInspectorId(information.getInspectorId());
+        if (informationService.updateInformation(infoModified) == 1) {
+            return HttpResponseEntity.success(infoModified);
+        } else {
+            return HttpResponseEntity.failure("委派失败，请检测information_id");
         }
     }
 
