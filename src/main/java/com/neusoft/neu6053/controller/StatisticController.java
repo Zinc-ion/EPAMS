@@ -1,8 +1,10 @@
 package com.neusoft.neu6053.controller;
 
 import com.neusoft.neu6053.dao.entity.Confirmation;
+import com.neusoft.neu6053.dao.entity.Provincialcapital;
 import com.neusoft.neu6053.dao.viewObject.*;
 import com.neusoft.neu6053.services.ConfirmationService;
+import com.neusoft.neu6053.services.ProvincialcapitalService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -24,6 +26,7 @@ import java.util.Map;
 @Tag(name = "StatisticControllerAPI", description = "统计数据相关接口")
 public class StatisticController {
     private final ConfirmationService confirmationService;
+    private final ProvincialcapitalService provincialcapitalService;
 
 
     @Operation(
@@ -122,6 +125,63 @@ public class StatisticController {
         }
 
         return HttpResponseEntity.success(aqiExceedTrendVOList);
+    }
+
+
+
+    @Operation(
+            summary = "AQI其他统计数据查询接口",
+            description = "查询其他数据"
+    )
+    @PostMapping("/selectAQIElseData")
+    public HttpResponseEntity selectAQIElseData() {
+        Map<String, Object> map = confirmationService.getAllConfirmations(0,-1);
+        List<Confirmation> confirmations = (List<Confirmation>) map.get("data");
+        AQIElseDataVO aqiElseDataVO = new AQIElseDataVO();
+        aqiElseDataVO.setTotal(confirmations.size());
+        int goodAirQualityCount = 0;
+
+        List<String> coverCity = new ArrayList<>(); //AQI表中覆盖的城市
+
+        for (Confirmation c : confirmations) {
+            if(coverCity.isEmpty()) {  //将覆盖城市名单加入coverCityList中
+                coverCity.add(c.getCity());
+            }else {
+                int flag = 0;
+                for (String city : coverCity) { //去除重复的城市
+                    if (city.equals(c.getCity())) {
+                        flag = 1;
+                        break;
+                    }
+                }
+                if (flag == 0) {
+                    coverCity.add(c.getCity());
+                }
+            }
+
+            if (Integer.parseInt(c.getPollutionLevel()) < 3) {
+                goodAirQualityCount++;
+            }
+        }
+        aqiElseDataVO.setGoodAirQualityCount(goodAirQualityCount);
+
+
+
+
+        List<Provincialcapital> provincialcapitals = provincialcapitalService.listAll();
+        int coverCount = 0; //coverCity中覆盖省会城市的数量
+        for (Provincialcapital p : provincialcapitals) {
+            for (String c : coverCity) {
+                if (c.equals(p.getName())) {
+                    coverCount++;
+                    break;
+                }
+            }
+        }
+
+        aqiElseDataVO.setProvincialCapitalCoverRate(String.format("%.2f",coverCount/(double)provincialcapitals.size() * 100) + "%");
+        aqiElseDataVO.setMetropolisCoverRate(String.format("%.2f",coverCity.size()/105.0 * 100) + "%");
+        return HttpResponseEntity.success(aqiElseDataVO);
     }
 
 
