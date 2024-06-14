@@ -16,7 +16,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/info")
-@Tag(name = "InformationControllerAPI", description = "AQI反馈信息相关接口")
+@Tag(name = "InformationAPI", description = "AQI反馈信息相关接口")
 public class InformationController {
     private final InformationService informationService;
 

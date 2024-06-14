@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/conf")
-@Tag(name = "ConfirmationControllerAPI", description = "AQI确认信息相关接口")
+@Tag(name = "ConfirmationAPI", description = "AQI确认信息相关接口")
 public class ConfirmationController {
     private final ConfirmationService confirmationService;
 

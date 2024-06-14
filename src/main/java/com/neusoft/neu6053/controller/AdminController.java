@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/admins")
-@Tag(name = "AdminControllerAPI", description = "管理员相关接口")
+@Tag(name = "AdminAPI", description = "管理员相关接口")
 public class AdminController {
     /**
      * 使用构造器注入，避免使用@Autowired注解

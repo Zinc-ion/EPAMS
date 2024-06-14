@@ -23,7 +23,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/stats")
-@Tag(name = "StatisticControllerAPI", description = "统计数据相关接口")
+@Tag(name = "StatisticAPI", description = "统计数据相关接口")
 public class StatisticController {
     private final ConfirmationService confirmationService;
     private final ProvincialcapitalService provincialcapitalService;

@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/inspector")
-@Tag(name = "InspectorControllerAPI", description = "网格员相关接口")
+@Tag(name = "InspectorAPI", description = "网格员相关接口")
 public class InspectorController {
     private final InspectorService inspectorService;
     private final RedisUtils redisUtils;
