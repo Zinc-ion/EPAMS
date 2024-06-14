@@ -6,7 +6,7 @@ import java.util.Objects;
 public class AQIExceedTrendVO {
     int count;
 
-    Date yearAndMonth;
+    String yearAndMonth;
 
     int exceedCount;
 
@@ -43,11 +43,11 @@ public class AQIExceedTrendVO {
         this.count = count;
     }
 
-    public Date getYearAndMonth() {
+    public String getYearAndMonth() {
         return yearAndMonth;
     }
 
-    public void setYearAndMonth(Date yearAndMonth) {
+    public void setYearAndMonth(String yearAndMonth) {
         this.yearAndMonth = yearAndMonth;
     }
 
@@ -59,7 +59,7 @@ public class AQIExceedTrendVO {
         this.exceedCount = exceedCount;
     }
 
-    public AQIExceedTrendVO(int count, Date yearAndMonth, int exceedCount) {
+    public AQIExceedTrendVO(int count, String yearAndMonth, int exceedCount) {
         this.count = count;
         this.yearAndMonth = yearAndMonth;
         this.exceedCount = exceedCount;

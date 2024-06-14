@@ -81,28 +81,45 @@ public class StatisticController {
         List<AQIExceedTrendVO> aqiExceedTrendVOList = new ArrayList<>();
         Map<String ,Object> map = confirmationService.getAllConfirmations(0, -1);
         List<Confirmation> allConfirmations = (List<Confirmation>) map.get("data");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
         int count = 0;
-        int exceedCount = 0;
         for (Confirmation conf : allConfirmations) {
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
-            String date = sdf.format(conf.getDate());
-            AQIExceedTrendVO aqiExceedTrendVO = new AQIExceedTrendVO();
-            try {
-                aqiExceedTrendVO.setYearAndMonth(sdf.parse(date));
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
+            if(aqiExceedTrendVOList.isEmpty()) {
+                String date = sdf.format(conf.getDate());
+                AQIExceedTrendVO aqiExceedTrendVO = new AQIExceedTrendVO();
+                aqiExceedTrendVO.setYearAndMonth(date);
+                aqiExceedTrendVO.setCount(++count);
+                if (Integer.parseInt(conf.getPollutionLevel()) >= 3) {
+                    aqiExceedTrendVO.setExceedCount(1);
+                } else {
+                    aqiExceedTrendVO.setExceedCount(0);
+                }
+                aqiExceedTrendVOList.add(aqiExceedTrendVO);
+            } else {
+                int flag = 0; //0表示没有找到对应的月份
+                for (int i = 0; i < aqiExceedTrendVOList.size() ; i++ ) {
+                    if (aqiExceedTrendVOList.get(i).getYearAndMonth().equals(sdf.format(conf.getDate()))) {
+                        if (Integer.parseInt(conf.getPollutionLevel()) >= 3) {
+                            aqiExceedTrendVOList.get(i).setExceedCount(aqiExceedTrendVOList.get(i).getExceedCount() + 1);
+                        }
+                        flag = 1;
+                        break; //找到对应的月份，跳出循环
+                    }
+                }
+                if (flag == 0) { //没有找到对应的月份 新增表项
+                    AQIExceedTrendVO aqiExceedTrendVO = new AQIExceedTrendVO();
+                    aqiExceedTrendVO.setYearAndMonth(sdf.format(conf.getDate()));
+                    aqiExceedTrendVO.setCount(++count);
+                    if (Integer.parseInt(conf.getPollutionLevel()) >= 3) {
+                        aqiExceedTrendVO.setExceedCount(1);
+                    } else {
+                        aqiExceedTrendVO.setExceedCount(0);
+                    }
+                    aqiExceedTrendVOList.add(aqiExceedTrendVO);
+                }
             }
-            aqiExceedTrendVO.setCount(++count);
-            if (Integer.parseInt(conf.getPollutionLevel()) >= 3) {
-                aqiExceedTrendVO.setExceedCount(++exceedCount);
-            }
-            aqiExceedTrendVOList.add(aqiExceedTrendVO);
-
-
 
         }
-
 
         return HttpResponseEntity.success(aqiExceedTrendVOList);
     }
