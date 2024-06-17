@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -142,47 +139,43 @@ public class StatisticController {
         aqiElseDataVO.setTotal(confirmations.size());
         int goodAirQualityCount = 0;
 
-        List<String> coverCity = new ArrayList<>(); //AQI表中覆盖的城市
+        //AQI表中覆盖的城市
+        Map<String, Object> coverCityMap = new HashMap<>();
 
         for (Confirmation c : confirmations) {
-            if(coverCity.isEmpty()) {  //将覆盖城市名单加入coverCityList中
-                coverCity.add(c.getCity());
+            if(coverCityMap.isEmpty()) {  //将覆盖城市名单加入coverCityList中
+                coverCityMap.put(c.getCity(), 1);
             }else {
-                int flag = 0;
-                for (String city : coverCity) { //去除重复的城市
-                    if (city.equals(c.getCity())) {
-                        flag = 1;
-                        break;
-                    }
-                }
-                if (flag == 0) {
-                    coverCity.add(c.getCity());
+                if (!coverCityMap.containsKey(c.getCity())) { //去重添加有检测记录的城市
+                    coverCityMap.put(c.getCity(), 1);
                 }
             }
-
+            //AQI等级小于三级则检测良好数量++
             if (Integer.parseInt(c.getPollutionLevel()) < 3) {
                 goodAirQualityCount++;
             }
         }
+
+        //设置检测良好数量
         aqiElseDataVO.setGoodAirQualityCount(goodAirQualityCount);
-
-
-
 
         List<Provincialcapital> provincialcapitals = provincialcapitalService.listAll();
         int coverCount = 0; //coverCity中覆盖省会城市的数量
         for (Provincialcapital p : provincialcapitals) {
-            for (String c : coverCity) {
+            for (String c : coverCityMap.keySet()) {
                 if (c.equals(p.getName())) {
                     coverCount++;
-                    break;
                 }
             }
         }
 
         aqiElseDataVO.setProvincialCapitalCoverRate(String.format("%.2f",coverCount/(double)provincialcapitals.size() * 100) + "%");
-        aqiElseDataVO.setMetropolisCoverRate(String.format("%.2f",coverCity.size()/105.0 * 100) + "%");
+        aqiElseDataVO.setMetropolisCoverRate(String.format("%.2f",coverCityMap.size()/105.0 * 100) + "%");
         return HttpResponseEntity.success(aqiElseDataVO);
+
+
+
+
     }
 
 
