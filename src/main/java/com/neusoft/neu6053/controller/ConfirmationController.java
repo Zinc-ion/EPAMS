@@ -85,6 +85,17 @@ public class ConfirmationController {
     }
 
     @Operation(
+            summary = "AQIConfirmVO查询接口",
+            description = "分页查询所有AQIConfirmVO，返回AQIConfirmVO列表 pageSize为-1时不分页"
+    )
+    @PostMapping("/select/selectAllVO")
+    public HttpResponseEntity selectAllAQIConfirmVO(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
+        return HttpResponseEntity.success(confirmationService.getAllAQIConfirmVO(curPage, pageSize));
+    }
+
+
+
+    @Operation(
             summary = "AQI确认信息根据Id查询接口",
             description = "根据conf_id查询AQI确认信息，返回确认信息对象"
     )
@@ -102,6 +113,17 @@ public class ConfirmationController {
     @PostMapping("/select/selectByParams")
     public HttpResponseEntity selectConfirmationByParams(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Confirmation confirmation) {
         return HttpResponseEntity.success(confirmationService.selectConfirmationByParams(curPage, pageSize, confirmation));
+    }
+
+
+    @Operation(
+            summary = "AQIConfirmVO多条件查询接口",
+            description = "根据省(模糊)、市（模糊）、确认日期查询AQI确认信息，返回AQIConfirmVO列表，pageSize为-1时不分页"
+    )
+    //    多条件查询，条件包括省(模糊)、市（模糊）、确认日期
+    @PostMapping("/select/selectVOByParams")
+    public HttpResponseEntity selectAQIConfirmVOByParams(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Confirmation confirmation) {
+        return HttpResponseEntity.success(confirmationService.selectAQIConfirmVOByParams(curPage, pageSize, confirmation));
     }
 
 

@@ -57,12 +57,17 @@ public class AQIFeedBackVO {
     /**
      * 日期
      */
-    private Date date;
+    private String date;
 
     /**
      * 时间
      */
-    private Date time;
+    private String time;
+
+    @Override
+    public String toString() {
+        return "AQIFeedBackVO{}";
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -75,24 +80,6 @@ public class AQIFeedBackVO {
     @Override
     public int hashCode() {
         return Objects.hash(feedbackId, supName, supSex, birthday, supTel, province, city, community, feedback, pollutionLevel, date, time);
-    }
-
-    @Override
-    public String toString() {
-        return "AQIFeedBackVO{" +
-                "feedbackId=" + feedbackId +
-                ", supName='" + supName + '\'' +
-                ", supSex=" + supSex +
-                ", birthday='" + birthday + '\'' +
-                ", supTel='" + supTel + '\'' +
-                ", province='" + province + '\'' +
-                ", city='" + city + '\'' +
-                ", community='" + community + '\'' +
-                ", feedback='" + feedback + '\'' +
-                ", pollutionLevel='" + pollutionLevel + '\'' +
-                ", date=" + date +
-                ", time=" + time +
-                '}';
     }
 
     public Integer getFeedbackId() {
@@ -175,26 +162,26 @@ public class AQIFeedBackVO {
         this.pollutionLevel = pollutionLevel;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
     public AQIFeedBackVO() {
     }
 
-    public AQIFeedBackVO(Integer feedbackId, String supName, Integer supSex, String birthday, String supTel, String province, String city, String community, String feedback, String pollutionLevel, Date date, Date time) {
+    public AQIFeedBackVO(Integer feedbackId, String supName, Integer supSex, String birthday, String supTel, String province, String city, String community, String feedback, String pollutionLevel, String date, String time) {
         this.feedbackId = feedbackId;
         this.supName = supName;
         this.supSex = supSex;

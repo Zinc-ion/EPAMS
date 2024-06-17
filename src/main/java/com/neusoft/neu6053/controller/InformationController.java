@@ -109,13 +109,15 @@ public class InformationController {
     }
 
     @Operation(
-            summary = "AQI反馈信息查询接口2",
-            description = "分页查询AQI反馈信息，返回反馈信息列表，pageSize为-1时不分页"
+            summary = "AQIFeedBackVO查询接口",
+            description = "分页查询AQI反馈信息，返回AQIFeedBackVO，pageSize为-1时不分页"
     )
-    @PostMapping("/select/selectAll2")
-    public HttpResponseEntity selectAllInformation2(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
-        return HttpResponseEntity.success(informationService.getAllInformations2(curPage, pageSize));
+    @PostMapping("/select/selectAllVO")
+    public HttpResponseEntity selectAllAQIFeedBackVO(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
+        return HttpResponseEntity.success(informationService.getAllAQIFeedBackVO(curPage, pageSize));
     }
+
+
 
     @Operation(
             summary = "AQI反馈信息根据Id查询接口",
@@ -128,13 +130,13 @@ public class InformationController {
 
 
     @Operation(
-            summary = "AQI反馈信息多条件查询接口",
-            description = "多条件查询，条件包括省(模糊)、市(模糊)、预估污染等级、反馈日期、是否指派，返回AQI反馈信息对象，pageSize为-1时不分页"
+            summary = "AQIFeedBackVO反馈信息多条件查询接口",
+            description = "多条件查询，条件包括省(模糊)、市(模糊)、预估污染等级、反馈日期、是否指派，返回AQIFeedBackVOList，pageSize为-1时不分页"
     )
     //    多条件查询，条件包括省(模糊)、市(模糊)、预估污染等级、反馈日期、是否指派
-    @PostMapping("/select/selectByParams")
-    public HttpResponseEntity selectInformationByParams(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Information information) {
-        return HttpResponseEntity.success(informationService.selectInformationByParams(curPage, pageSize, information));
+    @PostMapping("/select/selectVOByParams")
+    public HttpResponseEntity selectAQIFeedBackVOByParams(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Information information) {
+        return HttpResponseEntity.success(informationService.selectAQIFeedBackVOByParams(curPage, pageSize, information));
     }
 
     @Operation(

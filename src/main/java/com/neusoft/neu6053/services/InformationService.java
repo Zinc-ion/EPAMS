@@ -86,6 +86,14 @@ public interface InformationService extends IService<Information> {
      * @param information
      * @return List<Information>
      */
-    Map<String, Object> selectInformationByParams(Integer curPage, Integer pageSize, Information information);
+    Map<String, Object> selectAQIFeedBackVOByParams(Integer curPage, Integer pageSize, Information information);
+
+    /**
+     * 根据查询所有AQI反馈信息并包装为VO返回
+     * @param curPage
+     * @param pageSize
+     * @return List<Information>
+     */
+    Map<String, Object> getAllAQIFeedBackVO(Integer curPage, Integer pageSize);
 
 }

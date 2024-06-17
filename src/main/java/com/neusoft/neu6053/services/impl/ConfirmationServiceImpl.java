@@ -5,12 +5,20 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.neusoft.neu6053.dao.entity.Information;
+import com.neusoft.neu6053.dao.entity.Inspector;
+import com.neusoft.neu6053.dao.entity.Supervisor;
+import com.neusoft.neu6053.dao.mapper.InformationMapper;
+import com.neusoft.neu6053.dao.mapper.InspectorMapper;
+import com.neusoft.neu6053.dao.mapper.SupervisorMapper;
+import com.neusoft.neu6053.dao.viewObject.AQIConfirmVO;
+import com.neusoft.neu6053.dao.viewObject.AQIFeedBackVO;
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.dao.mapper.ConfirmationMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +34,9 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
     implements ConfirmationService{
 
     private final ConfirmationMapper confirmationMapper;
+    private final SupervisorMapper supervisorMapper;
+    private final InspectorMapper inspectorMapper;
+    private final InformationMapper informationMapper;
 
     /**
      * 添加确认AQI信息
@@ -108,6 +119,21 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
         return page;
     }
 
+    @Override
+    public Map<String, Object> getAllAQIConfirmVO(Integer curPage, Integer pageSize) {
+        Page<Confirmation> page = new Page<>(curPage, pageSize);
+        List<AQIConfirmVO> aqiConfirmVOList = fillAQIConfirmVO(confirmationMapper.selectPage(page, null).getRecords());
+
+        //用VO返回，故使用不了IPage返回，向map中设置分页相关信息
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("currentPage", page.getCurrent());
+        map.put("pageSize", page.getSize());
+        map.put("data", aqiConfirmVOList);
+        return map;
+    }
+
     /**
      * 多条件查询，条件包括省、市、确认日期
      * @param curPage
@@ -136,6 +162,77 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
 
 
     }
+
+    @Override
+    public Map<String, Object> selectAQIConfirmVOByParams(Integer curPage, Integer pageSize, Confirmation confirmation) {
+        Page<Confirmation> page = new Page<>(curPage, pageSize);
+        QueryWrapper<Confirmation> queryWrapper = new QueryWrapper<>();
+        if(confirmation.getProvince() != null && !confirmation.getProvince().isEmpty()) {
+            queryWrapper.like("province", confirmation.getProvince());
+        }
+        if(confirmation.getCity() != null && !confirmation.getCity().isEmpty()) {
+            queryWrapper.like("city", confirmation.getCity());
+        }
+        if(confirmation.getDate() != null) {
+            //前端传入的是GMT格式时间，先转换为date类型再进行查询
+            SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
+            queryWrapper.like("date", sim.format(confirmation.getDate()));
+        }
+        List<AQIConfirmVO> aqiConfirmVOList = fillAQIConfirmVO(confirmationMapper.selectPage(page, queryWrapper).getRecords());
+
+
+        //用VO返回，故使用不了IPage返回，向map中设置分页相关信息
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("currentPage", page.getCurrent());
+        map.put("pageSize", page.getSize());
+        map.put("data", aqiConfirmVOList);
+        return map;
+    }
+
+
+    //填充VO
+    private List<AQIConfirmVO> fillAQIConfirmVO(List<Confirmation> records) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+
+        List<AQIConfirmVO> aqiConfirmVOList = new ArrayList<>();
+        //测空
+        if (records.isEmpty()) return aqiConfirmVOList;
+
+        //包装成VO
+        for (Confirmation record : records) {
+            AQIConfirmVO aqiConfirmVO = new AQIConfirmVO();
+            Information information = informationMapper.selectById(record.getInformationId());
+            if (information == null) {
+                return new ArrayList<>();
+            }
+
+            aqiConfirmVO.setConfirmId(record.getConfId());
+            aqiConfirmVO.setInfoId(record.getInformationId());
+            aqiConfirmVO.setProvince(record.getProvince());
+            aqiConfirmVO.setCity(record.getCity());
+            aqiConfirmVO.setCommunity(record.getCommunity());
+            aqiConfirmVO.setPollutionLevel(record.getPollutionLevel());
+            //将日期与时间改成字符串标准形式传回前端
+            aqiConfirmVO.setDate(dateFormat.format(record.getDate()));
+            aqiConfirmVO.setTime(timeFormat.format(record.getTime()));
+
+            //因Confirmation中未存网格员与监督员id和feedback故取出对应info，从info内取两者id和feedback
+            aqiConfirmVO.setInsName(record.getInspectorName());
+            aqiConfirmVO.setInsTel(information.getInspectorId());
+            aqiConfirmVO.setSupName(record.getSupervisorName());
+            aqiConfirmVO.setSupTel(information.getSupervisorId());
+            aqiConfirmVO.setFeedback(information.getFeedback());
+
+            aqiConfirmVOList.add(aqiConfirmVO);
+        }
+        return aqiConfirmVOList;
+    }
+
+
+
 
 }
 

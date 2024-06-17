@@ -101,7 +101,6 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("supervisor_id", information.getSupervisorId());
         Page<Information> page = new Page<>(curPage, pageSize);
-        Map<String, Object> map = new HashMap<>();
         page.setRecords(informationMapper.selectPage(page, queryWrapper).getRecords());
        return page;
 
@@ -109,7 +108,6 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
 
     @Override
     public IPage<Information> getAllInformations(Integer curPage, Integer pageSize) {
-        Map<String, Object> map = new HashMap<>();
         Page<Information> page = new Page<>(curPage, pageSize);
         page.setRecords(informationMapper.selectPage(page, null).getRecords());
         return page;
@@ -123,9 +121,27 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         return page;
     }
 
+    @Override
+    public Map<String, Object> getAllAQIFeedBackVO(Integer curPage, Integer pageSize) {
+        Page<Information> page = new Page<>(curPage, pageSize);
+        List<Information> records = informationMapper.selectPage(page, null).getRecords();
+
+        //填充VO
+        List<AQIFeedBackVO> aqiFeedBackVOS = fillAQIFeedBackVO(records);
+
+        //用VO返回，故使用不了IPage返回，向map中设置分页相关信息
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("currentPage", page.getCurrent());
+        map.put("pageSize", page.getSize());
+        map.put("data", aqiFeedBackVOS);
+        return map;
+    }
+
 
     @Override
-    public Map<String, Object> selectInformationByParams(Integer curPage, Integer pageSize, Information information) {
+    public Map<String, Object> selectAQIFeedBackVOByParams(Integer curPage, Integer pageSize, Information information) {
         Page<Information> page = new Page<>(curPage, pageSize);
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
         if(information.getProvince() != null && !information.getProvince().isEmpty()) {
@@ -147,19 +163,38 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         }
         List<Information> records = informationMapper.selectPage(page, queryWrapper).getRecords();
 
-        if (records.isEmpty()) {
-            return new HashMap<>();
-        }
 
         //填充VO
+        List<AQIFeedBackVO> aqiFeedBackVOS = fillAQIFeedBackVO(records);
+
+        //用VO返回，故使用不了IPage返回，向map中设置分页相关信息
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalRecords", page.getTotal());
+        map.put("totalPages", page.getPages());
+        map.put("currentPage", page.getCurrent());
+        map.put("pageSize", page.getSize());
+        map.put("data", aqiFeedBackVOS);
+        return map;
+    }
+
+
+
+    //填充VO
+    private List<AQIFeedBackVO> fillAQIFeedBackVO(List<Information> records) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+
         List<AQIFeedBackVO> aqiFeedBackVOS = new ArrayList<>();
+        //测空
+        if (records.isEmpty()) return aqiFeedBackVOS;
+
         for (Information record : records) {
             AQIFeedBackVO aqiFeedBackVO = new AQIFeedBackVO();
             aqiFeedBackVO.setFeedbackId(record.getInformationId());
 
             Supervisor supervisor = supervisorMapper.selectById(record.getSupervisorId());
             if (supervisor == null) {
-                return new HashMap<>();
+                return new ArrayList<>();
             }
 
             aqiFeedBackVO.setSupName(supervisor.getRealName());
@@ -172,20 +207,14 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
             aqiFeedBackVO.setCommunity(record.getCommunity());
             aqiFeedBackVO.setFeedback(record.getFeedback());
             aqiFeedBackVO.setPollutionLevel(record.getPollutionLevel());
-            aqiFeedBackVO.setDate(record.getDate());
-            aqiFeedBackVO.setTime(record.getTime());
+
+            //将日期与时间改成字符串标准形式传回前端
+            aqiFeedBackVO.setDate(dateFormat.format(record.getDate()));
+            aqiFeedBackVO.setTime(timeFormat.format(record.getTime()));
 
             aqiFeedBackVOS.add(aqiFeedBackVO);
         }
-
-        //用VO返回，故使用不了IPage返回，向map中设置分页相关信息
-        Map<String, Object> map = new HashMap<>();
-        map.put("totalRecords", page.getTotal());
-        map.put("totalPages", page.getPages());
-        map.put("currentPage", page.getCurrent());
-        map.put("pageSize", page.getSize());
-        map.put("data", aqiFeedBackVOS);
-        return map;
+        return aqiFeedBackVOS;
     }
 
 

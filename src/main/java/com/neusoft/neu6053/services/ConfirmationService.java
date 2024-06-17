@@ -59,6 +59,14 @@ public interface ConfirmationService extends IService<Confirmation> {
     Page<Confirmation> getAllConfirmations(Integer curPage, Integer pageSize);
 
     /**
+     * 分页获取所有AQIConfirmVO
+     * @param curPage
+     * @param pageSize
+     * @return List<Confirmation>
+     */
+    Map<String, Object> getAllAQIConfirmVO(Integer curPage, Integer pageSize);
+
+    /**
      * 多条件查询，条件包括省(模糊)、市（模糊）、确认日期
      * @param curPage
      * @param pageSize
@@ -66,5 +74,14 @@ public interface ConfirmationService extends IService<Confirmation> {
      * @return List<Confirmation>
      */
     Page<Confirmation> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation);
+
+    /**
+     * 多条件查询AQIConfirmVO，条件包括省(模糊)、市（模糊）、确认日期
+     * @param curPage
+     * @param pageSize
+     * @param confirmation
+     * @return List<Confirmation>
+     */
+    Map<String, Object> selectAQIConfirmVOByParams(Integer curPage, Integer pageSize, Confirmation confirmation);
 
 }

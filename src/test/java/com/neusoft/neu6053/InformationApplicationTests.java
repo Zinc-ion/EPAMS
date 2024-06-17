@@ -95,10 +95,10 @@ public class InformationApplicationTests {
         information3.setDate(java.sql.Date.valueOf("2024-06-05"));
         information3.setState(0);
 
-        assert informationService.selectInformationByParams(1, 10, information) != null;
-        assert informationService.selectInformationByParams(1, 10, information1) != null;
-        assert informationService.selectInformationByParams(1, 10, information2) != null;
-        assert informationService.selectInformationByParams(1, 10, information3) != null;
+        assert informationService.selectAQIFeedBackVOByParams(1, 10, information) != null;
+        assert informationService.selectAQIFeedBackVOByParams(1, 10, information1) != null;
+        assert informationService.selectAQIFeedBackVOByParams(1, 10, information2) != null;
+        assert informationService.selectAQIFeedBackVOByParams(1, 10, information3) != null;
     }
 
 
