@@ -12,7 +12,6 @@ public class ProvinceGropConfListVO {
         int id = 0;
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "北京市", 0, 0, 0, 0));
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "天津市", 0, 0, 0, 0));
-        provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "北京市", 0, 0, 0, 0));
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "河北省", 0, 0, 0, 0));
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "山西省", 0, 0, 0, 0));
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "内蒙古自治区", 0, 0, 0, 0));
