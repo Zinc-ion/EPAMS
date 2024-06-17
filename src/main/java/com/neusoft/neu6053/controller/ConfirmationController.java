@@ -56,8 +56,9 @@ public class ConfirmationController {
         //设置name
         Supervisor supervisor = supervisorService.selectSupervisorByTel(new Supervisor(information.getSupervisorId())).get(0);
         Inspector inspector = inspectorService.selectInspectorByTel(new Inspector(information.getInspectorId()));
+        //检查supervisorId和inspectorId是否存在
         if (supervisor == null || inspector == null) {
-            return HttpResponseEntity.failure("supervisorId或inspectorId对应项不存在");
+            return HttpResponseEntity.failure("infoId对应表项中的supervisorId或inspectorId不存在");
         }
         confirmation.setSupervisorName(supervisor.getRealName());
         confirmation.setInspectorName(inspector.getName());
