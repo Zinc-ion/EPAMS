@@ -4,7 +4,7 @@ import com.neusoft.neu6053.dao.entity.Inspector;
 import com.neusoft.neu6053.services.InspectorService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
-import com.neusoft.neu6053.utils.RoleUtil;
+import com.neusoft.neu6053.Constants.RoleConstants;
 import com.neusoft.neu6053.utils.UUIDUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -33,15 +33,15 @@ public class InspectorController {
         Inspector isLogin = inspectorService.loginInspector(inspector);
         if (isLogin != null) {
             //模糊删除redis中重复的token，保证一个账户只有一个token
-            redisUtils.deleteKeys("*" + RoleUtil.INSPECTOR + isLogin.getTelId() + "*");
+            redisUtils.deleteKeys("*" + RoleConstants.INSPECTOR + isLogin.getTelId() + "*");
             //生成token 以inspector+telId+UUID为token，前缀用于模糊删除
-            String token = RoleUtil.INSPECTOR + isLogin.getTelId() + UUIDUtil.getOneUUID();
+            String token = RoleConstants.INSPECTOR + isLogin.getTelId() + UUIDUtil.getOneUUID();
             //保存token,key为token,value为AdminId,有效期为1个小时 value加上前缀inspector用于区分角色
-            redisUtils.set(token, RoleUtil.INSPECTOR + isLogin.getTelId(), 1, TimeUnit.HOURS);
+            redisUtils.set(token, RoleConstants.INSPECTOR + isLogin, 1, TimeUnit.HOURS);
             //返回值
             Map<String, Object> map = new HashMap<>();
             map.put("token", token);
-            map.put(RoleUtil.INSPECTOR, isLogin);
+            map.put(RoleConstants.INSPECTOR, isLogin);
             return HttpResponseEntity.success(map);
         } else {
             return HttpResponseEntity.failure("网格员账户或密码错误");

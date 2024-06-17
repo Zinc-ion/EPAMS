@@ -1,7 +1,7 @@
 package com.neusoft.neu6053.config.interceptor;
 
 import com.neusoft.neu6053.utils.RedisUtils;
-import com.neusoft.neu6053.utils.RoleUtil;
+import com.neusoft.neu6053.Constants.RoleConstants;
 import com.neusoft.neu6053.utils.ThreadLocalUtil;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -40,8 +40,8 @@ public class InspectorAccessInterceptor implements HandlerInterceptor {
             } else {
                 //刷新token有效期
                 redisUtils.expire(token, 1, TimeUnit.HOURS);
-                if (((String)redisUtils.get(token)).startsWith(RoleUtil.INSPECTOR) || ((String)redisUtils.get(token)).startsWith(RoleUtil.ADMIN)) {
-                    //如果value以INSPECTOR或ADMIN开头则放行访问所有以inspector开头的接口
+                if (((String)redisUtils.get(token)).startsWith(RoleConstants.INSPECTOR) || ((String)redisUtils.get(token)).startsWith(RoleConstants.ADMIN)) {
+                    //如果value以inspector或admin开头则放行访问
                     return true;
                 } else {
                     logger.info("网格员权限不足");

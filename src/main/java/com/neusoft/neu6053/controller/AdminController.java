@@ -4,7 +4,7 @@ import com.neusoft.neu6053.dao.entity.Admin;
 import com.neusoft.neu6053.services.AdminService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;
-import com.neusoft.neu6053.utils.RoleUtil;
+import com.neusoft.neu6053.Constants.RoleConstants;
 import com.neusoft.neu6053.utils.UUIDUtil;
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -38,15 +38,15 @@ public class AdminController {
         Admin isLogin = adminService.loginAdmin(admin);
         if (isLogin != null) {
             //模糊删除redis中重复的token，保证一个账户只有一个token
-            redisUtils.deleteKeys("*" + RoleUtil.ADMIN + isLogin.getAdminId() + "*");
+            redisUtils.deleteKeys("*" + RoleConstants.ADMIN + isLogin.getAdminId() + "*");
             //生成token 以admin+adminId+UUID为token，前缀用于模糊删除
-            String token = RoleUtil.ADMIN + isLogin.getAdminId() + UUIDUtil.getOneUUID();
+            String token = RoleConstants.ADMIN + isLogin.getAdminId() + UUIDUtil.getOneUUID();
             //保存token,key为token,value为AdminId,有效期为1个小时 value加上前缀admin用于区分角色
-            redisUtils.set(token, RoleUtil.ADMIN + isLogin.getAdminId(), 1, TimeUnit.HOURS);
+            redisUtils.set(token, RoleConstants.ADMIN + isLogin, 1, TimeUnit.HOURS);
             //返回值
             Map<String, Object> map = new HashMap<>();
             map.put("token", token);
-            map.put(RoleUtil.ADMIN, isLogin);
+            map.put(RoleConstants.ADMIN, isLogin);
             return HttpResponseEntity.success(map);
         } else {
             return HttpResponseEntity.failure("管理员账户或密码错误");
