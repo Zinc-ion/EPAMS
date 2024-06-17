@@ -76,6 +76,12 @@ public class InformationController {
     )
     @PostMapping("/modify")
     public HttpResponseEntity modifyInformation(@RequestBody Information information) {
+        //检查污染等级格式
+        try {
+            Integer.parseInt(information.getPollutionLevel());
+        } catch (NumberFormatException e) {
+            return HttpResponseEntity.failure("污染等级格式错误,应该为字符串形式的罗马数字1~6");
+        }
         if (informationService.updateInformation(information) == 1) {
             return HttpResponseEntity.success(information);
         } else {

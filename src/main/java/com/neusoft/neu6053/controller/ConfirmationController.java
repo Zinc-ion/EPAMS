@@ -104,6 +104,12 @@ public class ConfirmationController {
     )
     @PostMapping("/modify")
     public HttpResponseEntity modifyConfirmation(@RequestBody Confirmation confirmation) {
+        //检查污染等级格式
+        try {
+            Integer.parseInt(confirmation.getPollutionLevel());
+        } catch (NumberFormatException e) {
+            return HttpResponseEntity.failure("污染等级格式错误,应该为字符串形式的罗马数字1~6");
+        }
         if (confirmationService.updateConfirmation(confirmation) == 1) {
             return HttpResponseEntity.success(confirmation);
         } else {
