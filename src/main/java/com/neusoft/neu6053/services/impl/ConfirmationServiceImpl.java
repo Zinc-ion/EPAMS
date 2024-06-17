@@ -102,15 +102,10 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
      * @param pageSize
      * @return List<Confirmation>
      */
-    public Map<String, Object> getAllConfirmations(Integer curPage, Integer pageSize) {
+    public Page<Confirmation> getAllConfirmations(Integer curPage, Integer pageSize) {
         Page<Confirmation> page = new Page<>(curPage, pageSize);
-
-        List<Confirmation> records = confirmationMapper.selectPage(page, null).getRecords();
-        Map<String, Object> map = new HashMap<>();
-        map.put("totalRecords", page.getTotal());
-        map.put("totalPages", page.getPages());
-        map.put("data", records);
-        return map;
+        page.setRecords(confirmationMapper.selectPage(page, null).getRecords());
+        return page;
     }
 
     /**
@@ -121,7 +116,7 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
      * @return List<Confirmation>
      */
     @Override
-    public Map<String, Object> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation) {
+    public Page<Confirmation> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation) {
         Page<Confirmation> page = new Page<>(curPage, pageSize);
         QueryWrapper<Confirmation> queryWrapper = new QueryWrapper<>();
         if(confirmation.getProvince() != null) {
@@ -135,12 +130,9 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
             SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
             queryWrapper.like("date", sim.format(confirmation.getDate()));
         }
-        List<Confirmation> records = confirmationMapper.selectPage(page, queryWrapper).getRecords();
-        Map<String, Object> map = new HashMap<>();
-        map.put("totalRecords", page.getTotal());
-        map.put("totalPages", page.getPages());
-        map.put("data", records);
-        return map;
+        page.setRecords(confirmationMapper.selectPage(page, queryWrapper).getRecords());
+
+        return page;
 
 
     }

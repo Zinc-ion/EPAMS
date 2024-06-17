@@ -45,6 +45,7 @@ public class ProvinceGropConfListVO {
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "香港特别行政区", 0, 0, 0, 0));
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "澳门特别行政区", 0, 0, 0, 0));
         provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "台湾省", 0, 0, 0, 0));
+        provinceGropConfVOList.add(new ProvinceGropConfVO(++id, "海南诸岛", 0, 0, 0, 0));
 
         return provinceGropConfVOList;
     }

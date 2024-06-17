@@ -1,5 +1,6 @@
 package com.neusoft.neu6053;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.neusoft.neu6053.dao.mapper.SupervisorMapper;
 import com.neusoft.neu6053.services.SupervisorService;
@@ -183,8 +184,8 @@ class SupervisorApplicationTests {
         supervisor1.setRealName("string");
 
 
-        Map<String, Object> supervisors = supervisorService.selectSupervisorByParams(1, 10, supervisor1);
-        assert !supervisors.isEmpty();
+        Page<Supervisor> page = supervisorService.selectSupervisorByParams(1, 10, supervisor1);
+        assert !page.getRecords().isEmpty();
         supervisorService.deleteSupervisorById(supervisor);
     }
 

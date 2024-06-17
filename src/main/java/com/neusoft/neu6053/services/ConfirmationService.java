@@ -1,5 +1,6 @@
 package com.neusoft.neu6053.services;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.neusoft.neu6053.dao.entity.Information;
@@ -55,7 +56,7 @@ public interface ConfirmationService extends IService<Confirmation> {
      * @param pageSize
      * @return List<Confirmation>
      */
-    Map<String, Object> getAllConfirmations(Integer curPage, Integer pageSize);
+    Page<Confirmation> getAllConfirmations(Integer curPage, Integer pageSize);
 
     /**
      * 多条件查询，条件包括省(模糊)、市（模糊）、确认日期
@@ -64,6 +65,6 @@ public interface ConfirmationService extends IService<Confirmation> {
      * @param confirmation
      * @return List<Confirmation>
      */
-    Map<String, Object> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation);
+    Page<Confirmation> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation);
 
 }

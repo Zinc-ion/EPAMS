@@ -87,42 +87,32 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     }
 
     @Override
-    public Map<String, Object> getInformationByInsId(Integer curPage, Integer pageSize,Information information) {
+    public IPage<Information> getInformationByInsId(Integer curPage, Integer pageSize,Information information) {
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("inspector_id", information.getInspectorId());
         queryWrapper.eq("state", 1); // 1表示已经委派但未完成 0为未委派 2为已完成
         Page<Information> page = new Page<>(curPage, pageSize);
-        List<Information> records = informationMapper.selectPage(page, queryWrapper).getRecords();
-        Map<String, Object> map = new HashMap<>();
-        map.put("totalRecords", page.getTotal());
-        map.put("totalPages", page.getPages());
-        map.put("data", records);
-        return map;
+        page.setRecords(informationMapper.selectPage(page, queryWrapper).getRecords());
+        return page;
     }
 
     @Override
-    public Map<String, Object> getInformationBySupId(Integer curPage, Integer pageSize,Information information) {
+    public IPage<Information> getInformationBySupId(Integer curPage, Integer pageSize,Information information) {
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("supervisor_id", information.getSupervisorId());
         Page<Information> page = new Page<>(curPage, pageSize);
         Map<String, Object> map = new HashMap<>();
-        List<Information> records = informationMapper.selectPage(page, queryWrapper).getRecords();
-        map.put("totalRecords", page.getTotal());
-        map.put("totalPages", page.getPages());
-        map.put("data", records);
-        return map;
+        page.setRecords(informationMapper.selectPage(page, queryWrapper).getRecords());
+       return page;
 
     }
 
     @Override
-    public Map<String, Object> getAllInformations(Integer curPage, Integer pageSize) {
+    public IPage<Information> getAllInformations(Integer curPage, Integer pageSize) {
         Map<String, Object> map = new HashMap<>();
         Page<Information> page = new Page<>(curPage, pageSize);
-        List<Information> records = informationMapper.selectPage(page, null).getRecords();
-        map.put("totalRecords", page.getTotal());
-        map.put("totalPages", page.getPages());
-        map.put("data", records);
-        return map;
+        page.setRecords(informationMapper.selectPage(page, null).getRecords());
+        return page;
     }
 
     @Override
@@ -188,9 +178,12 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
             aqiFeedBackVOS.add(aqiFeedBackVO);
         }
 
+        //用VO返回，故使用不了IPage返回，向map中设置分页相关信息
         Map<String, Object> map = new HashMap<>();
         map.put("totalRecords", page.getTotal());
         map.put("totalPages", page.getPages());
+        map.put("currentPage", page.getCurrent());
+        map.put("pageSize", page.getSize());
         map.put("data", aqiFeedBackVOS);
         return map;
     }

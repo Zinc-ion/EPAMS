@@ -57,14 +57,14 @@ public interface InformationService extends IService<Information> {
      * @param information
      * @return Information
      */
-    Map<String, Object> getInformationByInsId(Integer curPage, Integer pageSize,Information information);
+    IPage<Information> getInformationByInsId(Integer curPage, Integer pageSize,Information information);
 
     /**
      * 根据supervisor_id获取监督员历史AQI反馈信息
      * @param information
      * @return Information
      */
-    Map<String, Object> getInformationBySupId(Integer curPage, Integer pageSize,Information information);
+    IPage<Information> getInformationBySupId(Integer curPage, Integer pageSize,Information information);
 
 
 
@@ -74,7 +74,7 @@ public interface InformationService extends IService<Information> {
      * @param pageSize
      * @return List<Information>
      */
-    Map<String, Object> getAllInformations(Integer curPage, Integer pageSize);
+    IPage<Information> getAllInformations(Integer curPage, Integer pageSize);
 
     IPage<Information> getAllInformations2(Integer curPage, Integer pageSize);
 

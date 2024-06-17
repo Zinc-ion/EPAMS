@@ -1,5 +1,6 @@
 package com.neusoft.neu6053.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.neusoft.neu6053.dao.entity.Provincialcapital;
 import com.neusoft.neu6053.dao.viewObject.*;
@@ -35,8 +36,8 @@ public class StatisticController {
     )
     @PostMapping("/selectProvinceGroupValue")
     public HttpResponseEntity selectProvinceGroupValue() {
-        Map<String, Object> map = confirmationService.getAllConfirmations(0,-1);
-        List<Confirmation> confirmations = (List<Confirmation>) map.get("data");
+        Page<Confirmation> page = confirmationService.getAllConfirmations(0,-1);
+        List<Confirmation> confirmations = page.getRecords();
         List<ProvinceGropConfVO> provinceGropConfVOList = ProvinceGropConfListVO.getProvinceGropConfVOList();
         for(Confirmation c:confirmations){
             for (ProvinceGropConfVO p : provinceGropConfVOList) {
@@ -66,8 +67,8 @@ public class StatisticController {
     @PostMapping("/selectAQILevelList")
     public HttpResponseEntity selectAQILevelList() {
         List<AQILevelStatisticsVO> aqiLevelStatisticsVOList = AQILevelListVO.getProvinceGropConfVOList();
-        List<Confirmation> confirmations = (List<Confirmation>) confirmationService.getAllConfirmations(0,-1).get("data");
-        confirmations.forEach(c -> {
+        Page<Confirmation> page = confirmationService.getAllConfirmations(0,-1);
+        page.getRecords().forEach(c -> {
             int level = Integer.parseInt(c.getPollutionLevel());
             aqiLevelStatisticsVOList.get(level - 1).setCount(aqiLevelStatisticsVOList.get(level - 1).getCount() + 1);
         });
@@ -82,8 +83,8 @@ public class StatisticController {
     @PostMapping("/selectAQIExceedTrend")
     public HttpResponseEntity selectAQIExceedTrend() {
         List<AQIExceedTrendVO> aqiExceedTrendVOList = new ArrayList<>();
-        Map<String ,Object> map = confirmationService.getAllConfirmations(0, -1);
-        List<Confirmation> allConfirmations = (List<Confirmation>) map.get("data");
+        Page<Confirmation> page = confirmationService.getAllConfirmations(0, -1);
+        List<Confirmation> allConfirmations = page.getRecords();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
         int count = 0;
         for (Confirmation conf : allConfirmations) {
@@ -135,8 +136,8 @@ public class StatisticController {
     )
     @PostMapping("/selectAQIElseData")
     public HttpResponseEntity selectAQIElseData() {
-        Map<String, Object> map = confirmationService.getAllConfirmations(0,-1);
-        List<Confirmation> confirmations = (List<Confirmation>) map.get("data");
+        Page<Confirmation> page = confirmationService.getAllConfirmations(0,-1);
+        List<Confirmation> confirmations = page.getRecords();
         AQIElseDataVO aqiElseDataVO = new AQIElseDataVO();
         aqiElseDataVO.setTotal(confirmations.size());
         int goodAirQualityCount = 0;

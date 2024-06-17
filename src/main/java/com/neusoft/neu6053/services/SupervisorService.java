@@ -1,5 +1,6 @@
 package com.neusoft.neu6053.services;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -54,7 +55,7 @@ public interface SupervisorService extends IService<Supervisor> {
      * @param pageSize
      * @return List<Supervisor>
      */
-    Map<String, Object> selectAllSupervisor(Integer curPage, Integer pageSize);
+    Page<Supervisor> selectAllSupervisor(Integer curPage, Integer pageSize);
 
     /**
      * 根据手机号查询监督员信息
@@ -71,7 +72,7 @@ public interface SupervisorService extends IService<Supervisor> {
      * @param supervisor
      * @return List<Supervisor>
      */
-    Map<String, Object> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor);
+    Page<Supervisor> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor);
 
 
 

@@ -106,17 +106,14 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
      * @return List<Supervisor>
      */
     @Override
-    public Map<String, Object> selectAllSupervisor(Integer curPage, Integer pageSize) {
+    public Page<Supervisor> selectAllSupervisor(Integer curPage, Integer pageSize) {
         QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();
         Page<Supervisor> page = new Page<>(curPage, pageSize);
 
 
-        List<Supervisor> records = supervisorMapper.selectPage(page,queryWrapper).getRecords();
-        Map<String, Object> map = new HashMap<>();
-        map.put("totalRecords", page.getTotal());
-        map.put("totalPages", page.getPages());
-        map.put("data", records);
-        return map;
+        page.setRecords(supervisorMapper.selectPage(page,queryWrapper).getRecords());
+
+        return page;
     }
 
     /**
@@ -140,7 +137,7 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
      * @return List<Supervisor>
      */
     @Override
-    public Map<String, Object> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor) {
+    public Page<Supervisor> selectSupervisorByParams(Integer curPage, Integer pageSize, Supervisor supervisor) {
         QueryWrapper<Supervisor> queryWrapper = new QueryWrapper<>();
         if (supervisor.getSex() != null) {
             queryWrapper.eq("sex", supervisor.getSex());
@@ -153,12 +150,8 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
         }
         Page<Supervisor> page = new Page<>(curPage, pageSize);
 
-        List<Supervisor> records = supervisorMapper.selectPage(page, queryWrapper).getRecords();
-        Map<String, Object> map = new HashMap<>();
-        map.put("totalRecords", page.getTotal());
-        map.put("totalPages", page.getPages());
-        map.put("data", records);
-        return map;
+        page.setRecords(supervisorMapper.selectPage(page, queryWrapper).getRecords());
+        return page;
 
     }
 }
