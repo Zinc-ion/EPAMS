@@ -37,6 +37,20 @@ public class Admin implements Serializable {
      */
     private String remarks;
 
+    public Admin(Integer adminId) {
+        this.adminId = adminId;
+    }
+
+    public Admin(Integer adminId, String adminCode, String password, String remarks) {
+        this.adminId = adminId;
+        this.adminCode = adminCode;
+        this.password = password;
+        this.remarks = remarks;
+    }
+
+    public Admin() {
+    }
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 

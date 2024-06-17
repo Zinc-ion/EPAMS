@@ -42,6 +42,21 @@ public class Inspector implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
+    public Inspector(String telId) {
+        this.telId = telId;
+    }
+
+    public Inspector() {
+    }
+
+    public Inspector(String telId, String password, String name, String province, String city) {
+        this.telId = telId;
+        this.password = password;
+        this.name = name;
+        this.province = province;
+        this.city = city;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {

@@ -29,6 +29,13 @@ public class InformationController {
         //设置日期时间与状态
         information.setDate(TimeUtil.getCurrentSqlDate());
         information.setTime(TimeUtil.getCurrentSqlTime());
+        //检查污染等级格式
+        try {
+            Integer.parseInt(information.getPollutionLevel());
+        } catch (NumberFormatException e) {
+            return HttpResponseEntity.failure("污染等级格式错误,应该为字符串形式的罗马数字1~6");
+        }
+
         if (informationService.addInformation(information) == 1) {
             return HttpResponseEntity.success(information);
         } else {

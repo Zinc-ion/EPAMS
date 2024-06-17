@@ -47,6 +47,22 @@ public class Supervisor implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
+    public Supervisor(String telId) {
+        this.telId = telId;
+    }
+
+    public Supervisor() {
+    }
+
+    public Supervisor(String telId, String password, String realName, String birthday, Integer sex, String remarks) {
+        this.telId = telId;
+        this.password = password;
+        this.realName = realName;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.remarks = remarks;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {

@@ -79,6 +79,28 @@ public class Information implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
+    public Information(Integer informationId) {
+        this.informationId = informationId;
+    }
+
+    public Information() {
+    }
+
+    public Information(Integer informationId, String province, String city, String community, String pollutionLevel, Date date, Date time, Integer state, String supervisorId, String inspectorId, String feedback, Integer deleted) {
+        this.informationId = informationId;
+        this.province = province;
+        this.city = city;
+        this.community = community;
+        this.pollutionLevel = pollutionLevel;
+        this.date = date;
+        this.time = time;
+        this.state = state;
+        this.supervisorId = supervisorId;
+        this.inspectorId = inspectorId;
+        this.feedback = feedback;
+        this.deleted = deleted;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {

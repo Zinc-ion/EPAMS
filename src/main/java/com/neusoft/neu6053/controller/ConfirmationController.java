@@ -2,13 +2,21 @@ package com.neusoft.neu6053.controller;
 
 import com.neusoft.neu6053.dao.entity.Confirmation;
 
+import com.neusoft.neu6053.dao.entity.Information;
+import com.neusoft.neu6053.dao.entity.Inspector;
+import com.neusoft.neu6053.dao.entity.Supervisor;
 import com.neusoft.neu6053.services.ConfirmationService;
+import com.neusoft.neu6053.services.InformationService;
+import com.neusoft.neu6053.services.InspectorService;
+import com.neusoft.neu6053.services.SupervisorService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.TimeUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RequiredArgsConstructor
@@ -17,6 +25,9 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "ConfirmationAPI", description = "AQI确认信息相关接口")
 public class ConfirmationController {
     private final ConfirmationService confirmationService;
+    private final InformationService informationService;
+    private final SupervisorService supervisorService;
+    private final InspectorService inspectorService;
 
 
     @Operation(
@@ -28,6 +39,30 @@ public class ConfirmationController {
         //设置时间
         confirmation.setDate(TimeUtil.getCurrentSqlDate());
         confirmation.setTime(TimeUtil.getCurrentSqlTime());
+
+        //检查污染等级格式
+        try {
+            Integer.parseInt(confirmation.getPollutionLevel());
+        } catch (NumberFormatException e) {
+            return HttpResponseEntity.failure("污染等级格式错误,应该为字符串形式的罗马数字1~6");
+        }
+
+        Information information = informationService.getInformationById(new Information(confirmation.getInformationId()));
+        //检查informationId是否存在
+        if (information == null) {
+            return HttpResponseEntity.failure("informationId对应info项不存在");
+        }
+
+        //设置name
+        Supervisor supervisor = supervisorService.selectSupervisorByTel(new Supervisor(information.getSupervisorId())).get(0);
+        Inspector inspector = inspectorService.selectInspectorByTel(new Inspector(information.getInspectorId()));
+        if (supervisor == null || inspector == null) {
+            return HttpResponseEntity.failure("supervisorId或inspectorId对应项不存在");
+        }
+        confirmation.setSupervisorName(supervisor.getRealName());
+        confirmation.setInspectorName(inspector.getName());
+
+        //添加数据
         if (confirmationService.addConfirmation(confirmation) == 1) {
             return HttpResponseEntity.success(confirmation);
         } else {

@@ -84,6 +84,29 @@ public class Confirmation implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
+    public Confirmation(Integer confId) {
+        this.confId = confId;
+    }
+
+    public Confirmation() {
+    }
+
+    public Confirmation(Integer confId, Integer informationId, String inspectorName, String supervisorName, String province, String city, String community, String pollutionLevel, Double so2, Double co, Double pm25, Date date, Date time) {
+        this.confId = confId;
+        this.informationId = informationId;
+        this.inspectorName = inspectorName;
+        this.supervisorName = supervisorName;
+        this.province = province;
+        this.city = city;
+        this.community = community;
+        this.pollutionLevel = pollutionLevel;
+        this.so2 = so2;
+        this.co = co;
+        this.pm25 = pm25;
+        this.date = date;
+        this.time = time;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
