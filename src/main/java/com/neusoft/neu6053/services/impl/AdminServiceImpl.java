@@ -1,14 +1,12 @@
 package com.neusoft.neu6053.services.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.neusoft.neu6053.dao.entity.Admin;
 import com.neusoft.neu6053.services.AdminService;
 import com.neusoft.neu6053.dao.mapper.AdminMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 /**
 * @author 1185911254@qq.com

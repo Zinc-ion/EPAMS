@@ -142,10 +142,10 @@ public class SupervisorServiceImpl extends ServiceImpl<SupervisorMapper, Supervi
         if (supervisor.getSex() != null) {
             queryWrapper.eq("sex", supervisor.getSex());
         }
-        if (supervisor.getTelId() != null) {
+        if (supervisor.getTelId() != null && !supervisor.getTelId().isEmpty()) {
             queryWrapper.eq("tel_id", supervisor.getTelId());
         }
-        if (supervisor.getRealName() != null) {
+        if (supervisor.getRealName() != null && !supervisor.getRealName().isEmpty()) {
             queryWrapper.like("real_name", supervisor.getRealName());
         }
         Page<Supervisor> page = new Page<>(curPage, pageSize);

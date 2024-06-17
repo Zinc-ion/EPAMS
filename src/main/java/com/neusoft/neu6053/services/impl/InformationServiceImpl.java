@@ -128,13 +128,13 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     public Map<String, Object> selectInformationByParams(Integer curPage, Integer pageSize, Information information) {
         Page<Information> page = new Page<>(curPage, pageSize);
         QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
-        if(information.getProvince() != null) {
+        if(information.getProvince() != null && !information.getProvince().isEmpty()) {
             queryWrapper.like("province", information.getProvince());
         }
-        if(information.getCity() != null) {
+        if(information.getCity() != null && !information.getCity().isEmpty()) {
             queryWrapper.like("city", information.getCity());
         }
-        if(information.getPollutionLevel() != null) {
+        if(information.getPollutionLevel() != null && !information.getPollutionLevel().isEmpty()) {
             queryWrapper.eq("pollution_level", information.getPollutionLevel());
         }
         if(information.getDate() != null) {

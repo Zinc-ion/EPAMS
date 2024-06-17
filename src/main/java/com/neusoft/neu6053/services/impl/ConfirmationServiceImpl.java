@@ -119,10 +119,10 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
     public Page<Confirmation> selectConfirmationByParams(Integer curPage, Integer pageSize, Confirmation confirmation) {
         Page<Confirmation> page = new Page<>(curPage, pageSize);
         QueryWrapper<Confirmation> queryWrapper = new QueryWrapper<>();
-        if(confirmation.getProvince() != null) {
+        if(confirmation.getProvince() != null && !confirmation.getProvince().isEmpty()) {
             queryWrapper.like("province", confirmation.getProvince());
         }
-        if(confirmation.getCity() != null) {
+        if(confirmation.getCity() != null && !confirmation.getCity().isEmpty()) {
             queryWrapper.like("city", confirmation.getCity());
         }
         if(confirmation.getDate() != null) {
