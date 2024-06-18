@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.neu6053.dao.mapper.ProvinceMapper">
+
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.Province">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="provinceid" column="provinceID" jdbcType="INTEGER"/>
+            <result property="province" column="province" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,provinceID,province
+    </sql>
+</mapper>

@@ -108,5 +108,6 @@
 
 <!--        <Logger name="com.neusoft.neu6053" level="debug" />-->
 <!--        <Logger name="com.neusoft.neu6053.dao.mapper" level="info" /> #这行才是控制mybatis-plus日志打印级别的，而不是root或者org.apache.ibatis-->
+        <logger name ="org.quartz" level="ERROR"/>
     </loggers>
 </configuration>

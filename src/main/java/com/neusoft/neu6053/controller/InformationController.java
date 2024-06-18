@@ -101,6 +101,8 @@ public class InformationController {
             return HttpResponseEntity.failure("未找到表项，请检测information_id");
         } else if (infoModified.getState() != 0) {
             return HttpResponseEntity.failure("该信息已被委派或已完成，请检测information_id");
+        } else if (infoModified.getInspectorId() == null) {
+            return HttpResponseEntity.failure("未上传要委派的网格员ID，请检测inspector_id");
         }
 
         //设置状态为1表示已经指派，同时放入网格员id

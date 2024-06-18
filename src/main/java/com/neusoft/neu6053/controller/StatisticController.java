@@ -1,10 +1,14 @@
 package com.neusoft.neu6053.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.neusoft.neu6053.dao.entity.City;
 import com.neusoft.neu6053.dao.entity.Confirmation;
+import com.neusoft.neu6053.dao.entity.Province;
 import com.neusoft.neu6053.dao.entity.Provincialcapital;
 import com.neusoft.neu6053.dao.viewObject.*;
+import com.neusoft.neu6053.services.CityService;
 import com.neusoft.neu6053.services.ConfirmationService;
+import com.neusoft.neu6053.services.ProvinceService;
 import com.neusoft.neu6053.services.ProvincialcapitalService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,6 +29,8 @@ import java.util.*;
 public class StatisticController {
     private final ConfirmationService confirmationService;
     private final ProvincialcapitalService provincialcapitalService;
+    private final ProvinceService provinceService;
+    private final CityService cityService;
 
 
     @Operation(
@@ -174,6 +180,32 @@ public class StatisticController {
         return HttpResponseEntity.success(aqiElseDataVO);
 
 
+
+
+    }
+
+
+    @Operation(
+            summary = "省份与其城市查询接口",
+            description = "查询省份与其城市"
+    )
+    @PostMapping("/selectProvinceAndCity")
+    public HttpResponseEntity selectProvinceAndCity() {
+        List<ProvinceAndCityVO> provinceAndCityVOList = new ArrayList<>();
+        List<Province> provinceList = provinceService.listAll();
+        for (Province p : provinceList) {
+            ProvinceAndCityVO provinceAndCityVO = new ProvinceAndCityVO();
+            provinceAndCityVO.setProvinceName(p.getProvince());
+            List<City> cityList = cityService.selectCityByFatherId(p.getProvinceid());
+            List<String> cityName = new ArrayList<>();
+            for (City c : cityList) {
+                cityName.add(c.getCity());
+            }
+            provinceAndCityVO.setCityName(cityName);
+            provinceAndCityVOList.add(provinceAndCityVO);
+        }
+
+        return HttpResponseEntity.success(provinceAndCityVOList);
 
 
     }

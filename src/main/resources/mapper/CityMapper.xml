@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.neu6053.dao.mapper.CityMapper">
+
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.City">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cityid" column="cityID" jdbcType="INTEGER"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="fatherid" column="fatherID" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cityID,city,
+        fatherID
+    </sql>
+</mapper>
