@@ -53,7 +53,7 @@ public interface InformationService extends IService<Information> {
     Information getInformationById(Information information);
 
     /**
-     * 根据inspector_id获取被管理员分配的AQI反馈信息
+     * 根据inspector_id获取被管理员分配的AQI反馈信息,state == 1
      * @param information
      * @return Information
      */
@@ -69,14 +69,14 @@ public interface InformationService extends IService<Information> {
 
 
     /**
-     * 分页获取所有AQI反馈信息
+     * 管理员端分页获取所有AQI反馈信息，包括已指派和未指派，不包括已完成即state==2
      * @param curPage
      * @param pageSize
      * @return List<Information>
      */
     IPage<Information> getAllInformations(Integer curPage, Integer pageSize);
 
-    IPage<Information> getAllInformations2(Integer curPage, Integer pageSize);
+
 
 
     /**
@@ -89,11 +89,13 @@ public interface InformationService extends IService<Information> {
     Map<String, Object> selectAQIFeedBackVOByParams(Integer curPage, Integer pageSize, Information information);
 
     /**
-     * 根据查询所有AQI反馈信息并包装为VO返回
+     * 根据查询所有AQI反馈信息并包装为VO返回,包括已指派和未指派，不包括已完成即state==2
      * @param curPage
      * @param pageSize
      * @return List<Information>
      */
     Map<String, Object> getAllAQIFeedBackVO(Integer curPage, Integer pageSize);
+
+    AQIFeedBackVO selectAQIFeedBackVOById(Integer informationId);
 
 }

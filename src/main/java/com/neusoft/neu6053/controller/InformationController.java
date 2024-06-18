@@ -113,8 +113,8 @@ public class InformationController {
     }
 
     @Operation(
-            summary = "AQI反馈信息查询接口",
-            description = "分页查询AQI反馈信息，返回反馈信息列表，pageSize为-1时不分页"
+            summary = "AQI反馈信息查询接口，包括已指派和未指派，不包括已完成即state==2",
+            description = "分页查询AQI反馈信息，返回反馈信息列表，pageSize为-1时不分页，包括已指派和未指派，不包括已完成即state==2"
     )
     @PostMapping("/select/selectAll")
     public HttpResponseEntity selectAllInformation(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
@@ -122,8 +122,8 @@ public class InformationController {
     }
 
     @Operation(
-            summary = "AQIFeedBackVO查询接口",
-            description = "分页查询AQI反馈信息，返回AQIFeedBackVO，pageSize为-1时不分页"
+            summary = "AQIFeedBackVO查询接口，包括已指派和未指派，不包括已完成即state==2",
+            description = "分页查询AQI反馈信息，返回AQIFeedBackVO，pageSize为-1时不分页，包括已指派和未指派，不包括已完成即state==2"
     )
     @PostMapping("/select/selectAllVO")
     public HttpResponseEntity selectAllAQIFeedBackVO(@RequestParam Integer curPage, @RequestParam Integer pageSize) {
@@ -153,8 +153,8 @@ public class InformationController {
     }
 
     @Operation(
-            summary = "根据inspector_id查询AQI反馈信息",
-            description = "根据inspector_id查询AQI反馈信息，pageSize为-1时不分页"
+            summary = "根据inspector_id查询AQI反馈信息,只包括未指派，即state==1",
+            description = "根据inspector_id查询AQI反馈信息，pageSize为-1时不分页,只包括未指派，即state==1"
     )
     @PostMapping("/select/selectByInsId")
     public HttpResponseEntity selectInformationByInsId(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Information information) {
@@ -168,5 +168,14 @@ public class InformationController {
     @PostMapping("/select/selectBySupId")
     public HttpResponseEntity selectInformationBySupId(@RequestParam Integer curPage, @RequestParam Integer pageSize, @RequestBody Information information) {
         return HttpResponseEntity.success(informationService.getInformationBySupId(curPage, pageSize, information));
+    }
+
+    @Operation(
+            summary = "根据information_id查询AQIFeedBackVO",
+            description = "根据information_id查询AQIFeedBackVO，返回AQIFeedBackVO对象"
+    )
+    @PostMapping("/select/selectVOById")
+    public HttpResponseEntity selectAQIFeedBackVOById(@RequestBody Information information) {
+        return HttpResponseEntity.success(informationService.selectAQIFeedBackVOById(information.getInformationId()));
     }
 }

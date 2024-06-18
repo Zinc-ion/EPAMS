@@ -11,6 +11,7 @@ import com.neusoft.neu6053.dao.mapper.SupervisorMapper;
 import com.neusoft.neu6053.dao.viewObject.AQIFeedBackVO;
 import com.neusoft.neu6053.services.InformationService;
 import com.neusoft.neu6053.dao.mapper.InformationMapper;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -109,22 +110,20 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     @Override
     public IPage<Information> getAllInformations(Integer curPage, Integer pageSize) {
         Page<Information> page = new Page<>(curPage, pageSize);
-        page.setRecords(informationMapper.selectPage(page, null).getRecords());
+        QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
+        queryWrapper.le("state",1); //只查询小于等于1的state
+        page.setRecords(informationMapper.selectPage(page, queryWrapper).getRecords());
         return page;
     }
 
-    @Override
-    public IPage<Information> getAllInformations2(Integer curPage, Integer pageSize) {
-        Page<Information> page = new Page<>(curPage, pageSize);
-        List<Information> records = informationMapper.selectPage(page, null).getRecords();
-        page.setRecords(records);
-        return page;
-    }
+
 
     @Override
     public Map<String, Object> getAllAQIFeedBackVO(Integer curPage, Integer pageSize) {
         Page<Information> page = new Page<>(curPage, pageSize);
-        List<Information> records = informationMapper.selectPage(page, null).getRecords();
+        QueryWrapper<Information> queryWrapper = new QueryWrapper<>();
+        queryWrapper.le("state",1); //只查询小于等于1的state
+        List<Information> records = informationMapper.selectPage(page, queryWrapper).getRecords();
 
         //填充VO
         List<AQIFeedBackVO> aqiFeedBackVOS = fillAQIFeedBackVO(records);
@@ -137,6 +136,18 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         map.put("pageSize", page.getSize());
         map.put("data", aqiFeedBackVOS);
         return map;
+    }
+
+    @Override
+    public AQIFeedBackVO selectAQIFeedBackVOById(Integer informationId) {
+        Information information = informationMapper.selectById(informationId);
+        if (information == null) {
+            return null;
+        }
+        List<Information> records = new ArrayList<>();
+        records.add(information);
+        List<AQIFeedBackVO> aqiFeedBackVOS = fillAQIFeedBackVO(records);
+        return aqiFeedBackVOS.get(0);
     }
 
 
