@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.neusoft.neu6053.dao.entity.Confirmation;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.neusoft.neu6053.dao.entity.Information;
+import com.neusoft.neu6053.dao.viewObject.AQIConfirmVO;
 
 import java.util.List;
 import java.util.Map;
@@ -83,5 +84,12 @@ public interface ConfirmationService extends IService<Confirmation> {
      * @return List<Confirmation>
      */
     Map<String, Object> selectAQIConfirmVOByParams(Integer curPage, Integer pageSize, Confirmation confirmation);
+
+    /**
+     * 根据id查询AQIConfirmVO
+     * @param confirmation
+     * @return AQIConfirmVO
+     */
+    AQIConfirmVO getAQIConfirmVOById(Confirmation confirmation);
 
 }

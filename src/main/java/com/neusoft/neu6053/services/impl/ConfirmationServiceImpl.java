@@ -191,6 +191,15 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
         return map;
     }
 
+    @Override
+    public AQIConfirmVO getAQIConfirmVOById(Confirmation confirmation) {
+        Confirmation record = confirmationMapper.selectById(confirmation);
+        List<Confirmation> recordList = new ArrayList<>();
+        recordList.add(record);
+        List<AQIConfirmVO> aqiConfirmVOList = fillAQIConfirmVO(recordList);
+        return aqiConfirmVOList.get(0);
+    }
+
 
     //填充VO
     private List<AQIConfirmVO> fillAQIConfirmVO(List<Confirmation> records) {

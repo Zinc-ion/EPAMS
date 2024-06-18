@@ -177,6 +177,16 @@ public class ConfirmationController {
     }
 
 
+    @Operation(
+            summary = "AQIConfirmVO根据Id查询接口",
+            description = "根据conf_id查询AQIConfirmVO，返回AQIConfirmVO对象"
+    )
+    @PostMapping("/select/selectVOById")
+    public HttpResponseEntity selectAQIConfirmVOById(@RequestBody Confirmation confirmation) {
+        return HttpResponseEntity.success(confirmationService.getAQIConfirmVOById(confirmation));
+    }
+
+
 
 
 
