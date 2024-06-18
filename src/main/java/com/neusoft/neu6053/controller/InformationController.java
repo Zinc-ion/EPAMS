@@ -103,6 +103,7 @@ public class InformationController {
             return HttpResponseEntity.failure("该信息已被委派或已完成，请检测information_id");
         }
 
+        //设置状态为1表示已经指派，同时放入网格员id
         infoModified.setState(1);
         infoModified.setInspectorId(information.getInspectorId());
         if (informationService.updateInformation(infoModified) == 1) {
