@@ -32,7 +32,7 @@ public class ConfirmationController {
 
     @Operation(
             summary = "AQI确认信息新增接口",
-            description = "新增AQI确认信息，返回确认信息对象"
+            description = "新增AQI确认信息，同时修改对应info项状态为2，并返回确认信息对象"
     )
     @PostMapping("/add")
     public HttpResponseEntity addConfirmation(@RequestBody Confirmation confirmation) {
@@ -47,23 +47,31 @@ public class ConfirmationController {
             return HttpResponseEntity.failure("污染等级格式错误,应该为字符串形式的罗马数字1~6");
         }
 
+        //查对应的info项
         Information information = informationService.getInformationById(new Information(confirmation.getInformationId()));
         //检查informationId是否存在
         if (information == null) {
             return HttpResponseEntity.failure("informationId对应info项不存在");
         }
+        //修改information的state为2表示已完成
+        information.setState(2);
+        if (1 != informationService.updateInformation(information)) {
+            return HttpResponseEntity.failure("information状态修改失败");
+        }
 
-        //设置name
+        //查info项内对应的网格员与监督员
         Supervisor supervisor = supervisorService.selectSupervisorByTel(new Supervisor(information.getSupervisorId())).get(0);
         Inspector inspector = inspectorService.selectInspectorByTel(new Inspector(information.getInspectorId()));
         //检查supervisorId和inspectorId是否存在
         if (supervisor == null || inspector == null) {
             return HttpResponseEntity.failure("infoId对应表项中的supervisorId或inspectorId不存在");
         }
+
+        //设置conf项name
         confirmation.setSupervisorName(supervisor.getRealName());
         confirmation.setInspectorName(inspector.getName());
 
-        //添加数据
+        //添加conf项
         if (confirmationService.addConfirmation(confirmation) == 1) {
             return HttpResponseEntity.success(confirmation);
         } else {

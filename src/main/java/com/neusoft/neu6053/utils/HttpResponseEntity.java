@@ -1,12 +1,14 @@
 package com.neusoft.neu6053.utils;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Schema(description = "响应返回数据对象")
 public class HttpResponseEntity {
     //状态码 200成功 500失败
     private String code;
