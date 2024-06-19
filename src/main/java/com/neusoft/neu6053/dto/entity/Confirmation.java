@@ -1,4 +1,4 @@
-package com.neusoft.neu6053.dao.entity;
+package com.neusoft.neu6053.dto.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -10,16 +10,31 @@ import lombok.Data;
 
 /**
  * 
- * @TableName information
+ * @TableName confirmation
  */
-@TableName(value ="information")
+@TableName(value ="confirmation")
 @Data
-public class Information implements Serializable {
+public class Confirmation implements Serializable {
     /**
-     * AQI信息id
+     * AQI确认id
      */
     @TableId(type = IdType.AUTO)
+    private Integer confId;
+
+    /**
+     * AQI反馈id
+     */
     private Integer informationId;
+
+    /**
+     * 网格员姓名
+     */
+    private String inspectorName;
+
+    /**
+     * 监督员姓名
+     */
+    private String supervisorName;
 
     /**
      * 省份
@@ -32,73 +47,64 @@ public class Information implements Serializable {
     private String city;
 
     /**
-     * 详细地址
+     * 社区详细地址
      */
     private String community;
 
     /**
-     * 预估污染水平（1~6数字）
+     * 污染等级
      */
     private String pollutionLevel;
 
     /**
-     * 日期
+     * 二氧化硫浓度
+     */
+    private Double so2;
+
+    /**
+     * 一氧化碳浓度
+     */
+    private Double co;
+
+    /**
+     * PM2.5浓度
+     */
+    private Double pm25;
+
+    /**
+     * 确认日期
      */
     private Date date;
 
     /**
-     * 时间
+     * 确认时间
      */
     private Date time;
-
-    /**
-     * 反馈表状态（0未委派 1已委派 2已完成）
-     */
-    private Integer state;
-
-    /**
-     * 监督员id
-     */
-    private String supervisorId;
-
-    /**
-     * 网格员id
-     */
-    private String inspectorId;
-
-    /**
-     * 反馈信息
-     */
-    private String feedback;
-
-    /**
-     * 逻辑删除（0未删除 1已删除）
-     */
-    private Integer deleted;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
-    public Information(Integer informationId) {
-        this.informationId = informationId;
+    public Confirmation(Integer confId) {
+        this.confId = confId;
     }
 
-    public Information() {
+    public Confirmation() {
     }
 
-    public Information(Integer informationId, String province, String city, String community, String pollutionLevel, Date date, Date time, Integer state, String supervisorId, String inspectorId, String feedback, Integer deleted) {
+    public Confirmation(Integer confId, Integer informationId, String inspectorName, String supervisorName, String province, String city, String community, String pollutionLevel, Double so2, Double co, Double pm25, Date date, Date time) {
+        this.confId = confId;
         this.informationId = informationId;
+        this.inspectorName = inspectorName;
+        this.supervisorName = supervisorName;
         this.province = province;
         this.city = city;
         this.community = community;
         this.pollutionLevel = pollutionLevel;
+        this.so2 = so2;
+        this.co = co;
+        this.pm25 = pm25;
         this.date = date;
         this.time = time;
-        this.state = state;
-        this.supervisorId = supervisorId;
-        this.inspectorId = inspectorId;
-        this.feedback = feedback;
-        this.deleted = deleted;
     }
 
     @Override
@@ -112,37 +118,39 @@ public class Information implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Information other = (Information) that;
-        return (this.getInformationId() == null ? other.getInformationId() == null : this.getInformationId().equals(other.getInformationId()))
+        Confirmation other = (Confirmation) that;
+        return (this.getConfId() == null ? other.getConfId() == null : this.getConfId().equals(other.getConfId()))
+            && (this.getInformationId() == null ? other.getInformationId() == null : this.getInformationId().equals(other.getInformationId()))
+            && (this.getInspectorName() == null ? other.getInspectorName() == null : this.getInspectorName().equals(other.getInspectorName()))
+            && (this.getSupervisorName() == null ? other.getSupervisorName() == null : this.getSupervisorName().equals(other.getSupervisorName()))
             && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getCommunity() == null ? other.getCommunity() == null : this.getCommunity().equals(other.getCommunity()))
             && (this.getPollutionLevel() == null ? other.getPollutionLevel() == null : this.getPollutionLevel().equals(other.getPollutionLevel()))
+            && (this.getSo2() == null ? other.getSo2() == null : this.getSo2().equals(other.getSo2()))
+            && (this.getCo() == null ? other.getCo() == null : this.getCo().equals(other.getCo()))
+            && (this.getPm25() == null ? other.getPm25() == null : this.getPm25().equals(other.getPm25()))
             && (this.getDate() == null ? other.getDate() == null : this.getDate().equals(other.getDate()))
-            && (this.getTime() == null ? other.getTime() == null : this.getTime().equals(other.getTime()))
-            && (this.getState() == null ? other.getState() == null : this.getState().equals(other.getState()))
-            && (this.getSupervisorId() == null ? other.getSupervisorId() == null : this.getSupervisorId().equals(other.getSupervisorId()))
-            && (this.getInspectorId() == null ? other.getInspectorId() == null : this.getInspectorId().equals(other.getInspectorId()))
-            && (this.getFeedback() == null ? other.getFeedback() == null : this.getFeedback().equals(other.getFeedback()))
-            && (this.getDeleted() == null ? other.getDeleted() == null : this.getDeleted().equals(other.getDeleted()));
+            && (this.getTime() == null ? other.getTime() == null : this.getTime().equals(other.getTime()));
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + ((getConfId() == null) ? 0 : getConfId().hashCode());
         result = prime * result + ((getInformationId() == null) ? 0 : getInformationId().hashCode());
+        result = prime * result + ((getInspectorName() == null) ? 0 : getInspectorName().hashCode());
+        result = prime * result + ((getSupervisorName() == null) ? 0 : getSupervisorName().hashCode());
         result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
         result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getCommunity() == null) ? 0 : getCommunity().hashCode());
         result = prime * result + ((getPollutionLevel() == null) ? 0 : getPollutionLevel().hashCode());
+        result = prime * result + ((getSo2() == null) ? 0 : getSo2().hashCode());
+        result = prime * result + ((getCo() == null) ? 0 : getCo().hashCode());
+        result = prime * result + ((getPm25() == null) ? 0 : getPm25().hashCode());
         result = prime * result + ((getDate() == null) ? 0 : getDate().hashCode());
         result = prime * result + ((getTime() == null) ? 0 : getTime().hashCode());
-        result = prime * result + ((getState() == null) ? 0 : getState().hashCode());
-        result = prime * result + ((getSupervisorId() == null) ? 0 : getSupervisorId().hashCode());
-        result = prime * result + ((getInspectorId() == null) ? 0 : getInspectorId().hashCode());
-        result = prime * result + ((getFeedback() == null) ? 0 : getFeedback().hashCode());
-        result = prime * result + ((getDeleted() == null) ? 0 : getDeleted().hashCode());
         return result;
     }
 
@@ -152,18 +160,19 @@ public class Information implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
+        sb.append(", confId=").append(confId);
         sb.append(", informationId=").append(informationId);
+        sb.append(", inspectorName=").append(inspectorName);
+        sb.append(", supervisorName=").append(supervisorName);
         sb.append(", province=").append(province);
         sb.append(", city=").append(city);
         sb.append(", community=").append(community);
         sb.append(", pollutionLevel=").append(pollutionLevel);
+        sb.append(", so2=").append(so2);
+        sb.append(", co=").append(co);
+        sb.append(", pm25=").append(pm25);
         sb.append(", date=").append(date);
         sb.append(", time=").append(time);
-        sb.append(", state=").append(state);
-        sb.append(", supervisorId=").append(supervisorId);
-        sb.append(", inspectorId=").append(inspectorId);
-        sb.append(", feedback=").append(feedback);
-        sb.append(", deleted=").append(deleted);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

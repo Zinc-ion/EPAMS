@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neusoft.neu6053.dao.mapper.AdminMapper">
 
-    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.Admin">
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dto.entity.Admin">
             <id property="adminId" column="admin_id" jdbcType="INTEGER"/>
             <result property="adminCode" column="admin_code" jdbcType="VARCHAR"/>
             <result property="password" column="password" jdbcType="VARCHAR"/>

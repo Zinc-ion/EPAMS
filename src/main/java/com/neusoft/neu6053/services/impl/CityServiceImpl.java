@@ -2,10 +2,9 @@ package com.neusoft.neu6053.services.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.neusoft.neu6053.dao.entity.City;
+import com.neusoft.neu6053.dto.entity.City;
 import com.neusoft.neu6053.services.CityService;
-import com.neusoft.neu6053.dao.mapper.CityMapper;
-import lombok.AllArgsConstructor;
+import com.neusoft.neu6053.dto.mapper.CityMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

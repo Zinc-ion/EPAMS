@@ -2,8 +2,8 @@ package com.neusoft.neu6053;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.neusoft.neu6053.dao.entity.Admin;
-import com.neusoft.neu6053.dao.mapper.AdminMapper;
+import com.neusoft.neu6053.dto.entity.Admin;
+import com.neusoft.neu6053.dto.mapper.AdminMapper;
 import com.neusoft.neu6053.services.AdminService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.neusoft.neu6053.controller;
 
-import com.neusoft.neu6053.dao.entity.Inspector;
+import com.neusoft.neu6053.dto.entity.Inspector;
 import com.neusoft.neu6053.services.InspectorService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;

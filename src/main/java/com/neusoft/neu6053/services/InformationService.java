@@ -1,13 +1,10 @@
 package com.neusoft.neu6053.services;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.neusoft.neu6053.dao.entity.Confirmation;
-import com.neusoft.neu6053.dao.entity.Information;
+import com.neusoft.neu6053.dto.entity.Information;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.neusoft.neu6053.dao.entity.Supervisor;
-import com.neusoft.neu6053.dao.viewObject.AQIFeedBackVO;
+import com.neusoft.neu6053.dto.viewObject.AQIFeedBackVO;
 
-import java.util.List;
 import java.util.Map;
 
 /**

@@ -1,11 +1,9 @@
 package com.neusoft.neu6053.services;
 
-import com.neusoft.neu6053.dao.entity.Inspector;
+import com.neusoft.neu6053.dto.entity.Inspector;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.neusoft.neu6053.dao.entity.Supervisor;
 
 import java.util.List;
-import java.util.Map;
 
 /**
 * @author 1185911254@qq.com

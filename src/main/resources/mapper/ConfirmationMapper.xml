@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neusoft.neu6053.dao.mapper.ConfirmationMapper">
 
-    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.Confirmation">
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dto.entity.Confirmation">
             <id property="confId" column="conf_id" jdbcType="INTEGER"/>
             <result property="informationId" column="information_id" jdbcType="INTEGER"/>
             <result property="inspectorName" column="inspector_name" jdbcType="VARCHAR"/>

@@ -1,7 +1,6 @@
 package com.neusoft.neu6053;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.neusoft.neu6053.dao.entity.Confirmation;
+import com.neusoft.neu6053.dto.entity.Confirmation;
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.utils.TimeUtil;
 import org.junit.jupiter.api.Test;

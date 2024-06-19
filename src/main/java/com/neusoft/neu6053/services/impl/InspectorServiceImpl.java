@@ -2,10 +2,9 @@ package com.neusoft.neu6053.services.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.neusoft.neu6053.dao.entity.Admin;
-import com.neusoft.neu6053.dao.entity.Inspector;
+import com.neusoft.neu6053.dto.entity.Inspector;
 import com.neusoft.neu6053.services.InspectorService;
-import com.neusoft.neu6053.dao.mapper.InspectorMapper;
+import com.neusoft.neu6053.dto.mapper.InspectorMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

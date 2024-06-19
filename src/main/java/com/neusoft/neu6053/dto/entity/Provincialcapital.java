@@ -1,4 +1,4 @@
-package com.neusoft.neu6053.dao.entity;
+package com.neusoft.neu6053.dto.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,11 +9,11 @@ import lombok.Data;
 
 /**
  * 
- * @TableName province
+ * @TableName provincialCapital
  */
-@TableName(value ="province")
+@TableName(value ="provincialCapital")
 @Data
-public class Province implements Serializable {
+public class Provincialcapital implements Serializable {
     /**
      * 
      */
@@ -23,12 +23,7 @@ public class Province implements Serializable {
     /**
      * 
      */
-    private Integer provinceid;
-
-    /**
-     * 
-     */
-    private String province;
+    private String name;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -44,10 +39,9 @@ public class Province implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Province other = (Province) that;
+        Provincialcapital other = (Provincialcapital) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getProvinceid() == null ? other.getProvinceid() == null : this.getProvinceid().equals(other.getProvinceid()))
-            && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()));
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()));
     }
 
     @Override
@@ -55,8 +49,7 @@ public class Province implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getProvinceid() == null) ? 0 : getProvinceid().hashCode());
-        result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         return result;
     }
 
@@ -67,8 +60,7 @@ public class Province implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", provinceid=").append(provinceid);
-        sb.append(", province=").append(province);
+        sb.append(", name=").append(name);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

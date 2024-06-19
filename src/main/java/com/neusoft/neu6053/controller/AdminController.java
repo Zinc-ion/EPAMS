@@ -1,6 +1,6 @@
 package com.neusoft.neu6053.controller;
 
-import com.neusoft.neu6053.dao.entity.Admin;
+import com.neusoft.neu6053.dto.entity.Admin;
 import com.neusoft.neu6053.services.AdminService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.RedisUtils;

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neusoft.neu6053.dao.mapper.ProvinceMapper">
 
-    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.Province">
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dto.entity.Province">
             <id property="id" column="id" jdbcType="INTEGER"/>
             <result property="provinceid" column="provinceID" jdbcType="INTEGER"/>
             <result property="province" column="province" jdbcType="VARCHAR"/>

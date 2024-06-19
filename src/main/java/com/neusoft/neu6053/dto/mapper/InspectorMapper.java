@@ -1,6 +1,6 @@
-package com.neusoft.neu6053.dao.mapper;
+package com.neusoft.neu6053.dto.mapper;
 
-import com.neusoft.neu6053.dao.entity.Inspector;
+import com.neusoft.neu6053.dto.entity.Inspector;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

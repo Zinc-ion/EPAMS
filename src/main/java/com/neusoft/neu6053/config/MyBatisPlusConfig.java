@@ -12,7 +12,7 @@ import java.util.Collections;
 //import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
-@MapperScan("com.neusoft.neu6053.dao.mapper")
+@MapperScan("com.neusoft.neu6053.dto.mapper")
 @Configuration
 @EnableTransactionManagement    //自动管理事务
 public class MyBatisPlusConfig {

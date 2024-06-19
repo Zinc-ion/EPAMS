@@ -1,4 +1,4 @@
-package com.neusoft.neu6053.dao.entity;
+package com.neusoft.neu6053.dto.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,11 +9,11 @@ import lombok.Data;
 
 /**
  * 
- * @TableName city
+ * @TableName province
  */
-@TableName(value ="city")
+@TableName(value ="province")
 @Data
-public class City implements Serializable {
+public class Province implements Serializable {
     /**
      * 
      */
@@ -23,17 +23,12 @@ public class City implements Serializable {
     /**
      * 
      */
-    private Integer cityid;
+    private Integer provinceid;
 
     /**
      * 
      */
-    private String city;
-
-    /**
-     * 
-     */
-    private Integer fatherid;
+    private String province;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -49,11 +44,10 @@ public class City implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        City other = (City) that;
+        Province other = (Province) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getCityid() == null ? other.getCityid() == null : this.getCityid().equals(other.getCityid()))
-            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
-            && (this.getFatherid() == null ? other.getFatherid() == null : this.getFatherid().equals(other.getFatherid()));
+            && (this.getProvinceid() == null ? other.getProvinceid() == null : this.getProvinceid().equals(other.getProvinceid()))
+            && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()));
     }
 
     @Override
@@ -61,9 +55,8 @@ public class City implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getCityid() == null) ? 0 : getCityid().hashCode());
-        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
-        result = prime * result + ((getFatherid() == null) ? 0 : getFatherid().hashCode());
+        result = prime * result + ((getProvinceid() == null) ? 0 : getProvinceid().hashCode());
+        result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
         return result;
     }
 
@@ -74,9 +67,8 @@ public class City implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", cityid=").append(cityid);
-        sb.append(", city=").append(city);
-        sb.append(", fatherid=").append(fatherid);
+        sb.append(", provinceid=").append(provinceid);
+        sb.append(", province=").append(province);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

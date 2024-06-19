@@ -1,10 +1,7 @@
-package com.neusoft.neu6053.dao.mapper;
+package com.neusoft.neu6053.dto.mapper;
 
-import com.neusoft.neu6053.dao.entity.Admin;
+import com.neusoft.neu6053.dto.entity.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 /**
 * @author 1185911254@qq.com

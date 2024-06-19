@@ -1,6 +1,6 @@
 package com.neusoft.neu6053;
 
-import com.neusoft.neu6053.dao.entity.Inspector;
+import com.neusoft.neu6053.dto.entity.Inspector;
 import com.neusoft.neu6053.services.InspectorService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

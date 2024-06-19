@@ -1,6 +1,6 @@
 package com.neusoft.neu6053.controller;
 
-import com.neusoft.neu6053.dao.entity.Information;
+import com.neusoft.neu6053.dto.entity.Information;
 import com.neusoft.neu6053.services.InformationService;
 import com.neusoft.neu6053.utils.HttpResponseEntity;
 import com.neusoft.neu6053.utils.TimeUtil;
@@ -8,10 +8,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController

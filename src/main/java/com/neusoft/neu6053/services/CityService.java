@@ -1,6 +1,6 @@
 package com.neusoft.neu6053.services;
 
-import com.neusoft.neu6053.dao.entity.City;
+import com.neusoft.neu6053.dto.entity.City;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

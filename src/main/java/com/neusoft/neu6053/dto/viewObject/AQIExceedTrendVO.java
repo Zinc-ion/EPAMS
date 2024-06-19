@@ -1,6 +1,5 @@
-package com.neusoft.neu6053.dao.viewObject;
+package com.neusoft.neu6053.dto.viewObject;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class AQIExceedTrendVO {

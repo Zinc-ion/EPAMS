@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neusoft.neu6053.dao.mapper.SupervisorMapper">
 
-    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.Supervisor">
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dto.entity.Supervisor">
             <id property="telId" column="tel_id" jdbcType="VARCHAR"/>
             <result property="password" column="password" jdbcType="VARCHAR"/>
             <result property="realName" column="real_name" jdbcType="VARCHAR"/>

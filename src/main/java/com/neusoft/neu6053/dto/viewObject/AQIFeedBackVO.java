@@ -1,10 +1,7 @@
-package com.neusoft.neu6053.dao.viewObject;
+package com.neusoft.neu6053.dto.viewObject;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import java.util.Date;
 import java.util.Objects;
 
 @Schema(title = "AQIFeedBackVO", description = "AQI反馈信息VO")

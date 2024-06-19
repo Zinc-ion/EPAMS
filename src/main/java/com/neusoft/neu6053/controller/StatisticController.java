@@ -1,11 +1,11 @@
 package com.neusoft.neu6053.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.neusoft.neu6053.dao.entity.City;
-import com.neusoft.neu6053.dao.entity.Confirmation;
-import com.neusoft.neu6053.dao.entity.Province;
-import com.neusoft.neu6053.dao.entity.Provincialcapital;
-import com.neusoft.neu6053.dao.viewObject.*;
+import com.neusoft.neu6053.dto.entity.City;
+import com.neusoft.neu6053.dto.entity.Confirmation;
+import com.neusoft.neu6053.dto.entity.Province;
+import com.neusoft.neu6053.dto.entity.Provincialcapital;
+import com.neusoft.neu6053.dto.viewObject.*;
 import com.neusoft.neu6053.services.CityService;
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.services.ProvinceService;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 

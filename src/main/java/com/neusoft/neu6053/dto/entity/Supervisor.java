@@ -1,4 +1,4 @@
-package com.neusoft.neu6053.dao.entity;
+package com.neusoft.neu6053.dto.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

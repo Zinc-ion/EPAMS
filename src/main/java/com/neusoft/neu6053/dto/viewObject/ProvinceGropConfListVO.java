@@ -1,4 +1,4 @@
-package com.neusoft.neu6053.dao.viewObject;
+package com.neusoft.neu6053.dto.viewObject;
 
 import java.util.ArrayList;
 import java.util.List;

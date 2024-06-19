@@ -3,18 +3,13 @@ package com.neusoft.neu6053.services.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.neusoft.neu6053.dao.entity.Confirmation;
-import com.neusoft.neu6053.dao.entity.Inspector;
-import com.neusoft.neu6053.dao.entity.Supervisor;
+import com.neusoft.neu6053.dto.entity.Supervisor;
 import com.neusoft.neu6053.services.SupervisorService;
-import com.neusoft.neu6053.dao.mapper.SupervisorMapper;
+import com.neusoft.neu6053.dto.mapper.SupervisorMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
 * @author 1185911254@qq.com

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neusoft.neu6053.dao.mapper.ProvincialcapitalMapper">
 
-    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.Provincialcapital">
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dto.entity.Provincialcapital">
             <id property="id" column="id" jdbcType="INTEGER"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
     </resultMap>

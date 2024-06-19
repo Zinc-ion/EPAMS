@@ -1,9 +1,9 @@
 package com.neusoft.neu6053.services.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.neusoft.neu6053.dao.entity.Province;
+import com.neusoft.neu6053.dto.entity.Province;
 import com.neusoft.neu6053.services.ProvinceService;
-import com.neusoft.neu6053.dao.mapper.ProvinceMapper;
+import com.neusoft.neu6053.dto.mapper.ProvinceMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

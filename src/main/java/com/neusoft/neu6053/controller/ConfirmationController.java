@@ -1,10 +1,10 @@
 package com.neusoft.neu6053.controller;
 
-import com.neusoft.neu6053.dao.entity.Confirmation;
+import com.neusoft.neu6053.dto.entity.Confirmation;
 
-import com.neusoft.neu6053.dao.entity.Information;
-import com.neusoft.neu6053.dao.entity.Inspector;
-import com.neusoft.neu6053.dao.entity.Supervisor;
+import com.neusoft.neu6053.dto.entity.Information;
+import com.neusoft.neu6053.dto.entity.Inspector;
+import com.neusoft.neu6053.dto.entity.Supervisor;
 import com.neusoft.neu6053.services.ConfirmationService;
 import com.neusoft.neu6053.services.InformationService;
 import com.neusoft.neu6053.services.InspectorService;
@@ -15,8 +15,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 @RequiredArgsConstructor

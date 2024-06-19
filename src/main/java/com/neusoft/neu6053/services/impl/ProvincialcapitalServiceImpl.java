@@ -1,9 +1,9 @@
 package com.neusoft.neu6053.services.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.neusoft.neu6053.dao.entity.Provincialcapital;
+import com.neusoft.neu6053.dto.entity.Provincialcapital;
 import com.neusoft.neu6053.services.ProvincialcapitalService;
-import com.neusoft.neu6053.dao.mapper.ProvincialcapitalMapper;
+import com.neusoft.neu6053.dto.mapper.ProvincialcapitalMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

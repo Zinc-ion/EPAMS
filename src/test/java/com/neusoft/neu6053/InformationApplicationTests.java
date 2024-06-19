@@ -1,6 +1,6 @@
 package com.neusoft.neu6053;
 
-import com.neusoft.neu6053.dao.entity.Information;
+import com.neusoft.neu6053.dto.entity.Information;
 import com.neusoft.neu6053.services.InformationService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

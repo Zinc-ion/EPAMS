@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neusoft.neu6053.dao.mapper.CityMapper">
 
-    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dao.entity.City">
+    <resultMap id="BaseResultMap" type="com.neusoft.neu6053.dto.entity.City">
             <id property="id" column="id" jdbcType="INTEGER"/>
             <result property="cityid" column="cityID" jdbcType="INTEGER"/>
             <result property="city" column="city" jdbcType="VARCHAR"/>

@@ -1,4 +1,4 @@
-package com.neusoft.neu6053.dao.viewObject;
+package com.neusoft.neu6053.dto.viewObject;
 
 public class ProvinceGropConfVO {
     private int provinceId;
