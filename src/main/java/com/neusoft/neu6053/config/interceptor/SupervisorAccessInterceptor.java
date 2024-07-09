@@ -53,7 +53,8 @@ public class SupervisorAccessInterceptor implements HandlerInterceptor {
 
         } catch (Exception e) {
             //相应码401
-            response.setStatus(401);
+
+            response.sendError(401,"无监督员或管理员权限");
             //拦截请求
             return false;
         }

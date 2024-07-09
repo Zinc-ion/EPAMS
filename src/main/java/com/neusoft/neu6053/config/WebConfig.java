@@ -24,6 +24,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 
     private  final List<String> excludePaths = Arrays.asList(
+            "/stats/**",
             "/admins/login","/admins/add","/admins/logout",
             "/supervisor/add","/supervisor/login","/supervisor/logout",
             "/inspector/add","/inspector/login","/inspector/logout",
@@ -41,47 +42,44 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(loginInterceptor)
                 .excludePathPatterns(excludePaths);
 
-//        registry.addInterceptor(adminAccessInterceptor)
-//                /**
-//                 * 只管理员身份才能使用的接口：
-//                 * 对统计相关接口的访问
-//                 * 拦对管理员的所有操作的接口
-//                 * 监督员信息的删改查
-//                 * 网格员信息的删改查
-//                 * 对info表，conf表的删改
-//                 */
-//                .addPathPatterns(
-//                        "/admins/**",
-//                        "/stats/**",
-//                        "/supervisor/delete/**","/supervisor/modify","/supervisor/select/**",
-//                        "/inspector/delete/**","/inspector/modify","/inspector/select/**",
-//                        "/info/delete/**","/info/modify",
-//                        "/conf/delete/**","/conf/modify")
-//                .excludePathPatterns(
-//                        "/admins/login","/admins/add");
-//
-//        registry.addInterceptor(supervisorAccessInterceptor)
-//                /**
-//                 * 需要有监督员或管理员身份才能使用的接口：
-//                 * 拦截对info表的添加
-//                 * 监督员退出登录
-//                 */
-//                .addPathPatterns(
-//                        "/info/add",
-//                        "/supervisor/logout");
-//
-//        registry.addInterceptor(inspectorAccessInterceptor)
-//                /**
-//                 * 需要有网格员或管理员身份才能使用的接口：
-//                 * 拦截对conf表的添加查询
-//                 * 与对info表的查询
-//                 * 网格员退出登录
-//                 */
-//                .addPathPatterns(
-//                        "/conf/add","/conf/select/**",
-//                        "/info/select/**",
-//                        "/inspector/logout");
-//
+        registry.addInterceptor(adminAccessInterceptor)
+                /**
+                 * 只管理员身份才能使用的接口：
+                 * 拦对管理员的所有操作的接口
+                 * 监督员信息的删改查
+                 * 网格员信息的删改查
+                 * 对info表，conf表的删改
+                 */
+                .addPathPatterns(
+                        "/admins/**",
+                        "/supervisor/delete/**","/supervisor/modify","/supervisor/select/**",
+                        "/inspector/delete/**","/inspector/modify","/inspector/select/**",
+                        "/info/delete/**","/info/modify","/info/assign",
+                        "/conf/delete/**","/conf/modify")
+                .excludePathPatterns(
+                        "/admins/login","/admins/add");
+
+        registry.addInterceptor(supervisorAccessInterceptor)
+                /**
+                 * 需要有监督员或管理员身份才能使用的接口：
+                 * 拦截对info表的添加
+                 * 监督员退出登录
+                 */
+                .addPathPatterns(
+                        "/info/add",
+                        "/supervisor/logout");
+
+        registry.addInterceptor(inspectorAccessInterceptor)
+                /**
+                 * 需要有网格员或管理员身份才能使用的接口：
+                 * 拦截对conf表的添加查询
+                 * 与对info表的查询
+                 * 网格员退出登录
+                 */
+                .addPathPatterns(
+                        "/conf/add","/conf/select/**",
+                        "/inspector/logout");
+
     }
 
 

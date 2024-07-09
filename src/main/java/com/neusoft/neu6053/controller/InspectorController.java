@@ -56,6 +56,9 @@ public class InspectorController {
     @ResponseBody
     public HttpResponseEntity logout(HttpServletRequest request) {
         String token = request.getHeader("token");
+        if (token == null) {
+            return HttpResponseEntity.failure("token为空，登出失败");
+        }
         //删除redis的token
         redisUtils.del(token);
         return HttpResponseEntity.success("退出成功");
