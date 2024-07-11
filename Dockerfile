@@ -7,7 +7,7 @@ MAINTAINER ZincIon <1185911254xj@gmail.com>
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 # 挂载目录(容器启动时)
-VOLUME /usr/local/water
+VOLUME /usr/local/neu6053
 # 创建目录（该命令是容器运行时才会执行）
 RUN mkdir -p /usr/local/neu6053
 # 指定路径

@@ -1,0 +1,9 @@
+version: '3.5'
+services:
+  #nepm_server
+    nepm_server01:
+        image: zincion/nepm_server
+        container_name: nepm-server01
+        ports:
+        - "8086:8085"
+        restart: always
