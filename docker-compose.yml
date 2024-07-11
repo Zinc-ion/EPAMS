@@ -1,9 +1,29 @@
 version: '3.5'
 services:
-  #nepm_server
+    #nepm_server
     nepm_server01:
-        image: zincion/nepm_server
+        image: zincion/nepm_server:v2
         container_name: nepm-server01
         ports:
         - "8086:8085"
+        restart: always
+
+    nepm_server02:
+        image: zincion/nepm_server:v2
+        container_name: nepm-server02
+        ports:
+            - "8087:8085"
+        restart: always
+
+    #nginx
+    nginx:
+        image: nginx
+        container_name: nginx
+        ports:
+            - "8085:80"
+        volumes:
+            - /root/nginx/nginx.conf:/etc/nginx/nginx.conf
+            - /root/nginx/conf.d:/etc/nginx/conf.d
+            - /root/nginx/logs:/var/log/nginx
+            - /root/nginx/html:/usr/share/nginx/html
         restart: always

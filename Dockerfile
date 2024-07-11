@@ -1,5 +1,4 @@
 FROM openjdk:8-jdk-alpine
-
 #作者
 MAINTAINER ZincIon <1185911254xj@gmail.com>
 
@@ -17,3 +16,5 @@ COPY ./target/NEPM6053.jar /usr/local/neu6053/NEPM6053.jar
 ENTRYPOINT ["java","-jar","/usr/local/neu6053/NEPM6053.jar"]
 #暴露8085端口
 EXPOSE 8085
+
+
