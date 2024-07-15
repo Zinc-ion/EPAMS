@@ -1,10 +1,8 @@
 FROM openjdk:8-jdk-alpine
 #作者
 MAINTAINER ZincIon <1185911254xj@gmail.com>
-
 #系统编码
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-
 # 挂载目录(容器启动时)
 VOLUME /usr/local/neu6053
 # 创建目录（该命令是容器运行时才会执行）

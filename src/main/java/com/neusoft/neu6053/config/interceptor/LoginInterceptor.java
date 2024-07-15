@@ -30,19 +30,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     //Controller方法处理之前执行
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
         Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
         try {
-
-//            //2.获得所有头的名称
-//            Enumeration<String> headerNames = request.getHeaderNames();
-//            while(headerNames.hasMoreElements()) {//判断是否还有下一个元素
-//                String nextElement = headerNames.nextElement();//获取headerNames集合中的请求头
-//                String header2 = request.getHeader(nextElement);//通过请求头得到请求内容
-//                //log.info("请求头=========={}" + nextElement + "VALUE:" + header2);
-//                System.out.println(nextElement+":"+header2);
-//            }
-
             //token+redis验证
             String token = request.getHeader("token");
             if(token == null){
@@ -59,16 +48,12 @@ public class LoginInterceptor implements HandlerInterceptor {
                 redisUtils.expire(token, 1, TimeUnit.HOURS);
                 return true;
             }
-
         } catch (Exception e) {
             //相应码401
-//            response.setStatus(401);
             response.sendError(401, "token失效，请重新登录");
             //拦截请求
             return false;
         }
-
-
     }
 
     //该方法将在整个请求完成之后执行

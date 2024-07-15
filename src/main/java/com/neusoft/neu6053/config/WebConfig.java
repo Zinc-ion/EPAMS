@@ -21,8 +21,6 @@ public class WebConfig implements WebMvcConfigurer {
     private final AdminAccessInterceptor adminAccessInterceptor;
     private final SupervisorAccessInterceptor supervisorAccessInterceptor;
     private final InspectorAccessInterceptor inspectorAccessInterceptor;
-
-
     private  final List<String> excludePaths = Arrays.asList(
             "/stats/**",
             "/admins/login","/admins/add","/admins/logout",
