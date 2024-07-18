@@ -212,7 +212,13 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
             AQIConfirmVO aqiConfirmVO = new AQIConfirmVO();
             Information information = informationMapper.selectById(record.getInformationId());
             if (information == null) {
-                return new ArrayList<>();
+                aqiConfirmVO.setInsTel("未找到info");
+                aqiConfirmVO.setSupTel("未找到info");
+                aqiConfirmVO.setFeedback("未找到info");
+            } else {
+                aqiConfirmVO.setInsTel(information.getInspectorId());
+                aqiConfirmVO.setSupTel(information.getSupervisorId());
+                aqiConfirmVO.setFeedback(information.getFeedback());
             }
 
             aqiConfirmVO.setConfirmId(record.getConfId());
@@ -227,10 +233,9 @@ public class ConfirmationServiceImpl extends ServiceImpl<ConfirmationMapper, Con
 
             //因Confirmation中未存网格员与监督员id和feedback故取出对应info，从info内取两者id和feedback
             aqiConfirmVO.setInsName(record.getInspectorName());
-            aqiConfirmVO.setInsTel(information.getInspectorId());
+
             aqiConfirmVO.setSupName(record.getSupervisorName());
-            aqiConfirmVO.setSupTel(information.getSupervisorId());
-            aqiConfirmVO.setFeedback(information.getFeedback());
+
 
             aqiConfirmVOList.add(aqiConfirmVO);
         }
