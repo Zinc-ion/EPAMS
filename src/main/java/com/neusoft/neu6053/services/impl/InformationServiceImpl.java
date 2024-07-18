@@ -204,11 +204,13 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
                 aqiFeedBackVO.setSupSex(1);
                 aqiFeedBackVO.setBirthday("未找到监督员");
                 aqiFeedBackVO.setSupTel(record.getSupervisorId());
+            } else {
+                aqiFeedBackVO.setSupName(supervisor.getRealName());
+                aqiFeedBackVO.setSupSex(supervisor.getSex());
+                aqiFeedBackVO.setBirthday(supervisor.getBirthday());
+                aqiFeedBackVO.setSupTel(supervisor.getTelId());
             }
-            aqiFeedBackVO.setSupName(supervisor.getRealName());
-            aqiFeedBackVO.setSupSex(supervisor.getSex());
-            aqiFeedBackVO.setBirthday(supervisor.getBirthday());
-            aqiFeedBackVO.setSupTel(supervisor.getTelId());
+
 
             aqiFeedBackVO.setProvince(record.getProvince());
             aqiFeedBackVO.setCity(record.getCity());
