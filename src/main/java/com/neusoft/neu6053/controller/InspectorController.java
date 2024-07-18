@@ -71,6 +71,9 @@ public class InspectorController {
     )
     @PostMapping("/add")
     public HttpResponseEntity addInspector(@RequestBody Inspector inspector) {
+        if(inspectorService.selectInspectorByTel(inspector) != null) {                 //查询账户名是否重复
+            return HttpResponseEntity.failure("该网格员账户已存在，请更换tel_id后重试");
+        }
         if (inspectorService.saveInspector(inspector) == 1) {
             return HttpResponseEntity.success(inspector);
         } else {

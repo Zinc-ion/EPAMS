@@ -76,6 +76,9 @@ public class  SupervisorController {
     )
     @PostMapping("/add")
     public HttpResponseEntity addSupervisor(@RequestBody Supervisor supervisor) {
+        if(supervisorService.selectSupervisorByTel(supervisor) != null) {                 //查询账户名是否重复
+            return HttpResponseEntity.failure("该监督员账户已存在，请更换tel_id后重试");
+        }
         if (supervisorService.addSupervisor(supervisor) == 1) {
             return HttpResponseEntity.success(supervisor);
         } else {
