@@ -69,14 +69,13 @@ public class  SupervisorController {
         return HttpResponseEntity.success("退出成功");
     }
 
-
     @Operation(
             summary = "supervisor注册接口",
             description = "注册supervisor账户，返回supervisor对象"
     )
     @PostMapping("/add")
     public HttpResponseEntity addSupervisor(@RequestBody Supervisor supervisor) {
-        if(supervisorService.selectSupervisorByTel(supervisor) != null) {                 //查询账户名是否重复
+        if(!supervisorService.selectSupervisorByTel(supervisor).isEmpty() ) {                 //查询账户名是否重复
             return HttpResponseEntity.failure("该监督员账户已存在，请更换tel_id后重试");
         }
         if (supervisorService.addSupervisor(supervisor) == 1) {
