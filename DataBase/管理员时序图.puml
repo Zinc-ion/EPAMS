@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam dpi 200
+autonumber
+管理员 -> 前端 : 登录
+activate 前端
+前端 -> 后端服务器 : 验证登录信息
+activate 后端服务器
+后端服务器 --> 前端 : 返回登录结果
+deactivate 后端服务器
+前端 --> 管理员 : 显示登录结果
+deactivate 前端
+
+管理员 -> 前端 : 查询公众监督员反馈的AQI信息
+activate 前端
+前端 -> 后端服务器 : 请求AQI信息
+activate 后端服务器
+后端服务器 -> 数据库 : 查询AQI信息
+activate 数据库
+数据库 --> 后端服务器 : 返回AQI信息
+deactivate 数据库
+后端服务器 --> 前端 : 返回AQI信息
+deactivate 后端服务器
+前端 --> 管理员 : 显示AQI信息
+deactivate 前端
+
+管理员 -> 前端 : 将AQI信息指派给网格员
+activate 前端
+前端 -> 后端服务器 : 发送指派请求
+activate 后端服务器
+后端服务器 -> 数据库 : 更新网格员的AQI信息
+activate 数据库
+数据库 --> 后端服务器 : 确认更新成功
+deactivate 数据库
+后端服务器 --> 前端 : 返回指派结果
+deactivate 后端服务器
+前端 --> 管理员 : 显示指派结果
+deactivate 前端
+
+@enduml

@@ -90,7 +90,7 @@ spring:
       max-request-size: 512MB
 
 
-    #配置mybatis-plus
+#配置mybatis-plus
 mybatis-plus:
   typeAliasesPackage: com.neusoft.neu6053.dto.entity
   mapperLocations: classpath:mapper/*.xml

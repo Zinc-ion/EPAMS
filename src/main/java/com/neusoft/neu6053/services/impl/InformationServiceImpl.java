@@ -195,16 +195,16 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         List<AQIFeedBackVO> aqiFeedBackVOS = new ArrayList<>();
         //测空
         if (records.isEmpty()) return aqiFeedBackVOS;
-
         for (Information record : records) {
             AQIFeedBackVO aqiFeedBackVO = new AQIFeedBackVO();
             aqiFeedBackVO.setFeedbackId(record.getInformationId());
-
             Supervisor supervisor = supervisorMapper.selectById(record.getSupervisorId());
-            if (supervisor == null) {
-                return new ArrayList<>();
+            if (supervisor == null) {                   //未找到id对应监督员则填充提示信息
+                aqiFeedBackVO.setSupName("未找到监督员");
+                aqiFeedBackVO.setSupSex(1);
+                aqiFeedBackVO.setBirthday("未找到监督员");
+                aqiFeedBackVO.setSupTel(record.getSupervisorId());
             }
-
             aqiFeedBackVO.setSupName(supervisor.getRealName());
             aqiFeedBackVO.setSupSex(supervisor.getSex());
             aqiFeedBackVO.setBirthday(supervisor.getBirthday());

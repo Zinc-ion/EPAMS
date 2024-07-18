@@ -1,0 +1,20 @@
+
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam dpi 200
+autonumber
+监督员 -> 前端 : 提交污染信息
+activate 前端
+前端 -> 前端 : 验证污染信息
+前端 -> 后端服务器 : 上传污染信息
+activate 后端服务器
+后端服务器 -> 后端服务器 : 验证污染信息
+后端服务器 -> 数据库 : 保存污染信息
+activate 数据库
+数据库 --> 后端服务器 : 确认保存成功
+deactivate 数据库
+后端服务器 --> 前端 : 返回保存结果
+deactivate 后端服务器
+前端 -> 公众 : 返回上传结果
+deactivate 前端
+@enduml

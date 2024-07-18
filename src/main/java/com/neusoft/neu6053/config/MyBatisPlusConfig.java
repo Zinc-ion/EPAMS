@@ -21,21 +21,6 @@ import java.util.Collections;
 @Configuration
 @EnableTransactionManagement    //自动管理事务
 public class MyBatisPlusConfig {
-//    @Autowired
-//    private DataSource dataSource;
-//
-//    @Bean
-//    public SqlSessionFactory sqlSessionFactory() throws Exception {
-//        SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-//        sessionFactory.setDataSource(dataSource);
-//        return sessionFactory.getObject();
-//    }
-//
-//    @Bean
-//    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
-//        return new SqlSessionTemplate(sqlSessionFactory);
-//    }
-
 
     //3.5.x新版的分页插件：与旧版有所区别
     @Bean

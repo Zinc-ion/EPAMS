@@ -2,14 +2,14 @@ version: '3.5'
 services:
     #nepm_server
     nepm_server01:
-        image: zincion/nepm_server:v2
+        image: zincion/nepm_server:v4
         container_name: nepm-server01
         ports:
         - "8086:8085"
         restart: always
 
     nepm_server02:
-        image: zincion/nepm_server:v2
+        image: zincion/nepm_server:v4
         container_name: nepm-server02
         ports:
             - "8087:8085"

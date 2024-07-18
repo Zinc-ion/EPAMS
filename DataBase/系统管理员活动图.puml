@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+skinparam dpi 200
+start
+:Administrator logs in;
+if (System verification) then (true)
+    fork
+      :Query public supervisor AQI feedback;
+      :Assign AQI supervision info to grid member;
+    fork again
+      :Query real-time AQI data;
+      :Generate statistical data;
+    end fork
+
+else (false)
+endif
+
+
+stop
+
+@enduml

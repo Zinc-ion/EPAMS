@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam dpi 200
+autonumber
+管理员 -> 前端 : 登录
+activate 前端
+前端 -> 后端服务器 : 验证登录信息
+activate 后端服务器
+后端服务器 --> 前端 : 返回登录结果
+deactivate 后端服务器
+前端 --> 管理员 : 显示登录结果
+deactivate 前端
+
+管理员 -> 前端 : 查询AQI实时信息
+activate 前端
+前端 -> 后端服务器 : 请求AQI信息
+activate 后端服务器
+后端服务器 -> 数据库 : 查询AQI信息
+activate 数据库
+数据库 --> 后端服务器 : 返回AQI信息
+deactivate 数据库
+后端服务器 --> 前端 : 返回AQI信息
+deactivate 后端服务器
+前端 --> 管理员 : 显示AQI信息
+deactivate 前端
+
+管理员 -> 前端 : 生成统计数据
+activate 前端
+前端 -> 后端服务器 : 请求生成统计数据
+activate 后端服务器
+后端服务器 -> 数据库 : 生成统计数据
+activate 数据库
+数据库 --> 后端服务器 : 返回统计数据
+deactivate 数据库
+后端服务器 --> 前端 : 返回统计数据
+deactivate 后端服务器
+前端 --> 管理员 : 显示统计数据
+deactivate 前端
+
+管理员 -> 前端 : 根据统计数据生成可视化大屏
+activate 前端
+前端 -> 后端服务器 : 请求生成可视化大屏
+activate 后端服务器
+后端服务器 --> 前端 : 返回可视化大屏
+deactivate 后端服务器
+前端 --> 管理员 : 显示可视化大屏
+deactivate 前端
+
+@enduml

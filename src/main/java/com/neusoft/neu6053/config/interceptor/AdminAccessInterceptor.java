@@ -42,7 +42,7 @@ public class AdminAccessInterceptor implements HandlerInterceptor {
                 //刷新token有效期
                 redisUtils.expire(token, 1, TimeUnit.HOURS);
                 if (((String)redisUtils.get(token)).startsWith(RoleConstants.ADMIN)) {
-                    //如果value以admin开头则放行访问所有以inspector开头的接口
+                    //如果value以admin开头则放行访问所有以admin开头的接口
                     return true;
                 } else {
                     logger.info("管理员权限不足");
@@ -50,15 +50,12 @@ public class AdminAccessInterceptor implements HandlerInterceptor {
                     throw new RuntimeException();
                 }
             }
-
         } catch (Exception e) {
             //相应码401
             response.sendError(401,"无管理员权限");
             //拦截请求
             return false;
         }
-
-
     }
 
     //该方法将在整个请求完成之后执行

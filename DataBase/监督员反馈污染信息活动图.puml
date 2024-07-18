@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+skinparam dpi 200
+start
+fork
+  :Supervisor logs in;
+  if (System security check) then (true)
+    :Select grid location;
+    :Add and feedback AQI information for this grid;
+  else (false)
+  endif
+fork again
+  :Supervisor registers;
+end fork
+
+stop
+
+@enduml

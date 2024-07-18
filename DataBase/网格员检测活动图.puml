@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+skinparam dpi 200
+start
+:Inspector logs in;
+if (System security check) then (true)
+  :Query assigned AQI supervision info;
+  :Inspect current grid's AQI data on-site;
+  :Upload data;
+else (false)
+endif
+
+stop
+
+@enduml

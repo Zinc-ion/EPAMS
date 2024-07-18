@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+skinparam dpi 200
+start
+:Decision maker generates visual display based on statistical data;
+
+stop
+
+@enduml
